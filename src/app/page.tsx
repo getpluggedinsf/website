@@ -1,103 +1,90 @@
-import Image from "next/image";
+// src/app/page.tsx
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "PluggedIn Pros — SMB Tech Support in the Bay Area",
+  description:
+    "Your connection to smarter tech. SMB Tech Support for Networking, Wi-Fi, and POS in San Francisco & the Bay Area.",
+};
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="bg-[#0A1A4F] text-white">
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full bg-[#D84200]/10 blur-3xl" />
+        <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.1]">
+                Your connection to smarter{" "}
+                <span className="whitespace-nowrap text-[#D84200]">tech</span>
+              </h1>
+              <p className="mt-4 max-w-xl text-[#D9DEE8]">
+                Reliable SMB Tech Support for the Bay Area — on-site and remote help
+                for <strong>Networking</strong>, <strong>Wi-Fi</strong>, and <strong>POS</strong>.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link href="/quote?src=home-hero" className="rounded-lg bg-[#D84200] px-5 py-2.5 font-medium text-white hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#D84200] focus:ring-offset-[#0A1A4F] transition">
+                  Get a Quote
+                </Link>
+                <Link href="/contact?src=home-hero" className="rounded-lg border border-white/20 px-5 py-2.5 font-medium hover:bg-white/10 transition">
+                  Contact
+                </Link>
+              </div>
+              <p className="mt-4 text-sm text-[#D9DEE8]">
+                Typical response: <span className="text-white font-medium">within 1 business day</span>
+              </p>
+            </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <div className="md:justify-self-end">
+              <div className="aspect-[4/3] w-full max-w-md rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm grid place-items-center">
+                <span className="text-sm text-[#D9DEE8]">Brand visual / plug icon here</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Services */}
+      <section className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-6 py-10">
+          <h2 className="text-lg sm:text-xl font-semibold">What we help with</h2>
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+            {[
+              { t: "Networking", d: "Secure, reliable LAN/WAN for your office" },
+              { t: "Wi-Fi", d: "Strong coverage, proper planning & tuning" },
+              { t: "POS", d: "POS setup, cabling, network & support" },
+            ].map((item) => (
+              <div key={item.t} className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <div className="text-base font-semibold">{item.t}</div>
+                <div className="mt-1 text-sm text-[#D9DEE8]">{item.d}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 text-sm text-[#D9DEE8]">
+            Serving San Francisco & the Bay Area • On-site & remote support
+          </div>
+        </div>
+      </section>
+
+      {/* CTA strip */}
+      <section className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-6 py-12 text-center">
+          <h3 className="text-xl sm:text-2xl font-bold">Ready to get plugged in?</h3>
+          <p className="mt-2 text-[#D9DEE8]">Tell us what you need — we’ll tailor support for your business.</p>
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+            <Link href="/quote?src=home-cta" className="rounded-lg bg-[#D84200] px-5 py-2.5 font-medium hover:opacity-95">
+              Get a Quote
+            </Link>
+            <a href="tel:14155276200" className="rounded-lg border border-white/20 px-5 py-2.5 font-medium hover:bg-white/10">
+              Call (415) 527-6200
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
+
