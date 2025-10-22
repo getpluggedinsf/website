@@ -1,8 +1,17 @@
 "use client";
-import { useMemo, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
 export default function QuotePage() {
+  // Wrap the inner component that calls useSearchParams in Suspense
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#0A1A4F]" />}>
+      <QuotePageInner />
+    </Suspense>
+  );
+}
+
+function QuotePageInner() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const srcParam = searchParams.get("src") || "direct";
@@ -59,7 +68,9 @@ export default function QuotePage() {
     <main className="min-h-screen bg-[#0A1A4F] text-white grid place-items-center p-6">
       <div className="w-full max-w-2xl bg-white/5 backdrop-blur-sm rounded-2xl p-5 sm:p-8 border border-white/10">
         <h1 className="text-2xl sm:text-3xl font-bold text-center">Get a Quote</h1>
-        <p className="mt-2 text-center text-[#D9DEE8]">Tell us briefly what you need. We’ll follow up within one business day.</p>
+        <p className="mt-2 text-center text-[#D9DEE8]">
+          Tell us briefly what you need. We’ll follow up within one business day.
+        </p>
 
         {status === "success" && (
           <div className="mt-4 rounded-lg border border-emerald-400/40 bg-emerald-500/10 p-3 text-sm text-emerald-100">
@@ -75,7 +86,12 @@ export default function QuotePage() {
         <form onSubmit={onSubmit} className="mt-6 grid gap-4">
           <div className="hidden">
             <label htmlFor="website">Website</label>
-            <input id="website" type="text" value={form.website} onChange={(e) => setForm({ ...form, website: e.target.value })} />
+            <input
+              id="website"
+              type="text"
+              value={form.website}
+              onChange={(e) => setForm({ ...form, website: e.target.value })}
+            />
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4">
@@ -147,7 +163,12 @@ export default function QuotePage() {
             <div className="grid sm:grid-cols-3 gap-2 text-sm">
               {["Networking", "Wi-Fi", "POS", "PC/Mac", "Backup", "Other"].map((s) => (
                 <label key={s} className="inline-flex items-center gap-2">
-                  <input type="checkbox" checked={form.services.includes(s)} onChange={() => toggleService(s)} className="accent-[#D84200]" />
+                  <input
+                    type="checkbox"
+                    checked={form.services.includes(s)}
+                    onChange={() => toggleService(s)}
+                    className="accent-[#D84200]"
+                  />
                   <span>{s}</span>
                 </label>
               ))}
@@ -168,7 +189,9 @@ export default function QuotePage() {
           <input type="hidden" name="src" value={form.src} />
 
           <div className="flex items-center justify-between gap-3">
-            <p className="text-xs text-[#D9DEE8]/80">We’ll only use your info to follow up about this request.</p>
+            <p className="text-xs text-[#D9DEE8]/80">
+              We’ll only use your info to follow up about this request.
+            </p>
             <button
               type="submit"
               disabled={!canSubmit || status === "submitting"}
