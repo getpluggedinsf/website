@@ -1,26 +1,61 @@
 @import "tailwindcss";
 
+/* PluggedIn Pros — Global Tokens
+   - Tailwind v4 is configured via CSS-first tokens.
+   - Keep global styles minimal; page/layout uses Tailwind utilities.
+*/
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --pip-bg: #f5f5f5;
+  --pip-navy: #191970;
+  --pip-orange: #ff4f00;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    /* Font is set by next/font in layout.tsx; do not override here. */
+    background: var(--pip-bg);
+    color: rgb(15 23 42); /* slate-900 */
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Accessible focus ring (restrained, brand-consistent) */
+  :focus-visible {
+    outline: 2px solid rgba(25, 25, 112, 0.55);
+    outline-offset: 3px;
+    border-radius: 6px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Buttons that should be easy to tap on mobile */
+  .btn-tap {
+    @apply inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-medium;
+  }
+
+  /* Make CTA buttons full-width on mobile, normal on desktop */
+  .btn-mobile-full {
+    @apply w-full sm:w-fit;
+  }
+
+  /* Big tappable rows for radio/checkbox options */
+  .tap-row {
+    @apply flex cursor-pointer items-center gap-2 rounded-md py-3;
+  }
 }
+
