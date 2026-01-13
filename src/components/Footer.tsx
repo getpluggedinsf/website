@@ -1,27 +1,46 @@
 // src/components/Footer.tsx
 import Link from "next/link";
+import { play } from "@/lib/fonts";
+
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#0A1A4F]">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 grid gap-6 md:grid-cols-[1fr_auto] items-center">
-        <div>
-          <div className="font-[var(--font-play)] font-bold">PluggedIn Pros</div>
-          <div className="text-sm text-[#D9DEE8]">
-            Your connection to smarter <span className="font-semibold text-[#D84200]">tech</span>.
+    <footer className="border-t border-black/10 bg-[#F5F5F5]">
+      <div className="mx-auto max-w-5xl px-6 py-10">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+          <div className="space-y-2">
+            <div className={`${play.className} text-lg font-bold text-[#191970]`}>
+              PluggedIn Pros
+            </div>
+            <p className="max-w-md text-sm text-slate-700">
+              Your connection to practical, reliable tech support.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-2 text-sm">
+            <Link href="/" className="text-slate-800 hover:text-black">
+              Home
+            </Link>
+            <Link href="/how-we-help" className="text-slate-800 hover:text-black">
+              How We Help
+            </Link>
+            <Link
+              href="/request-help?source=contact&loc=footer"
+              className="text-slate-800 hover:text-black"
+            >
+              Contact
+            </Link>
+            <Link
+              href="/request-help?source=request_help&loc=footer"
+              className="text-slate-800 hover:text-black"
+            >
+              Request Help
+            </Link>
           </div>
         </div>
 
-        <div className="grid gap-1 text-sm text-[#D9DEE8]">
-          <div className="flex gap-4 justify-start md:justify-end">
-            <Link href="/quote?src=footer" className="hover:text-white">Get a Quote</Link>
-            <Link href="/contact" className="hover:text-white">Contact</Link>
-            <a href="mailto:hello@getpluggedinsf.com" className="hover:text-white">Email</a>
-            <a href="tel:14155270047" className="hover:text-white">Call</a>
-          </div>
-          <div className="text-xs text-[#D9DEE8]/80 md:text-right">
-            © {new Date().getFullYear()} PluggedIn Pros · San Francisco, CA
-          </div>
+        <div className="mt-10 text-xs text-slate-600">
+          © 2026 PluggedIn Pros · San Francisco, CA
         </div>
       </div>
     </footer>

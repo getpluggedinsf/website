@@ -1,34 +1,21 @@
 // src/app/layout.tsx
-import type { Metadata } from "next";
 import "./globals.css";
-import { Inter, Play } from "next/font/google";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const play = Play({ weight: ["700"], subsets: ["latin"], variable: "--font-play" });
-
-const INDEXABLE = process.env.INDEXABLE === "true";
+import type { Metadata } from "next";
+import { roboto } from "@/lib/fonts";
 
 export const metadata: Metadata = {
-  title: "PluggedIn Pros",
-  description: "Your connection to smarter tech.",
-  robots: INDEXABLE
-    ? { index: true, follow: true, googleBot: { index: true, follow: true } }
-    : {
-        index: false,
-        follow: false,
-        googleBot: { index: false, follow: false, noimageindex: true, noarchive: true, nosnippet: true },
-      },
+  title: "PluggedIn Pros — San Francisco Tech Support",
+  description:
+    "Practical, reliable tech support for San Francisco small businesses. Networking, Wi-Fi, POS-related systems, and troubleshooting.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${play.variable}`}>
-      <body className="min-h-screen grid grid-rows-[auto_1fr_auto] bg-[#0A1A4F] text-white">
-        <Nav />
-        <main>{children}</main>
-        <Footer />
+    <html lang="en">
+      <body className={`${roboto.className} bg-[#F5F5F5] text-slate-900`}>
+        {children}
       </body>
     </html>
   );
