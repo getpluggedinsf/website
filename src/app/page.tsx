@@ -30,13 +30,13 @@ export default function HomePage() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
               href="/request-help?source=request_help&loc=hero"
-              className="inline-flex w-fit items-center justify-center rounded-md bg-[#FF4F00] px-5 py-2.5 text-sm font-medium text-white hover:opacity-90 no-underline hover:no-underline"
+             className="btn-tap btn-mobile-full bg-[#FF4F00] text-white hover:opacity-90 no-underline hover:no-underline" 
             >
               Request Help
             </Link>
             <Link
               href="/request-help?source=contact&loc=hero"
-              className="inline-flex w-fit items-center justify-center rounded-md border border-black/15 bg-white px-5 py-2.5 text-sm font-medium text-slate-900 hover:bg-black/5 no-underline hover:no-underline"
+             className="btn-tap btn-mobile-full border border-black/15 bg-white text-slate-900 hover:bg-black/5 no-underline hover:no-underline" 
             >
               Contact
             </Link>
@@ -137,7 +137,7 @@ export default function HomePage() {
           <div className="mt-6">
             <Link
               href="/request-help?source=request_help&loc=primary_cta"
-              className="inline-flex items-center justify-center rounded-md bg-[#FF4F00] px-5 py-2.5 text-sm font-medium text-white hover:opacity-90 no-underline hover:no-underline"
+             className="btn-tap btn-mobile-full bg-[#FF4F00] text-white hover:opacity-90 no-underline hover:no-underline" 
             >
               Request Help
             </Link>

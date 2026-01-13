@@ -30,7 +30,7 @@ export default function Nav() {
 
           <Link
             href="/request-help?source=request_help&loc=nav"
-            className="rounded-md bg-[#FF4F00] px-4 py-2 font-medium text-white hover:opacity-90 no-underline hover:no-underline"
+           className="btn-tap bg-[#FF4F00] text-white hover:opacity-90 no-underline hover:no-underline" 
           >
             Request Help
           </Link>

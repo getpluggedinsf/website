@@ -138,7 +138,7 @@ export default function HowWeHelpPage() {
           <div className="mt-6">
               <Link
   href="/request-help?source=request_help&loc=how_we_help_cta"
-  className="inline-flex items-center justify-center rounded-md bg-[#FF4F00] px-5 py-2.5 text-sm font-medium text-white hover:opacity-90 no-underline hover:no-underline"
+ className="btn-tap btn-mobile-full bg-[#FF4F00] text-white hover:opacity-90 no-underline hover:no-underline" 
 >
 Request Help
             </Link>

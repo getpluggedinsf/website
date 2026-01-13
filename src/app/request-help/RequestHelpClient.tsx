@@ -39,8 +39,7 @@ export default function RequestHelpClient() {
   const source: Source = sp.get("source") === "contact" ? "contact" : "request_help";
   const loc = sp.get("loc") ?? "";
 
-  const defaultIntent: Intent =
-    source === "contact" ? "general_inquiry" : "tech_issue";
+  const defaultIntent: Intent = source === "contact" ? "general_inquiry" : "tech_issue";
 
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success_email" | "success_phone" | "error"
@@ -58,10 +57,6 @@ export default function RequestHelpClient() {
     message: "",
     website: "", // honeypot
   });
-
-  // If source changes (rare), keep intent aligned with the page's mode.
-  // We do NOT constantly overwrite intent; only initialize.
-  // (If user flips intent manually we respect it.)
 
   const introHelper = useMemo(() => {
     return source === "contact"
@@ -145,7 +140,7 @@ export default function RequestHelpClient() {
 
       // Confirmation rules:
       // If user email is present and server says it emailed user -> show email confirmation
-      if (data.emailedUser && data.email) {
+      if (data?.emailedUser) {
         setStatus("success_email");
       } else {
         setStatus("success_phone");
@@ -223,8 +218,9 @@ export default function RequestHelpClient() {
                   What are you reaching out about today?
                 </legend>
 
-                <label className="flex items-center gap-2 text-sm text-slate-800">
+                <label className="tap-row text-sm text-slate-800">
                   <input
+                    className="mt-[2px]"
                     type="radio"
                     name="intent"
                     checked={form.intent === "tech_issue"}
@@ -233,8 +229,9 @@ export default function RequestHelpClient() {
                   Tech issue / troubleshooting
                 </label>
 
-                <label className="flex items-center gap-2 text-sm text-slate-800">
+                <label className="tap-row text-sm text-slate-800">
                   <input
+                    className="mt-[2px]"
                     type="radio"
                     name="intent"
                     checked={form.intent === "planning_change"}
@@ -243,8 +240,9 @@ export default function RequestHelpClient() {
                   Planning a change / second set of eyes
                 </label>
 
-                <label className="flex items-center gap-2 text-sm text-slate-800">
+                <label className="tap-row text-sm text-slate-800">
                   <input
+                    className="mt-[2px]"
                     type="radio"
                     name="intent"
                     checked={form.intent === "general_inquiry"}
@@ -316,8 +314,9 @@ export default function RequestHelpClient() {
                   Preferred contact method
                 </legend>
 
-                <label className="flex items-center gap-2 text-sm text-slate-800">
+                <label className="tap-row text-sm text-slate-800">
                   <input
+                    className="mt-[2px]"
                     type="radio"
                     name="preferredContact"
                     checked={form.preferredContact === "email"}
@@ -326,8 +325,9 @@ export default function RequestHelpClient() {
                   Email
                 </label>
 
-                <label className="flex items-center gap-2 text-sm text-slate-800">
+                <label className="tap-row text-sm text-slate-800">
                   <input
+                    className="mt-[2px]"
                     type="radio"
                     name="preferredContact"
                     checked={form.preferredContact === "phone"}
@@ -348,10 +348,11 @@ export default function RequestHelpClient() {
                   <span className="text-slate-600">(check all that apply)</span>
                 </legend>
 
-                <div className="grid gap-2 sm:grid-cols-2">
+                <div className="grid gap-2">
                   {TOPICS.map((t) => (
-                    <label key={t} className="flex items-start gap-2 text-sm text-slate-800">
+                    <label key={t} className="tap-row text-sm text-slate-800">
                       <input
+                        className="mt-[2px]"
                         type="checkbox"
                         checked={form.topics.includes(t)}
                         onChange={() => toggleTopic(t)}
@@ -387,7 +388,7 @@ export default function RequestHelpClient() {
                 <button
                   type="submit"
                   disabled={!validation.canSubmit || status === "submitting"}
-                 className="w-fit rounded-md bg-[#FF4F00] px-5 py-2.5 text-sm font-medium text-white disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-600 disabled:opacity-100" 
+                  className="btn-tap btn-mobile-full bg-[#FF4F00] text-white hover:opacity-90 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-600 disabled:opacity-100"
                 >
                   {status === "submitting" ? "Submitting…" : "Request Help"}
                 </button>
@@ -397,9 +398,7 @@ export default function RequestHelpClient() {
                 </div>
 
                 {!validation.canSubmit && (
-                  <div className="text-sm text-slate-700">
-                    {validation.helper}
-                  </div>
+                  <div className="text-sm text-slate-700">{validation.helper}</div>
                 )}
               </div>
             </form>

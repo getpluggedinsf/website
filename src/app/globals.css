@@ -42,3 +42,20 @@
   }
 }
 
+@layer components {
+  /* Buttons that should be easy to tap on mobile */
+  .btn-tap {
+    @apply inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-medium;
+  }
+
+  /* Make CTA buttons full-width on mobile, normal on desktop */
+  .btn-mobile-full {
+    @apply w-full sm:w-fit;
+  }
+
+  /* Big tappable rows for radio/checkbox options */
+  .tap-row {
+    @apply flex cursor-pointer items-center gap-2 rounded-md py-3;
+  }
+}
+
