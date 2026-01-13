@@ -7,10 +7,8 @@ import { NextResponse } from "next/server";
 import https from "https";
 
 /**
- * NOTE on rate limiting:
- * This in-memory limiter works well for local dev and provides basic protection on Vercel,
- * but it is not perfectly consistent across serverless instances. If you ever see real abuse,
- * we can upgrade to a shared store (e.g., Vercel KV / Upstash) without changing the API contract.
+ * In-memory rate limiter is OK for basic protection and local dev.
+ * On Vercel it may be imperfect across serverless instances.
  */
 
 // ---------- Rate limiting (simple sliding window) ----------
@@ -54,23 +52,34 @@ function isAllowedOrigin(req: Request): boolean {
   const originHost = origin ? getHostFromUrl(origin) : null;
   const refererHost = referer ? getHostFromUrl(referer) : null;
 
+  const hostsToCheck = [originHost, refererHost].filter(Boolean) as string[];
+
+  const appEnv = (process.env.NEXT_PUBLIC_APP_ENV ?? "").toLowerCase();
+
+  // If we have no origin/referer at all, don't hard-fail in preview/dev
+  if (hostsToCheck.length === 0) return appEnv !== "production";
+
   // Local dev
   const localAllowed = new Set(["localhost:3000", "127.0.0.1:3000"]);
-  if (originHost && localAllowed.has(originHost)) return true;
-  if (refererHost && localAllowed.has(refererHost)) return true;
+  if (hostsToCheck.some((h) => localAllowed.has(h))) return true;
 
-  // Production domains
+  // Production domains (strict)
   const prodAllowed = new Set(["getpluggedinsf.com", "www.getpluggedinsf.com"]);
-  if (originHost && prodAllowed.has(originHost)) return true;
-  if (refererHost && prodAllowed.has(refererHost)) return true;
+  if (hostsToCheck.some((h) => prodAllowed.has(h))) return true;
 
-  // Vercel preview domains:
-  // VERCEL_URL is available on Vercel and usually looks like "your-project-git-branch-user.vercel.app"
-  const vercelUrl = process.env.VERCEL_URL?.trim();
-  if (vercelUrl) {
-    const vercelHost = vercelUrl.replace(/^https?:\/\//, "");
-    if (originHost && originHost === vercelHost) return true;
-    if (refererHost && refererHost === vercelHost) return true;
+  // Preview/dev: allow Vercel preview hosts
+  if (appEnv !== "production") {
+    if (hostsToCheck.some((h) => h.endsWith(".vercel.app"))) return true;
+
+    // Also allow exact VERCEL_URL when present (sometimes just host)
+    const vercelUrl = process.env.VERCEL_URL?.trim();
+    if (vercelUrl) {
+      const vercelHost = vercelUrl.replace(/^https?:\/\//, "");
+      if (hostsToCheck.some((h) => h === vercelHost)) return true;
+    }
+
+    // Otherwise: deny even in preview/dev (still “relaxed” via .vercel.app)
+    return false;
   }
 
   return false;
@@ -117,7 +126,7 @@ function safeText(v?: string) {
 }
 
 // ---------- Postmark send ----------
-function postmarkSend(payload: unknown) {
+function postmarkSend(payload: unknown): Promise<void> {
   const token = process.env.POSTMARK_SERVER_TOKEN!;
   return new Promise<void>((resolve, reject) => {
     const req = https.request(
@@ -182,7 +191,6 @@ function buildUserConfirmationEmail(p: RequestHelpPayload) {
   const inquiry = p.intent === "general_inquiry";
 
   if (!inquiry) {
-    // Tech / request-help confirmation (matches tech-email-confirmation.rtf)
     const subject = "We’ve received your request";
     const body = [
       "Hi,",
@@ -200,145 +208,173 @@ function buildUserConfirmationEmail(p: RequestHelpPayload) {
     return { subject, body };
   }
 
-  // General inquiry confirmation (matches inquiry-email-confirmation.rtf)
   const subject = "Thanks for contacting PluggedIn Pros";
-
   const topicLine =
-    (p.topics ?? []).length > 0
-      ? `Thanks for reaching out about ${(p.topics ?? []).join(" / ")}.`
-      : "";
+    (p.topics ?? []).length > 0 ? `We’ll take a look at your note about: ${(p.topics ?? []).join(", ")}.` : null;
 
-  const lines = [
+  const body = [
     "Hi,",
     "",
-    "Thanks for getting in touch with PluggedIn Pros. We’ve received your message and will follow up shortly.",
+    "Thanks for contacting PluggedIn Pros. We’ve received your message and will take a look shortly.",
+    ...(topicLine ? ["", topicLine] : []),
     "",
-    "We typically respond within one business day. If your question relates to a specific issue or project, we may ask a few follow-up questions to better understand the context before recommending next steps.",
-  ];
-
-  if (topicLine) {
-    lines.push("", topicLine);
-  }
-
-  lines.push(
-    "",
-    "Thanks again for reaching out — we’ll be in touch soon.",
+    "We typically respond within one business day. If we need a bit more information, we’ll follow up with a few clarifying questions. From there, we’ll suggest a reasonable next step.",
     "",
     "Best,",
-    "PluggedIn Pros"
-  );
+    "PluggedIn Pros",
+  ].join("\n");
 
-  const body = lines.join("\n");
   return { subject, body };
 }
 
+// ---------- Handler ----------
 export async function POST(req: Request) {
-  // ---- Origin check (light CSRF / abuse protection) ----
-  if (!isAllowedOrigin(req)) {
-    return NextResponse.json({ ok: false, error: "Forbidden" }, { status: 403 });
-  }
-
-  // ---- Rate limit ----
-  const ip = getClientIp(req);
-  const rl = rateLimitOk(`request-help:${ip}`);
-  if (!rl.ok) {
-    return NextResponse.json(
-      { ok: false, error: "Too many requests. Please try again later." },
-      { status: 429, headers: { "Retry-After": "600" } }
-    );
-  }
-
-  // ---- Fail-fast config ----
-  const MAIL_MODE = (process.env.MAIL_MODE ?? "").toLowerCase();
-  if (MAIL_MODE !== "postmark") {
-    return NextResponse.json(
-      { ok: false, error: "Email service not configured (MAIL_MODE)." },
-      { status: 500 }
-    );
-  }
-
-  const token = process.env.POSTMARK_SERVER_TOKEN?.trim();
-  const FROM = process.env.MAIL_FROM?.trim();
-  const TO = process.env.MAIL_TO?.trim();
-
-  if (!token || !FROM || !TO) {
-    return NextResponse.json(
-      { ok: false, error: "Email service not configured." },
-      { status: 500 }
-    );
-  }
-
-  // ---- Parse payload ----
-  let payload: RequestHelpPayload;
   try {
-    payload = (await req.json()) as RequestHelpPayload;
-  } catch {
-    return NextResponse.json({ ok: false, error: "Invalid JSON payload." }, { status: 400 });
-  }
-
-  // Honeypot
-  if (safeText(payload.website)) {
-    return NextResponse.json({ ok: true }, { status: 200 });
-  }
-
-  // Validation (server-side safety net)
-  const name = safeText(payload.name);
-  const message = safeText(payload.message);
-  const email = safeText(payload.email);
-  const phone = safeText(payload.phone);
-
-  if (!name || !message) {
-    return NextResponse.json({ ok: false, error: "Missing required fields." }, { status: 400 });
-  }
-  if (!email && !phone) {
-    return NextResponse.json(
-      { ok: false, error: "Please provide an email address or phone number." },
-      { status: 400 }
-    );
-  }
-  if (email && !isValidEmail(email)) {
-    return NextResponse.json({ ok: false, error: "Invalid email address." }, { status: 400 });
-  }
-  if (payload.preferred_contact === "phone" && phone && !isValidPhone(phone)) {
-    return NextResponse.json({ ok: false, error: "Invalid phone number." }, { status: 400 });
-  }
-
-  const shouldSendUserConfirm = !!email && isValidEmail(email);
-
-  const internal = buildInternalEmail({ ...payload, name, message, email, phone });
-
-  try {
-    // 1) Internal notification (always)
-    await postmarkSend({
-      From: FROM,
-      To: TO,
-      Subject: internal.subject,
-      TextBody: internal.body,
-      ReplyTo: shouldSendUserConfirm ? email : undefined,
-      MessageStream: "outbound", // Postmark default transactional stream; safe even if ignored
-    });
-
-    // 2) Customer confirmation (only if email provided + valid)
-    if (shouldSendUserConfirm) {
-      const confirm = buildUserConfirmationEmail(payload);
-      await postmarkSend({
-        From: FROM,
-        To: email,
-        Subject: confirm.subject,
-        TextBody: confirm.body,
-        ReplyTo: "help@getpluggedinsf.com",
-        MessageStream: "outbound",
-      });
+    // Origin / referer protection
+    if (!isAllowedOrigin(req)) {
+      return NextResponse.json({ ok: false, error: "Forbidden" }, { status: 403 });
     }
 
-    return NextResponse.json(
-      { ok: true, emailedUser: shouldSendUserConfirm, rateRemaining: rl.remaining },
-      { status: 200 }
-    );
+    const ip = getClientIp(req);
+    const rate = rateLimitOk(ip);
+    if (!rate.ok) {
+      return NextResponse.json(
+        { ok: false, error: "Too many requests. Please try again later." },
+        { status: 429 }
+      );
+    }
+
+    const payload = (await req.json()) as RequestHelpPayload;
+
+    // Honeypot
+    if (safeText(payload.website)) {
+      return NextResponse.json({ ok: true, ignored: true }, { status: 200 });
+    }
+
+    // Basic validation
+    const source = payload.source === "contact" ? "contact" : "request_help";
+    const loc = safeText(payload.loc) || undefined;
+
+    const intent: Intent =
+      payload.intent === "planning_change" || payload.intent === "general_inquiry"
+        ? payload.intent
+        : "tech_issue";
+
+    const preferred_contact: PreferredContact =
+      payload.preferred_contact === "phone" ? "phone" : "email";
+
+    const name = safeText(payload.name);
+    const company = safeText(payload.company) || undefined;
+    const email = safeText(payload.email) || undefined;
+    const phone = safeText(payload.phone) || undefined;
+    const topics = Array.isArray(payload.topics) ? payload.topics.map(safeText).filter(Boolean) : [];
+    const message = safeText(payload.message);
+    const timestamp = safeText(payload.timestamp) || new Date().toISOString();
+
+    if (!name || !message) {
+      return NextResponse.json({ ok: false, error: "Missing required fields." }, { status: 400 });
+    }
+
+    const hasEmail = !!email && isValidEmail(email);
+    const hasPhone = !!phone && isValidPhone(phone);
+
+    if (!hasEmail && !hasPhone) {
+      return NextResponse.json(
+        { ok: false, error: "Please provide an email address or phone number." },
+        { status: 400 }
+      );
+    }
+
+    if (preferred_contact === "email" && !hasEmail) {
+      return NextResponse.json({ ok: false, error: "Invalid email address." }, { status: 400 });
+    }
+
+    if (preferred_contact === "phone" && !hasPhone) {
+      return NextResponse.json({ ok: false, error: "Invalid phone number." }, { status: 400 });
+    }
+
+    const p: RequestHelpPayload = {
+      source,
+      loc,
+      intent,
+      preferred_contact,
+      name,
+      company,
+      email,
+      phone,
+      topics,
+      message,
+      website: undefined,
+      timestamp,
+    };
+
+    const MAIL_MODE = (process.env.MAIL_MODE ?? "log").toLowerCase();
+    const MAIL_TO = process.env.MAIL_TO ?? "help@getpluggedinsf.com";
+    const MAIL_FROM = process.env.MAIL_FROM ?? "PluggedIn Pros Support <help@getpluggedinsf.com>";
+
+    const shouldSendUserConfirm = hasEmail; // only when email is provided and valid
+
+    // Fail-fast for real sending modes
+    if (MAIL_MODE === "postmark") {
+      if (!process.env.POSTMARK_SERVER_TOKEN) {
+        return NextResponse.json(
+          { ok: false, error: "Email is not configured (missing POSTMARK_SERVER_TOKEN)." },
+          { status: 500 }
+        );
+      }
+    }
+
+    const internal = buildInternalEmail(p);
+
+    if (MAIL_MODE === "log") {
+      console.log("[request-help] internal:", { from: MAIL_FROM, to: MAIL_TO, subject: internal.subject });
+      console.log(internal.body);
+
+      if (shouldSendUserConfirm && email) {
+        const confirm = buildUserConfirmationEmail(p);
+        console.log("[request-help] user-confirm:", { from: MAIL_FROM, to: email, subject: confirm.subject });
+        console.log(confirm.body);
+      }
+
+      return NextResponse.json(
+        { ok: true, emailedUser: shouldSendUserConfirm, email: shouldSendUserConfirm ? email : null },
+        { status: 200 }
+      );
+    }
+
+    if (MAIL_MODE === "postmark") {
+      // 1) internal notification
+      await postmarkSend({
+        From: MAIL_FROM,
+        To: MAIL_TO,
+        Subject: internal.subject,
+        TextBody: internal.body,
+        ReplyTo: hasEmail ? email : undefined, // allows you to reply directly to the requester
+      });
+
+      // 2) customer confirmation (only if email provided)
+      if (shouldSendUserConfirm && email) {
+        const confirm = buildUserConfirmationEmail(p);
+        await postmarkSend({
+          From: MAIL_FROM,
+          To: email,
+          Subject: confirm.subject,
+          TextBody: confirm.body,
+          ReplyTo: "help@getpluggedinsf.com", // ensure no mark@ leaks
+        });
+      }
+
+      return NextResponse.json(
+        { ok: true, emailedUser: shouldSendUserConfirm, email: shouldSendUserConfirm ? email : null },
+        { status: 200 }
+      );
+    }
+
+    return NextResponse.json({ ok: false, error: "Invalid MAIL_MODE." }, { status: 500 });
   } catch (err) {
-    console.error("[postmark] send failed:", err);
+    console.error("[request-help] error:", err);
     return NextResponse.json(
-      { ok: false, error: "Email send failed. Check server logs for details." },
+      { ok: false, error: err instanceof Error ? err.message : "Server error." },
       { status: 500 }
     );
   }
