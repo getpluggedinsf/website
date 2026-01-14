@@ -1,12 +1,8 @@
 // src/app/how-we-help/page.tsx
 import Link from "next/link";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
 
 export default function HowWeHelpPage() {
   return (
-    <>
-      <Nav />
 
       <main className="mx-auto max-w-5xl px-6 py-12">
         <section className="space-y-4">
@@ -146,8 +142,6 @@ Request Help
         </section>
       </main>
 
-      <Footer />
-    </>
   );
 }
 

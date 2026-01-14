@@ -2,6 +2,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { roboto } from "@/lib/fonts";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "PluggedIn Pros — San Francisco Tech Support",
@@ -14,8 +16,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} bg-[#F5F5F5] text-slate-900`}>
+      <body className={`${roboto.className} min-h-screen bg-[var(--pip-bg)] text-slate-900`}>
+        <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );
