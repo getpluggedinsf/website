@@ -5,10 +5,22 @@
    - Keep global styles minimal; page/layout uses Tailwind utilities.
 */
 
+
 :root {
   --pip-bg: #f5f5f5;
   --pip-navy: #191970;
   --pip-orange: #ff4f00;
+
+  /* neutrals */
+  --pip-ink: #0f172a; /* slate-900 */
+  --pip-muted: #475569; /* slate-600 */
+  --pip-border: rgba(15, 23, 42, 0.10);
+
+  /* surfaces */
+  --pip-section: #f5f5f5; /* base canvas */
+  --pip-section-muted: #eef0f4; /* gentle tint */
+  --pip-surface: #ffffff; /* cards/panels */
+  --pip-surface-muted: #f7f7fb; /* optional alt surface */
 }
 
 @layer base {
