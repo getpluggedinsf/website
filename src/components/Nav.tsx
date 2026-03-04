@@ -25,6 +25,11 @@ export default function Nav() {
 
         <nav className="flex items-center gap-6 text-sm">
           {/* Home link removed — wordmark handles Home */}
+          <Link 
+            href="/services" 
+            className="text-slate-800 hover:text-black hover:no-underline">
+            Services
+          </Link>
           <Link
             href="/how-we-help"
             className="text-slate-800 hover:text-black hover:no-underline"

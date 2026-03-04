@@ -3,160 +3,229 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <main className="w-full">
-      {/* 2. Hero (Above the Fold) */}
+      {/* 1) Hero */}
       <section className="w-full">
-        <div className="mx-auto max-w-5xl px-6 py-14 sm:py-18">
-          {/* Left-aligned, constrained width block (intentional whitespace on right) */}
-          <div className="max-w-2xl">
-            <h1 className="text-balance text-4xl font-semibold tracking-tight text-[#191970] sm:text-5xl">
-              Practical, reliable tech support for small businesses.
+        <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
+          <div className="max-w-3xl">
+            <h1 className="text-balance text-4xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-5xl">
+              Wi-Fi &amp; Network Infrastructure
+              <br className="hidden sm:block" />
+              for San Francisco Small Businesses
             </h1>
 
             <p className="mt-5 text-pretty text-base leading-relaxed text-slate-700 sm:text-lg">
-              We provide networking, Wi-Fi, and point-of-sale support for small businesses in
-              San{"\u00A0"}Francisco — from troubleshooting to clean, well-documented installations.
-            </p>
-            <p className="mt-5 text-pretty text-base leading-relaxed text-slate-700 sm:text-lg">
-              If something isn’t working — or you’re unsure where to start — we can help.
+              Built for stability under real-world conditions — so your POS, staff
+              systems, and guest Wi-Fi perform predictably, even during peak hours.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link
-                href="/request-help"
-                className="btn-tap btn-mobile-full rounded-xl bg-[#FF4F00] text-white hover:opacity-90 hover:no-underline"
-              >
-                Request Help
-              </Link>
+            <p className="mt-4 text-pretty text-base leading-relaxed text-slate-700 sm:text-lg">
+              PluggedIn Pros designs, stabilizes, and improves network environments
+              that restaurants, retail shops, and offices depend on every day.
+            </p>
 
+            <div className="mt-8">
               <Link
-                href="/request-help?source=contact&loc=hero"
-                className="btn-tap btn-mobile-full rounded-xl border border-[#191970]/20 bg-white text-[#191970] hover:bg-[#191970]/5 hover:no-underline"
+                href="/request-help?source=home_hero&loc=cta"
+                className="btn-tap btn-mobile-full rounded-xl bg-[var(--pip-orange)] text-white hover:opacity-90 hover:no-underline"
               >
-                Contact
+                Request a Wi-Fi &amp; Network Reliability Review
               </Link>
             </div>
 
-            {/* Reassurance microcopy */}
-            <div className="mt-7 space-y-1 text-sm text-slate-600">
-              <p className="mt-7 text-sm font-medium text-[#191970]">
-                Local, independent support <span className="mx-2 opacity-70">•</span> Typical response within one business day.
-              </p>
-            </div>
-
+            <p className="mt-6 text-sm font-medium text-[var(--pip-navy)]">
+              Focused exclusively on Wi-Fi and network infrastructure for small
+              businesses.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* 3. What We Help With (Service Overview) */}
-      <section className="w-full border-t border-slate-200">
-        <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
-          {/* Panel card (Layer 2) */}
-          <div className="rounded-3xl border border-slate-200 bg-[#EEF0F4] p-8 shadow-sm sm:p-10">
-            <div className="max-w-3xl">
-              <h2 className="text-2xl font-semibold tracking-tight text-[#191970] sm:text-3xl">
-                What We Help With
-              </h2>
-              <p className="mt-3 text-base leading-relaxed text-slate-700">
-                Practical support for the systems you rely on every day.
-              </p>
-            </div>
-      
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
-              {/* Cards (Layer 3) */}
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="text-base font-semibold text-[#191970]">Networking</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-700">
-                  Routers, switches, cabling, and general network setup — installed and
-                  configured cleanly.
-                </p>
-              </div>
-      
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="text-base font-semibold text-[#191970]">Wi-Fi</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-700">
-                  Coverage issues, performance problems, and access point installs for
-                  reliable connectivity.
-                </p>
-              </div>
-      
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="text-base font-semibold text-[#191970]">
-                  POS &amp; Business Systems
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-700">
-                  Point-of-sale hardware, peripherals, and small business tech that needs
-                  to work reliably.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Our Approach (Conceptual Bridge) */}
+      {/* 2) When the Network Becomes a Distraction */}
       <section className="w-full border-t border-slate-200">
         <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
           <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-[#191970] sm:text-3xl">
-              Our Approach
+            <h2 className="text-2xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-3xl">
+              When the Network Becomes a Distraction
             </h2>
 
-            <div className="mt-4 space-y-4 text-base leading-relaxed text-slate-700">
-              <p>
-                We focus on doing the work correctly the first time — with clear
-                communication, clean installs, and documentation you can actually
-                use.
-              </p>
-              <p>
-                That means fewer surprises, systems that make sense, and support
-                that respects your time.
-              </p>
-            </div>
+            <p className="mt-4 text-base leading-relaxed text-slate-700">
+              Most network failures don’t begin as outages.
+            </p>
 
-            <div className="mt-6">
-              <Link
-                href="/how-we-help"
-                className="text-sm font-medium text-[var(--pip-navy)] hover:opacity-80"
-              >
-                Learn more about how we work → How We Help
-              </Link>
-            </div>
+            <p className="mt-4 text-base leading-relaxed text-slate-700">
+              They start as:
+            </p>
+
+            <ul className="mt-4 space-y-2 text-base leading-relaxed text-slate-700">
+              <li className="flex gap-3">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--pip-navy)] opacity-70" />
+                <span>POS terminals that occasionally lag</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--pip-navy)] opacity-70" />
+                <span>Wi-Fi slowing during lunch or dinner rush</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--pip-navy)] opacity-70" />
+                <span>Dead zones in patios or back offices</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--pip-navy)] opacity-70" />
+                <span>Guest traffic affecting internal systems</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--pip-navy)] opacity-70" />
+                <span>Equipment added over time without structure</span>
+              </li>
+            </ul>
+
+            <p className="mt-6 text-base leading-relaxed text-slate-700">
+              When connectivity becomes unpredictable, it pulls attention away from
+              running your business.
+            </p>
           </div>
         </div>
       </section>
 
+{/* 3) What We Do */}
+<section className="w-full border-t border-slate-200">
+  <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
+    {/* Muted panel (Layer 2) */}
+    <div className="rounded-3xl border border-slate-200 bg-[var(--pip-section-muted)] p-8 shadow-sm sm:p-10">
+      <div className="max-w-3xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-3xl">
+          What We Do
+        </h2>
 
-      {/* 5. Primary Callout (Contained CTA Panel) */}
+        <p className="mt-4 text-base leading-relaxed text-slate-700">
+          We specialize in small business Wi-Fi and network infrastructure — not general IT support.
+        </p>
+      </div>
+
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
+        {/* Cards (Layer 3) */}
+        <Link 
+          href="/services/reliability-review"
+          className="group block cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:no-underline">
+          <h3 className="text-base font-semibold text-[var(--pip-navy)]">
+            Wi-Fi &amp; Network Reliability Reviews
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-slate-700">
+            Structured evaluation of wireless coverage, segmentation, and infrastructure health.
+          </p>
+        </Link>
+
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 className="text-base font-semibold text-[var(--pip-navy)]">
+            Network Installation &amp; Upgrades
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-slate-700">
+            Intentional deployment of routers, switches, and access points built for stability and growth.
+          </p>
+        </div>
+
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 className="text-base font-semibold text-[var(--pip-navy)]">
+            Network Troubleshooting &amp; Stabilization
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-slate-700">
+            Diagnosis and correction of intermittent connectivity and performance issues.
+          </p>
+        </div>
+
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 className="text-base font-semibold text-[var(--pip-navy)]">
+            Guest Wi-Fi &amp; POS Network Configuration
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-slate-700">
+            Traffic isolation and capacity planning that protects business-critical systems.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      {/* 4) Why Small Businesses Choose PluggedIn Pros */}
+      <section className="w-full border-t border-slate-200">
+        <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-3xl">
+              Why Small Businesses Choose PluggedIn Pros
+            </h2>
+
+            <ul className="mt-6 space-y-2 text-base leading-relaxed text-slate-700">
+              {[
+                "Focused exclusively on Wi-Fi and network infrastructure",
+                "On-site service throughout San Francisco",
+                "Clean installations and structured configuration",
+                "Clear scope and defined next steps",
+                "Infrastructure sized for real operational demand",
+              ].map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--pip-navy)] opacity-70" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-6 text-base leading-relaxed text-slate-700">
+              Connectivity should support operations — not create new problems.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5) Serving San Francisco */}
+      <section className="w-full border-t border-slate-200">
+        <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-3xl">
+              Serving San Francisco
+            </h2>
+
+            <p className="mt-4 text-base leading-relaxed text-slate-700">
+              Dense wireless interference, multi-tenant buildings, older
+              construction, outdoor seating, and peak-hour device loads require
+              intentional network design.
+            </p>
+
+            <p className="mt-4 text-base leading-relaxed text-slate-700">
+              We build and optimize networks for real urban environments.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 6) Final CTA */}
       <section className="w-full border-t border-slate-200">
         <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
           <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
             <div className="max-w-3xl">
-              <h3 className="text-xl font-semibold tracking-tight text-[#191970] sm:text-2xl">
-                Not sure what you need yet?
-              </h3>
+              <h2 className="text-2xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-3xl">
+                Ready for a more stable network environment?
+              </h2>
 
-              <div className="mt-4 space-y-4 text-base leading-relaxed text-slate-700">
-                <p>That’s normal. Many issues aren’t obvious until someone takes a look.</p>
-                <p>
-                  If something isn’t working the way it should — or you’re planning a
-                  change and want a second opinion — start here.
-                </p>
-              </div>
+              <p className="mt-4 text-base leading-relaxed text-slate-700">
+                Start with a Wi-Fi &amp; Network Reliability Review.
+              </p>
 
               <div className="mt-8">
                 <Link
-                  href="/request-help"
-                  className="btn-tap btn-mobile-full rounded-xl bg-[var(--pip-orange)] text-white hover:opacity-90 hover:no-underline focus:outline-none focus:ring-2 focus:ring-[rgba(25,25,112,0.35)]"
+                  href="/request-help?source=home_final&loc=cta"
+                  className="btn-tap btn-mobile-full rounded-xl bg-[var(--pip-orange)] text-white hover:opacity-90 hover:no-underline"
                 >
-                  Request Help
+                  Request a Review
                 </Link>
               </div>
+
+              <p className="mt-6 text-sm font-medium text-[var(--pip-navy)]">
+                Response within one business day.
+              </p>
             </div>
           </div>
         </div>
       </section>
-
     </main>
   );
 }
-
