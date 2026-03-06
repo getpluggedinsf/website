@@ -51,7 +51,7 @@ export default function ServicesPage() {
             >
               <div className="max-w-3xl">
                 <h3 className="text-xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-2xl">
-                  1️⃣ Wi-Fi &amp; Network Reliability Review
+                   Wi-Fi &amp; Network Reliability Review
                 </h3>
 
                 <p className="mt-4 text-base font-semibold leading-relaxed text-[var(--pip-navy)]">
@@ -83,7 +83,7 @@ export default function ServicesPage() {
             <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
               <div className="max-w-3xl">
                 <h3 className="text-xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-2xl">
-                  2️⃣ Network Installation &amp; Upgrades
+                   Network Installation &amp; Upgrades
                 </h3>
 
                 <p className="mt-4 text-base font-semibold leading-relaxed text-[var(--pip-navy)]">
@@ -112,6 +112,14 @@ export default function ServicesPage() {
                   Whether opening a new location or replacing outdated equipment, we design
                   infrastructure that matches real-world operational demands.
                 </p>
+                <div className="mt-6">
+                  <Link
+                    href="/services/network-installation"
+                    className="text-sm font-medium text-[var(--pip-navy)] hover:opacity-80 hover:no-underline"
+                  >
+                    → Learn more about Network Installation &amp; Upgrades
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -119,7 +127,7 @@ export default function ServicesPage() {
             <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
               <div className="max-w-3xl">
                 <h3 className="text-xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-2xl">
-                  3️⃣ Network Troubleshooting &amp; Stabilization
+                   Network Troubleshooting &amp; Stabilization
                 </h3>
 
                 <p className="mt-4 text-base font-semibold leading-relaxed text-[var(--pip-navy)]">
@@ -152,6 +160,15 @@ export default function ServicesPage() {
                 <p className="mt-6 text-base leading-relaxed text-slate-700">
                   The goal isn’t temporary fixes — it’s long-term stability.
                 </p>
+
+                <div className="mt-6">
+                  <Link
+                    href="/services/network-troubleshooting"
+                    className="text-sm font-medium text-[var(--pip-navy)] hover:opacity-80 hover:no-underline"
+                  >
+                    → Learn more about Network Troubleshooting &amp; Stabilization
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -159,7 +176,7 @@ export default function ServicesPage() {
             <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
               <div className="max-w-3xl">
                 <h3 className="text-xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-2xl">
-                  4️⃣ Guest Wi-Fi &amp; POS Network Configuration
+                   Guest Wi-Fi &amp; POS Network Configuration
                 </h3>
 
                 <p className="mt-4 text-base font-semibold leading-relaxed text-[var(--pip-navy)]">
@@ -191,6 +208,15 @@ export default function ServicesPage() {
                 <p className="mt-6 text-base leading-relaxed text-slate-700">
                   Designed to support a smooth guest experience without compromising reliability.
                 </p>
+
+                <div className="mt-6">
+                  <Link
+                    href="/services/guest-wifi-pos"
+                    className="text-sm font-medium text-[var(--pip-navy)] hover:opacity-80 hover:no-underline"
+                  >
+                    → Learn more about Guest Wi-Fi &amp; POS Network Configuration
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
