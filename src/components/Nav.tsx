@@ -1,6 +1,7 @@
 // src/components/Nav.tsx
 // NOTE: Rendered globally via src/app/layout.tsx. Do not mount inside pages.
 
+import Image from "next/image";
 import Link from "next/link";
 import { play } from "@/lib/fonts";
 
@@ -9,12 +10,13 @@ export default function Nav() {
     <header className="sticky top-0 z-50 border-b border-black/10 bg-[#F5F5F5]">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-2 hover:no-underline">
-          {/* Header logo mark (SVG) + wordmark */}
-          <img
+          <Image
             src="/plug-icon.svg"
             alt=""
             aria-hidden="true"
-            className="h-5 w-5"
+            width={20}
+            height={20}
+            className="block h-5 w-5"
           />
           <span
             className={`${play.className} text-xl font-bold tracking-tight text-[#191970] sm:text-2xl`}
@@ -24,17 +26,18 @@ export default function Nav() {
         </Link>
 
         <nav className="flex items-center gap-6 text-sm">
-          {/* Home link removed — wordmark handles Home */}
-          <Link 
-            href="/services" 
-            className="text-slate-800 hover:text-black hover:no-underline">
-            Services
-          </Link>
           <Link
-            href="/how-we-help"
+            href="/services"
             className="text-slate-800 hover:text-black hover:no-underline"
           >
-            How We Help
+            Services
+          </Link>
+
+          <Link
+            href="/about"
+            className="text-slate-800 hover:text-black hover:no-underline"
+          >
+            About
           </Link>
 
           <Link
@@ -55,4 +58,3 @@ export default function Nav() {
     </header>
   );
 }
-

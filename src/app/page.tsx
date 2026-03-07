@@ -115,32 +115,38 @@ export default function HomePage() {
           </p>
         </Link>
 
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <Link
+          href="/services/network-installation"
+          className="group block cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:no-underline">
           <h3 className="text-base font-semibold text-[var(--pip-navy)]">
             Network Installation &amp; Upgrades
           </h3>
           <p className="mt-2 text-sm leading-relaxed text-slate-700">
             Intentional deployment of routers, switches, and access points built for stability and growth.
           </p>
-        </div>
+        </Link>
 
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <Link
+          href="/services/network-troubleshooting"
+          className="group block cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:no-underline">
           <h3 className="text-base font-semibold text-[var(--pip-navy)]">
             Network Troubleshooting &amp; Stabilization
           </h3>
           <p className="mt-2 text-sm leading-relaxed text-slate-700">
             Diagnosis and correction of intermittent connectivity and performance issues.
           </p>
-        </div>
+        </Link>
 
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <Link
+          href="/services/guest-wifi-pos"
+          className="group block cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hover:no-underline">
           <h3 className="text-base font-semibold text-[var(--pip-navy)]">
             Guest Wi-Fi &amp; POS Network Configuration
           </h3>
           <p className="mt-2 text-sm leading-relaxed text-slate-700">
             Traffic isolation and capacity planning that protects business-critical systems.
           </p>
-        </div>
+        </Link>
       </div>
     </div>
   </div>
