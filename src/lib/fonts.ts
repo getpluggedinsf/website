@@ -1,15 +1,22 @@
 // src/lib/fonts.ts
-import { Roboto, Play } from "next/font/google";
-
-export const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-  display: "swap",
-});
+import { Play, Spectral, Inter } from "next/font/google";
 
 export const play = Play({
   subsets: ["latin"],
   weight: ["400", "700"],
+  variable: "--font-play",
   display: "swap",
 });
 
+export const spectral = Spectral({
+  subsets: ["latin"],
+  weight: ["400","600","700"],
+  variable: "--font-spectral",
+  display: "swap",
+});
+
+export const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});

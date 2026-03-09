@@ -1,31 +1,26 @@
 @import "tailwindcss";
 
-/* PluggedIn Pros — Global Tokens
-   - Tailwind v4 is configured via CSS-first tokens.
-   - Keep global styles minimal; page/layout uses Tailwind utilities.
-*/
-
+/* PluggedIn Pros — Global Tokens */
 
 :root {
   /* Brand colors */
-
-  --pip-ink: #0E1726;
-  --pip-navy: #1C2A44;
-  --pip-orange: #D14C26;
+  --pip-ink: #0e1726;
+  --pip-navy: #1c2a44;
+  --pip-orange: #d14c26;
 
   /* Surfaces */
-
-  --pip-bg-warm: #F7F8FA;
-  --pip-bg-light: #F2F4F7;
-  --pip-bg-mid: #E9EDF2;
+  --pip-bg-warm: #f7f8fa;
+  --pip-bg-light: #f2f4f7;
+  --pip-bg-mid: #e9edf2;
 
   /* Borders */
-
-  --pip-border: #D8DEE6;
+  --pip-border: #d8dee6;
 
   /* Footer */
+  --pip-charcoal: #2b2f36;
 
-  --pip-charcoal: #2B2F36;
+  /* Focus */
+  --pip-focus-ring: rgba(13, 23, 38, 0.55);
 }
 
 @layer base {
@@ -36,9 +31,15 @@
   }
 
   body {
-    /* Font is set by next/font in layout.tsx; do not override here. */
-    background: var(--pip-bg);
-    color: rgb(15 23 42); /* slate-900 */
+    background: var(--pip-bg-warm);
+    color: var(--pip-ink);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-spectral);
   }
 
   a {
@@ -51,28 +52,37 @@
     text-underline-offset: 3px;
   }
 
-  /* Accessible focus ring (restrained, brand-consistent) */
   :focus-visible {
-    outline: 2px solid rgba(25, 25, 112, 0.55);
+    outline: 2px solid var(--pip-focus-ring);
     outline-offset: 3px;
     border-radius: 6px;
   }
 }
 
 @layer components {
-  /* Buttons that should be easy to tap on mobile */
   .btn-tap {
     @apply inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-medium;
   }
 
-  /* Make CTA buttons full-width on mobile, normal on desktop */
   .btn-mobile-full {
     @apply w-full sm:w-fit;
   }
 
-  /* Big tappable rows for radio/checkbox options */
   .tap-row {
     @apply flex cursor-pointer items-center gap-2 rounded-md py-3;
   }
 }
 
+@layer utilities {
+  .font-wordmark {
+    font-family: var(--font-play);
+  }
+
+  .font-heading {
+    font-family: var(--font-spectral);
+  }
+
+  .tracking-heading {
+    letter-spacing: -0.02em;
+  }
+}

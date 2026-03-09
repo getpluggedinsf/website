@@ -3,7 +3,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { play } from "@/lib/fonts";
 
 export default function Nav() {
   return (
@@ -19,7 +18,7 @@ export default function Nav() {
             className="block h-5 w-5"
           />
           <span
-            className={`${play.className} text-xl font-bold tracking-tight text-[#191970] sm:text-2xl`}
+            className={`font-wordmark text-xl font-bold tracking-tight text-[#191970] sm:text-2xl`}
           >
             PluggedIn Pros
           </span>
