@@ -1,40 +1,52 @@
 import React from "react";
 import Container from "./Container";
 
-type SectionTone = "base" | "muted" | "accent";
+type SectionTone = "warm" | "light" | "mid" | "navy" | "white";
+
+type SectionPadding = "md" | "lg" | "xl";
 
 type Props = {
   children: React.ReactNode;
   className?: string;
   id?: string;
   tone?: SectionTone;
-  padded?: "md" | "lg";
+  padded?: SectionPadding;
   borderTop?: boolean;
-  containerSize?: "md" | "lg";
+  containerClassName?: string;
 };
 
 export default function Section({
   children,
   className = "",
   id,
-  tone = "base",
+  tone = "white",
   padded = "lg",
-  borderTop = true,
-  containerSize = "lg",
+  borderTop = false,
+  containerClassName = "",
 }: Props) {
   const bg =
-    tone === "muted"
-      ? "bg-[var(--pip-section-muted)]"
-      : tone === "accent"
+    tone === "warm"
+      ? "bg-[var(--pip-bg-warm)]"
+      : tone === "light"
+      ? "bg-[var(--pip-bg-light)]"
+      : tone === "mid"
+      ? "bg-[var(--pip-bg-mid)]"
+      : tone === "navy"
       ? "bg-[var(--pip-navy)] text-white"
-      : "bg-[var(--pip-section)]";
+      : "bg-white";
 
-  const py = padded === "md" ? "py-12 sm:py-14" : "py-14 sm:py-16";
+  const py =
+    padded === "md"
+      ? "py-12 md:py-16"
+      : padded === "xl"
+      ? "py-20 md:py-28"
+      : "py-16 md:py-24";
+
   const border = borderTop ? "border-t border-[var(--pip-border)]" : "";
 
   return (
     <section id={id} className={`w-full ${bg} ${border} ${className}`.trim()}>
-      <Container className={py} size={containerSize}>
+      <Container className={`${py} ${containerClassName}`.trim()}>
         {children}
       </Container>
     </section>

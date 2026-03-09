@@ -1,10 +1,17 @@
 import React from "react";
 
+type SurfaceTone = "white" | "light" | "glass";
+
+type SurfaceRadius = "md" | "lg";
+
+type SurfacePadding = "sm" | "md" | "lg";
+
 type Props = {
   children: React.ReactNode;
   className?: string;
-  tone?: "default" | "muted";
-  rounded?: "xl" | "2xl" | "3xl";
+  tone?: SurfaceTone;
+  radius?: SurfaceRadius;
+  padding?: SurfacePadding;
   border?: boolean;
   shadow?: boolean;
 };
@@ -12,28 +19,33 @@ type Props = {
 export default function Surface({
   children,
   className = "",
-  tone = "default",
-  rounded = "3xl",
+  tone = "white",
+  radius = "md",
+  padding = "md",
   border = true,
-  shadow = true,
+  shadow = false,
 }: Props) {
   const bg =
-    tone === "muted"
-      ? "bg-[var(--pip-surface-muted)]"
-      : "bg-[var(--pip-surface)]";
+    tone === "light"
+      ? "bg-[var(--pip-bg-light)]"
+      : tone === "glass"
+      ? "bg-white/70 backdrop-blur-sm"
+      : "bg-white";
 
-  const r =
-    rounded === "xl"
-      ? "rounded-xl"
-      : rounded === "2xl"
-      ? "rounded-2xl"
-      : "rounded-3xl";
+  const r = radius === "lg" ? "rounded-lg" : "rounded-md";
+
+  const p =
+    padding === "sm"
+      ? "p-4"
+      : padding === "lg"
+      ? "p-8"
+      : "p-6";
 
   const b = border ? "border border-[var(--pip-border)]" : "";
   const s = shadow ? "shadow-sm" : "";
 
   return (
-    <div className={`${r} ${b} ${bg} ${s} ${className}`.trim()}>
+    <div className={`${r} ${p} ${b} ${bg} ${s} ${className}`.trim()}>
       {children}
     </div>
   );
