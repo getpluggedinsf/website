@@ -3,6 +3,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { play } from "@/lib/fonts";
 
 export default function Footer() {
   return (
@@ -12,7 +13,7 @@ export default function Footer() {
           <div className="space-y-2">
             <Link
               href="/"
-              className={`font-wordmark inline-flex items-center gap-2 text-lg font-bold leading-tight text-[#191970] hover:no-underline`}
+              className={`${play.className} inline-flex items-center gap-2 text-lg font-bold leading-tight text-[#191970] hover:no-underline`}
             >
               <Image
                 src="/plug-icon.svg"

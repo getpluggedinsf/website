@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} ${spectral.variable} min-h-screen bg-[var(--pip-warm)] text-slate-900`}
+        className={`${inter.className} ${spectral.variable} min-h-screen bg-[var(--pip-bg-warm)] text-slate-900`}
       >
         <Nav />
         {children}

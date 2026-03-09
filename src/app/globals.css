@@ -74,10 +74,6 @@
 }
 
 @layer utilities {
-  .font-wordmark {
-    font-family: var(--font-play);
-  }
-
   .font-heading {
     font-family: var(--font-spectral);
   }
