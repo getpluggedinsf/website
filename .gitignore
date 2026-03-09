@@ -43,3 +43,4 @@ next-env.d.ts
 # Local backups
 src/app/page_backup.tsx
 src/app/page_cards.tsx
+*.bkp

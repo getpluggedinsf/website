@@ -7,20 +7,25 @@
 
 
 :root {
-  --pip-bg: #f5f5f5;
-  --pip-navy: #191970;
-  --pip-orange: #ff4f00;
+  /* Brand colors */
 
-  /* neutrals */
-  --pip-ink: #0f172a; /* slate-900 */
-  --pip-muted: #475569; /* slate-600 */
-  --pip-border: rgba(15, 23, 42, 0.10);
+  --pip-ink: #0E1726;
+  --pip-navy: #1C2A44;
+  --pip-orange: #D14C26;
 
-  /* surfaces */
-  --pip-section: #f5f5f5; /* base canvas */
-  --pip-section-muted: #eef0f4; /* gentle tint */
-  --pip-surface: #ffffff; /* cards/panels */
-  --pip-surface-muted: #f7f7fb; /* optional alt surface */
+  /* Surfaces */
+
+  --pip-bg-warm: #F7F8FA;
+  --pip-bg-light: #F2F4F7;
+  --pip-bg-mid: #E9EDF2;
+
+  /* Borders */
+
+  --pip-border: #D8DEE6;
+
+  /* Footer */
+
+  --pip-charcoal: #2B2F36;
 }
 
 @layer base {
