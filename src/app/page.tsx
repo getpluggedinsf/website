@@ -3,6 +3,7 @@ import Problems from "@/components/home/Problems";
 import HowWeHelp from "@/components/home/HowWeHelp";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import WhoWeServe from "@/components/home/WhoWeServe";
+import RestaurantEnvironments from "@/components/home/RestaurantEnvironments";
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
       <HowWeHelp />
       <WhyChooseUs />
       <WhoWeServe />
+      <RestaurantEnvironments />
     </main>
   );
 }
