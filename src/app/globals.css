@@ -7,6 +7,7 @@
   --pip-ink: #0e1726;
   --pip-navy: #1c2a44;
   --pip-orange: #d14c26;
+  --pip-wordmark: #16213a;
 
   /* Surfaces */
   --pip-bg-warm: #f7f8fa;
@@ -81,4 +82,9 @@
   .tracking-heading {
     letter-spacing: -0.02em;
   }
+
+  .font-wordmark {
+    font-family: var(--font-play);
+  }
+
 }

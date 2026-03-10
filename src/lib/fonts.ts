@@ -4,6 +4,7 @@ import { Play, Spectral, Inter } from "next/font/google";
 export const play = Play({
   subsets: ["latin"],
   weight: ["400", "700"],
+  variable: "--font-play",
   display: "swap",
 });
 
