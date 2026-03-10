@@ -6,8 +6,7 @@ import PlugIcon from "@/components/icons/PlugIcon";
 export default function Hero() {
   return (
     <Section
-      borderTop={false}
-      className="bg-[#eef3f6]"
+      tone="light"
       containerClassName="grid items-center gap-12 md:grid-cols-2"
     >
       <div className="max-w-[36rem]">
