@@ -21,9 +21,10 @@ export default function Nav() {
     <header className="sticky top-0 z-50 w-full border-b border-[var(--pip-border)] bg-white/95 backdrop-blur">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex min-h-16 items-center justify-between gap-4 py-3">
+          {/* Desktop / tablet logo */}
           <Link
             href="/"
-            className="flex shrink-0 items-center gap-2 no-underline"
+            className="hidden shrink-0 items-center gap-2 no-underline md:flex"
             onClick={closeMenu}
           >
             <PlugIcon className="h-[34px] w-[34px] shrink-0 text-[var(--pip-orange)]" />
@@ -32,6 +33,17 @@ export default function Nav() {
             </span>
           </Link>
 
+          {/* Mobile logo: icon only */}
+          <Link
+            href="/"
+            className="flex shrink-0 items-center no-underline md:hidden"
+            onClick={closeMenu}
+            aria-label="PluggedIn Pros home"
+          >
+            <PlugIcon className="h-8 w-8 shrink-0 text-[var(--pip-orange)]" />
+          </Link>
+
+          {/* Desktop nav */}
           <div className="hidden items-center gap-8 md:flex">
             <nav className="flex items-center gap-6 text-sm text-[var(--pip-ink)]">
               {navLinks.map((link) => (
@@ -53,14 +65,8 @@ export default function Nav() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-2 md:hidden">
-            <Link
-              href="/contact?intent=schedule"
-              className="inline-flex min-h-10 items-center justify-center whitespace-nowrap rounded-md bg-[var(--pip-orange)] px-3 py-2 text-sm font-medium text-white no-underline transition hover:opacity-90"
-            >
-              Schedule Review
-            </Link>
-
+          {/* Mobile menu button only */}
+          <div className="flex items-center md:hidden">
             <button
               type="button"
               aria-expanded={menuOpen}
@@ -110,6 +116,14 @@ export default function Nav() {
                   {link.label}
                 </Link>
               ))}
+
+              <Link
+                href="/contact?intent=schedule"
+                onClick={closeMenu}
+                className="mt-3 inline-flex min-h-11 items-center justify-center rounded-md bg-[var(--pip-orange)] px-4 py-3 text-sm font-medium text-white no-underline transition hover:opacity-90"
+              >
+                Schedule Assessment
+              </Link>
             </nav>
           </div>
         </div>
