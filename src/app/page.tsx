@@ -4,6 +4,8 @@ import HowWeHelp from "@/components/home/HowWeHelp";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import WhoWeServe from "@/components/home/WhoWeServe";
 import RestaurantEnvironments from "@/components/home/RestaurantEnvironments";
+import ServingSanFrancisco from "@/components/home/ServingSanFrancisco";
+import FinalCta from "@/components/home/FinalCta";
 
 export default function HomePage() {
   return (
@@ -14,6 +16,8 @@ export default function HomePage() {
       <WhyChooseUs />
       <WhoWeServe />
       <RestaurantEnvironments />
+      <ServingSanFrancisco />
+      <FinalCta />
     </main>
   );
 }
