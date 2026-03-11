@@ -1,6 +1,7 @@
 import Section from "@/components/layout/Section";
 import SectionHeading from "@/components/layout/SectionHeading";
 import Surface from "@/components/layout/Surface";
+import PlugIcon from "@/components/icons/PlugIcon";
 
 const reasons = [
   {
@@ -31,27 +32,24 @@ export default function WhyChooseUs() {
       />
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-        <div className="grid gap-4 sm:grid-cols-2">
-          {reasons.map((reason) => (
-            <Surface
-              key={reason.title}
-              className="h-full"
-              padding="md"
-              radius="md"
-              border
-              shadow={false}
-            >
-              <div className="flex h-full flex-col">
-                <h3 className="text-[22px] font-semibold leading-snug text-[var(--pip-ink)]">
-                  {reason.title}
-                </h3>
+        <div>
+          <ul className="space-y-8">
+            {reasons.map((reason) => (
+              <li key={reason.title} className="flex gap-4">
+                <PlugIcon className="mt-0.5 h-5 w-5 shrink-0 text-[var(--pip-orange)]" />
 
-                <p className="mt-3 text-[17px] leading-relaxed text-slate-700">
-                  {reason.body}
-                </p>
-              </div>
-            </Surface>
-          ))}
+                <div>
+                  <h3 className="text-[22px] font-semibold leading-snug text-[var(--pip-ink)]">
+                    {reason.title}
+                  </h3>
+
+                  <p className="mt-2 text-[17px] leading-relaxed text-slate-700">
+                    {reason.body}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <Surface
@@ -60,7 +58,7 @@ export default function WhyChooseUs() {
           radius="md"
           border
           shadow={false}
-          className="h-fit self-start"
+          className="h-fit self-center"
         >
           <div className="max-w-xl">
             <blockquote className="text-[22px] leading-relaxed text-[var(--pip-ink)]">
