@@ -9,8 +9,9 @@ const services = [
     title: "Wi-Fi & Network Reliability Assessment",
     body: (
       <>
-        A structured evaluation of coverage, interference, equipment
-        limitations, and network design issues.
+        A structured evaluation of coverage, interference, equipment 
+        limitations, and network design issues to identify the root 
+        causes of instability.
       </>
     ),
     href: "/services/reliability-review",
@@ -20,8 +21,9 @@ const services = [
     title: "Network Troubleshooting & Stabilization",
     body: (
       <>
-        Diagnosis and repair of unstable networks so critical systems operate
-        reliably during normal business operations.
+        Diagnosis and stabilization of unstable networks through configuration 
+        changes, tuning, and targeted fixes so critical systems operate reliably 
+        during normal business operations.
       </>
     ),
     href: "/services/network-troubleshooting",
@@ -31,8 +33,9 @@ const services = [
     title: "Network Design, Installation & Upgrades",
     body: (
       <>
-        Infrastructure improvements for new sites, redesigns, expansions, and
-        existing environments that need more reliable performance and capacity.
+        Business-grade network upgrades for environments where existing equipment 
+        cannot deliver reliable performance, expansion to eliminate coverage gaps, 
+        and design and installation for new sites.
       </>
     ),
     href: "/services/network-installation",
@@ -45,7 +48,7 @@ export default function HowWeHelp() {
       <SectionHeading
         align="center"
         title="How We Help"
-        body="Our work typically follows a structured path: assess the environment, stabilize what is causing friction, and make improvements based on what the network actually needs."
+        body="Our work typically begins with understanding the environment, then stabilizing existing systems or improving infrastructure based on what the network actually needs."
       />
 
       <div className="mt-10 grid gap-5 lg:grid-cols-3">

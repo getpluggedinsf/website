@@ -89,7 +89,9 @@ export default function Problems() {
       <div className="mx-auto mt-10 max-w-3xl">
         <p className="text-center text-base font-medium leading-relaxed text-[var(--pip-ink)] md:text-lg">
           When connectivity becomes unpredictable, attention shifts away from
-          customers, staff, and daily operations.
+          customers, staff, and daily operations. Understanding what is happening in
+          the network is the first step toward restoring stability.
+          
         </p>
       </div>
     </Section>
