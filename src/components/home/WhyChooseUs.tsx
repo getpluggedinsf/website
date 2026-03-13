@@ -32,18 +32,18 @@ export default function WhyChooseUs() {
       />
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-        <div>
-          <ul className="space-y-8">
+        <div className="max-w-[28rem] mx-auto">
+          <ul className="space-y-6">
             {reasons.map((reason) => (
-              <li key={reason.title} className="flex gap-4">
-                <PlugIcon className="mt-0.5 h-5 w-5 shrink-0 text-[var(--pip-orange)]" />
+              <li key={reason.title} className="flex gap-2">
+                <PlugIcon className="mt-1 h-3.5 w-3.5 shrink-0 text-[var(--pip-orange)]" />
 
                 <div>
                   <h3 className="text-[22px] font-semibold leading-snug text-[var(--pip-ink)]">
                     {reason.title}
                   </h3>
 
-                  <p className="mt-2 text-[17px] leading-relaxed text-slate-700">
+                  <p className="mt-1.5 text-[17px] leading-relaxed text-slate-700">
                     {reason.body}
                   </p>
                 </div>

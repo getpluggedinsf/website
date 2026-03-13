@@ -91,7 +91,6 @@ export default function Problems() {
           When connectivity becomes unpredictable, attention shifts away from
           customers, staff, and daily operations. Understanding what is happening in
           the network is the first step toward restoring stability.
-          
         </p>
       </div>
     </Section>
