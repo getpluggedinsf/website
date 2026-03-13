@@ -4,17 +4,17 @@ import Section from "@/components/layout/Section";
 export default function FinalCta() {
   return (
     <Section tone="navy" padded="xl">
-      <div className="max-w-3xl">
-        <h2 className="font-heading tracking-heading text-3xl font-semibold text-white md:text-4xl">
+      <div className="max-w-[42rem]">
+        <h2 className="font-heading tracking-heading text-3xl font-bold text-white md:text-4xl">
           Start with a Network Assessment
         </h2>
 
-        <p className="mt-5 text-base leading-relaxed text-slate-200 md:text-lg">
+        <p className="mt-5 text-[17px] leading-[1.8] text-slate-200">
           If your Wi-Fi or network infrastructure has become unpredictable, the
           first step is understanding what’s happening in the environment.
         </p>
-
-        <p className="mt-4 text-base leading-relaxed text-slate-200 md:text-lg">
+        
+        <p className="mt-4 text-[17px] leading-[1.8] text-slate-200">
           PluggedIn Pros performs structured on-site assessments to identify
           coverage gaps, interference, equipment limitations, and design issues
           before recommending next steps.
@@ -30,13 +30,13 @@ export default function FinalCta() {
 
           <Link
             href="/services/reliability-review"
-            className="text-sm font-medium text-white underline-offset-4 hover:underline"
+            className="text-sm font-medium text-slate-200 underline-offset-4 hover:text-white hover:underline"
           >
             Learn what happens during an assessment
           </Link>
         </div>
 
-        <p className="mt-8 text-sm font-medium text-slate-200">
+        <p className="mt-8 text-sm font-medium text-slate-300">
           Response within one business day.
         </p>
       </div>

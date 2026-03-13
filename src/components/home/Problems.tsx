@@ -73,11 +73,11 @@ export default function Problems() {
                   aria-hidden="true"
                 />
 
-                <h3 className="text-[20px] font-semibold leading-snug text-[var(--pip-ink)]">
+                <h3 className="text-[22px] font-semibold leading-snug text-[var(--pip-ink)]">
                   {problem.title}
                 </h3>
 
-                <p className="mt-3 max-w-[26ch] text-[20px] leading-relaxed text-slate-700 flex-grow">
+                <p className="mt-1 max-w-[26ch] text-[17px] leading-relaxed text-slate-700 flex-grow">
                   {problem.body}
                 </p>
               </div>

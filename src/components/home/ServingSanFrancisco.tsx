@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Section from "@/components/layout/Section";
-import SectionHeading from "@/components/layout/SectionHeading";
 import Surface from "@/components/layout/Surface";
 
 export default function ServingSanFrancisco() {
@@ -8,7 +7,7 @@ export default function ServingSanFrancisco() {
     <Section tone="light" padded="lg">
       <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-12">
         <Surface
-          tone="white"
+          tone="light"
           padding="sm"
           radius="lg"
           border
@@ -18,20 +17,28 @@ export default function ServingSanFrancisco() {
           <div className="relative aspect-[4/3] w-full">
             <Image
               src="/images/sections/sf-business-environment.jpg"
-              alt="Small business environment in San Francisco using connected technology"
+              alt="Small business environment using modern network infrastructure"
               fill
               className="object-cover"
             />
           </div>
         </Surface>
 
-        <div>
-          <SectionHeading
-            title="Serving San Francisco Businesses"
-            body="San Francisco environments present unique networking challenges — dense wireless conditions, mixed-use buildings, older construction, and evolving equipment layouts."
-          />
+        <div className="max-w-2xl">
+          <h2 className="font-heading tracking-heading text-3xl font-bold text-[var(--pip-ink)] md:text-4xl">
+            Serving San Francisco Businesses
+          </h2>
 
-          <div className="mt-6 max-w-2xl space-y-4 text-[17px] leading-relaxed text-slate-700">
+          <div className="mt-6 space-y-4 text-[17px] leading-[1.8] text-slate-700">
+            <p>
+              San Francisco environments present{" "}
+              <strong className="text-[var(--pip-ink)] font-semibold">
+                unique networking challenges
+              </strong>{" "}
+              — dense wireless conditions, mixed-use buildings, older
+              construction, and evolving equipment layouts.
+            </p>
+
             <p>
               PluggedIn Pros provides on-site assessments, troubleshooting, and
               infrastructure improvements for businesses across San Francisco.

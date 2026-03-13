@@ -1,20 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
 import Section from "@/components/layout/Section";
-import SectionHeading from "@/components/layout/SectionHeading";
 import Surface from "@/components/layout/Surface";
 
 export default function RestaurantEnvironments() {
   return (
     <Section tone="white" padded="lg">
       <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-12">
-        <div>
-          <SectionHeading
-            title="Designed for Restaurant Environments"
-            body="Restaurant networks often support POS systems, guest Wi-Fi, staff devices, music systems, and security cameras at the same time."
-          />
+        <div className="max-w-2xl">
+          <h2 className="font-heading tracking-heading text-3xl font-bold text-[var(--pip-ink)] md:text-4xl">
+            Designed for Restaurant Environments
+          </h2>
 
-          <div className="mt-6 max-w-2xl space-y-4 text-[17px] leading-relaxed text-slate-700">
+          <div className="mt-6 space-y-4 text-[17px] leading-[1.8] text-slate-700">
+            <p>
+              Restaurant networks often support{" "}
+              <strong className="text-[var(--pip-ink)] font-semibold">
+                POS systems, guest Wi-Fi, staff devices, music systems, and
+                security cameras
+              </strong>{" "}
+              at the same time.
+            </p>
+
             <p>
               These systems need to operate reliably during lunch rush, dinner
               service, and other high-demand periods when connectivity problems

@@ -14,7 +14,7 @@ export default function Hero() {
           Reliable Wi-Fi & Network Infrastructure for San&nbsp;Francisco Restaurants and  Small&nbsp;Businesses
         </h1>
 
-        <div className="mt-6 max-w-xl space-y-4 text-[18px] font-medium leading-relaxed text-slate-700">
+        <div className="mt-6 max-w-xl space-y-4 text-[18px] leading-[1.75] text-slate-700">
           <p>
             Built for busy environments where{" "}
             <span className="whitespace-nowrap">POS systems</span>, staff devices,
