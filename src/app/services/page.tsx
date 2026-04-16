@@ -86,7 +86,7 @@ export default function ServicesPage() {
           <div className="mt-8 space-y-8">
             <Surface
               padding="lg"
-              rounded="3xl"
+              radius="lg"
               border
               shadow={false}
               className="bg-white"
@@ -144,7 +144,7 @@ export default function ServicesPage() {
               </div>
             </Surface>
 
-            <Surface padding="lg" rounded="3xl" border shadow={false} className="bg-white">
+            <Surface padding="lg" radius="lg" border shadow={false} className="bg-white">
               <div className="max-w-4xl">
                 <div className="text-sm font-semibold tracking-[0.08em] text-[var(--pip-orange)]">
                   02
@@ -203,7 +203,7 @@ export default function ServicesPage() {
               </div>
             </Surface>
 
-            <Surface padding="lg" rounded="3xl" border shadow={false} className="bg-white">
+            <Surface padding="lg" radius="lg" border shadow={false} className="bg-white">
               <div className="max-w-4xl">
                 <div className="text-sm font-semibold tracking-[0.08em] text-[var(--pip-orange)]">
                   03
