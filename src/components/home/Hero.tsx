@@ -46,16 +46,15 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative">
-        <div className="h-[460px] overflow-hidden rounded-xl border border-[var(--pip-border)] bg-white shadow-sm md:h-[560px]">
-          <Image
-            src="/images/hero/restaurant-network-ap.jpg"
-            alt="Business Wi-Fi access point installed in a commercial environment"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+      <div className="relative h-[460px] overflow-hidden rounded-xl border border-[var(--pip-border)] bg-white shadow-sm md:h-[560px]">
+        <Image
+          src="/images/home/hero/restaurant-ceiling-wifi-access-point.webp"
+          alt="Business Wi-Fi access point installed in a restaurant environment"
+          fill
+          className="object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
+          priority
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
       </div>
     </Section>
   );
