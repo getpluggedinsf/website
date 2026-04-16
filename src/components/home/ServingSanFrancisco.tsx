@@ -12,14 +12,14 @@ export default function ServingSanFrancisco() {
           radius="lg"
           border
           shadow={false}
-          className="overflow-hidden"
+          className="group overflow-hidden"
         >
           <div className="relative aspect-[4/3] w-full">
             <Image
-              src="/images/sections/sf-business-environment.jpg"
-              alt="Small business environment using modern network infrastructure"
+              src="/images/home/serving-sf/san-francisco-small-business-interior.webp"
+              alt="Interior of a San Francisco small business"
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
             />
           </div>
         </Surface>
