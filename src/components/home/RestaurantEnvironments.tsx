@@ -52,14 +52,14 @@ export default function RestaurantEnvironments() {
           radius="lg"
           border
           shadow={false}
-          className="overflow-hidden"
+          className="group overflow-hidden"
         >
           <div className="relative aspect-[4/3] w-full">
             <Image
-              src="/images/sections/restaurant-devices.jpg"
-              alt="Restaurant staff using connected devices in a busy service environment"
+              src="/images/home/designed-for-restaurants/chef-ipad-restaurant-kitchen.webp"
+              alt="Chef using an iPad in a busy restaurant kitchen to manage orders and operations"
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
             />
           </div>
         </Surface>
