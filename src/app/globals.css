@@ -4,7 +4,8 @@
 
 :root {
   /* Brand colors */
-  --pip-ink: #0e1726;
+  /* Previous ink color (kept for reference) */
+  /* --pip-ink: #0e1726; */
   --pip-ink: #16213A;
   --pip-navy: #1c2a44;
   --pip-orange: #d14c26;
