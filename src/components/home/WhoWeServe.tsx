@@ -6,22 +6,26 @@ import Image from "next/image";
 const audiences = [
   {
     title: "Restaurants & cafés",
-    image: "barista-coffee-shop-payment-terminal.webp",
+    image: "coffee-shop-pos-payment-terminal.webp",
+    alt: "Barista using a POS payment terminal in a coffee shop environment",
     body: "Environments where POS systems, staff devices, guest Wi-Fi, music, and cameras all depend on the same network.",
   },
   {
     title: "Retail shops",
-    image: "retail-boutique-business-owner.webp",
+    image: "retail-shop-owner-tablet-inventory.webp",
+    alt: "Retail shop owner using a tablet for inventory management",
     body: "Storefront businesses that rely on stable connectivity for checkout, back-office work, inventory tools, and customer-facing systems.",
   },
   {
     title: "Professional offices",
-    image: "man-focused-laptop-sf-office-workspace.webp",
+    image: "office-workspace-laptop-business-network.webp",
+    alt: "Professional working on a laptop in a modern office network environment",
     body: "Offices and studios that need reliable wireless coverage, predictable performance, and clean internal connectivity.",
   },
   {
     title: "Other small businesses",
     image: "barbershop-mobile-payment-card-reader.webp",
+    alt: "Customer payment using a mobile card reader in a barbershop",
     body: "Device-heavy environments where day-to-day operations depend on networks that work consistently and quietly in the background.",
   },
 ];
@@ -49,7 +53,7 @@ export default function WhoWeServe() {
               <div className="mb-5 aspect-[16/10] overflow-hidden rounded-md">
                 <Image
                   src={`/images/home/who-we-serve/${audience.image}`}
-                  alt={audience.title}
+                  alt={audience.alt}
                   width={600}
                   height={400}
                   className="h-auto w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
