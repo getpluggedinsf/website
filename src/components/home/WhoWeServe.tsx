@@ -6,12 +6,12 @@ import Image from "next/image";
 const audiences = [
   {
     title: "Restaurants & cafés",
-    image: "cozy-coffee-shop-barista.webp",
+    image: "barista-coffee-shop-payment-terminal.webp",
     body: "Environments where POS systems, staff devices, guest Wi-Fi, music, and cameras all depend on the same network.",
   },
   {
     title: "Retail shops",
-    image: "retail-boutique-clothing-shopping.webp",
+    image: "retail-boutique-business-owner.webp",
     body: "Storefront businesses that rely on stable connectivity for checkout, back-office work, inventory tools, and customer-facing systems.",
   },
   {
@@ -46,7 +46,7 @@ export default function WhoWeServe() {
             shadow={false}
           >
             <div className="flex h-full flex-col">
-              <div className="mb-5 aspect-[4/3] overflow-hidden rounded-md">
+              <div className="mb-5 aspect-[16/10] overflow-hidden rounded-md">
                 <Image
                   src={`/images/home/who-we-serve/${audience.image}`}
                   alt={audience.title}
