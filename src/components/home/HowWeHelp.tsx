@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Section from "@/components/layout/Section";
 import SectionHeading from "@/components/layout/SectionHeading";
@@ -7,38 +8,26 @@ const services = [
   {
     step: "01",
     title: "Wi-Fi & Network Reliability Assessment",
-    body: (
-      <>
-        A structured evaluation of coverage, interference, equipment 
-        limitations, and network design issues to identify the root 
-        causes of instability.
-      </>
-    ),
+    body: "A structured evaluation of coverage, interference, equipment limitations, and network design issues to identify the root causes of instability.",
     href: "/services/reliability-review",
+    image: "/images/home/how-we-help/network-diagnostic-ipad-cafe.webp",
+    alt: "Tablet showing Wi-Fi diagnostics inside a busy café environment",
   },
   {
     step: "02",
     title: "Network Troubleshooting & Stabilization",
-    body: (
-      <>
-        Diagnosis and stabilization of unstable networks through configuration 
-        changes, tuning, and targeted fixes so critical systems operate reliably 
-        during normal business operations.
-      </>
-    ),
+    body: "Diagnosis and stabilization of unstable networks through configuration changes, tuning, and targeted fixes so critical systems operate reliably during normal business operations.",
     href: "/services/network-troubleshooting",
+    image: "/images/home/how-we-help/network-rack-troubleshoot.webp",
+    alt: "Technician working with ethernet cables in a network rack",
   },
   {
     step: "03",
     title: "Network Design, Installation & Upgrades",
-    body: (
-      <>
-        Business-grade network upgrades for environments where existing equipment 
-        cannot deliver reliable performance, expansion to eliminate coverage gaps, 
-        and design and installation for new sites.
-      </>
-    ),
+    body: "Business-grade network upgrades for environments where existing equipment cannot deliver reliable performance, expansion to eliminate coverage gaps, and design and installation for new sites.",
     href: "/services/network-installation",
+    image: "/images/home/how-we-help/wifi-access-point-installation-technician.webp",
+    alt: "Technician installing a ceiling-mounted Wi-Fi access point",
   },
 ];
 
@@ -51,30 +40,40 @@ export default function HowWeHelp() {
         body="Our work typically begins with understanding the environment, then stabilizing existing systems or improving infrastructure based on what the network actually needs."
       />
 
-      <div className="mt-10 grid gap-5 lg:grid-cols-3">
+      <div className="mt-8 grid gap-5 lg:grid-cols-3">
         {services.map((service) => (
           <Surface
             key={service.title}
-            className="h-full"
-            padding="lg"
+            className="group h-full overflow-hidden"
+            padding="md"
             radius="md"
             border
             shadow={false}
           >
             <div className="flex h-full flex-col">
-              <div className="text-center text-sm font-semibold tracking-[0.08em] text-[var(--pip-orange)]">
+              <div className="mb-4 aspect-[16/9] overflow-hidden rounded-md">
+                <Image
+                  src={service.image}
+                  alt={service.alt}
+                  width={1600}
+                  height={900}
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                />
+              </div>
+
+              <div className="text-sm font-semibold tracking-[0.08em] text-[var(--pip-orange)]">
                 {service.step}
               </div>
 
-              <h3 className="mt-2 text-[24px] font-semibold leading-snug text-[var(--pip-ink)]">
+              <h3 className="mt-2 text-[22px] font-semibold leading-snug text-[var(--pip-ink)]">
                 {service.title}
               </h3>
 
-              <div className="mt-4 text-[18px] leading-relaxed text-slate-700">
+              <p className="mt-3 text-[16px] leading-[1.75] text-slate-700">
                 {service.body}
-              </div>
+              </p>
 
-              <div className="mt-auto pt-8">
+              <div className="mt-auto pt-6">
                 <Link
                   href={service.href}
                   className="text-sm font-medium text-[var(--pip-ink)] underline-offset-4 hover:underline"
@@ -87,7 +86,7 @@ export default function HowWeHelp() {
         ))}
       </div>
 
-      <div className="mx-auto mt-10 max-w-3xl">
+      <div className="mx-auto mt-8 max-w-3xl">
         <p className="text-center text-base font-medium leading-relaxed text-[var(--pip-ink)] md:text-lg">
           Start with the environment, resolve the instability, and make
           improvements that fit how the business actually operates.
