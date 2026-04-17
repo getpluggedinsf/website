@@ -2,6 +2,7 @@ import Section from "@/components/layout/Section";
 import SectionHeading from "@/components/layout/SectionHeading";
 import Surface from "@/components/layout/Surface";
 import PlugIcon from "@/components/icons/PlugIcon";
+import Image from "next/image";
 
 const reasons = [
   {
@@ -31,8 +32,8 @@ export default function WhyChooseUs() {
         body="Reliable networks require thoughtful design, structured troubleshooting, and practical experience."
       />
 
-      <div className="mt-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-        <div className="max-w-[28rem] mx-auto">
+      <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-center">
+        <div className="max-w-[34rem] mx-auto lg:mx-0">
           <ul className="space-y-6">
             {reasons.map((reason) => (
               <li key={reason.title} className="flex gap-2">
@@ -54,21 +55,19 @@ export default function WhyChooseUs() {
 
         <Surface
           tone="light"
-          padding="lg"
+          padding="sm"
           radius="md"
           border
           shadow={false}
-          className="h-fit self-center"
+          className="group h-fit self-center overflow-hidden"
         >
-          <div className="max-w-xl">
-            <blockquote className="text-[22px] leading-relaxed text-[var(--pip-ink)]">
-              “Reliable connectivity should support operations quietly in the
-              background — not become another source of friction.”
-            </blockquote>
-
-            <p className="mt-5 text-sm font-medium tracking-[0.04em] text-slate-600">
-              PluggedIn Pros approach
-            </p>
+          <div className="relative aspect-[4/3] w-full">
+            <Image
+              src="/images/home/why-choose-us/network-rack-patch-cables-technician.webp"
+              alt="Technician working with patch cables in a network rack"
+              fill
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+            />
           </div>
         </Surface>
       </div>
