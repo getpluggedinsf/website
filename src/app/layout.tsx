@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Wi-Fi & Network Infrastructure for San Francisco Businesses",
     description:
       "Wi-Fi and network infrastructure for San Francisco small businesses, including restaurants, retail shops, and offices.",
-    url: "https://getpluggedinsf.com",
+    url: "/",
     siteName: "PluggedIn Pros",
     locale: "en_US",
     type: "website",
