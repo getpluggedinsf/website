@@ -9,22 +9,28 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://getpluggedinsf.com"),
 
   title: {
-    default: "PluggedIn Pros",
+    default: "Wi-Fi & Network Infrastructure for San Francisco Businesses",
     template: "%s | PluggedIn Pros",
   },
 
   description:
-    "Wi-Fi and network infrastructure services for small businesses in San Francisco. Reliable networks for POS systems, staff devices, and guest Wi-Fi.",
+    "Wi-Fi and network infrastructure for San Francisco small businesses, including restaurants, retail shops, and offices.",
 
   openGraph: {
-    title: "PluggedIn Pros",
+    title: "Wi-Fi & Network Infrastructure for San Francisco Businesses",
     description:
-      "Wi-Fi and network infrastructure services for San Francisco small businesses.",
+      "Wi-Fi and network infrastructure for San Francisco small businesses, including restaurants, retail shops, and offices.",
     url: "https://getpluggedinsf.com",
     siteName: "PluggedIn Pros",
     locale: "en_US",
     type: "website",
-  },
+    images: [
+      {
+        url: "/images/og/pluggedin-pros-og.jpg",
+        width: 1200,
+        height: 630,
+      },
+    },
 
   robots: {
     index: false,
