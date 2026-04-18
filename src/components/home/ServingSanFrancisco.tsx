@@ -6,25 +6,7 @@ export default function ServingSanFrancisco() {
   return (
     <Section tone="light" padded="lg">
       <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-12">
-        <Surface
-          tone="light"
-          padding="sm"
-          radius="lg"
-          border
-          shadow={false}
-          className="group overflow-hidden"
-        >
-          <div className="relative aspect-[4/3] w-full">
-            <Image
-              src="/images/home/serving-sf/san-francisco-small-business-network-environment.webp"
-              alt="Interior of a San Francisco small business using modern network infrastructure"
-              fill
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-            />
-          </div>
-        </Surface>
-
-        <div className="max-w-2xl">
+        <div className="max-w-2xl lg:order-2">
           <h2 className="font-heading tracking-heading text-3xl font-bold text-[var(--pip-ink)] md:text-4xl">
             Serving San Francisco Businesses
           </h2>
@@ -51,6 +33,24 @@ export default function ServingSanFrancisco() {
             </p>
           </div>
         </div>
+
+        <Surface
+          tone="light"
+          padding="sm"
+          radius="lg"
+          border
+          shadow={false}
+          className="group overflow-hidden lg:order-1"
+        >
+          <div className="relative aspect-[4/3] w-full">
+            <Image
+              src="/images/home/serving-sf/san-francisco-small-business-network-environment.webp"
+              alt="Interior of a San Francisco small business using modern network infrastructure"
+              fill
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+            />
+          </div>
+        </Surface>
       </div>
     </Section>
   );
