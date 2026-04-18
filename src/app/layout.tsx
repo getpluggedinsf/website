@@ -26,9 +26,11 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/og/pluggedin-pros-og.jpg",
+        // url: "/images/og/pluggedin-pros-og.jpg",
+        url: "https://pluggedin-pros-git-featu-8eb992-mark-steiners-projects-c1374f1a.vercel.app/images/og/pluggedin-pros-og.jpg",
         width: 1200,
         height: 630,
+        alt: "PluggedIn Pros Wi-Fi and network infrastructure for San Francisco small businesses",
       },
     ],
   },
