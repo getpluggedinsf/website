@@ -17,9 +17,9 @@ export const metadata: Metadata = {
     "Wi-Fi and network infrastructure for San Francisco small businesses, including restaurants, retail shops, and offices.",
 
   openGraph: {
-    title: "Wi-Fi & Network Infrastructure for San Francisco Businesses",
+    title: "Wi-Fi & Network Infrastructure for San Francisco Small Businesses",
     description:
-      "Wi-Fi and network infrastructure for San Francisco small businesses, including restaurants, retail shops, and offices.",
+      "Reliable Wi-Fi, network troubleshooting, and infrastructure upgrades for San Francisco restaurants, retail shops, and offices.",
     url: "/",
     siteName: "PluggedIn Pros",
     locale: "en_US",
