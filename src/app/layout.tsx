@@ -31,6 +31,7 @@ export const metadata: Metadata = {
         height: 630,
       },
     },
+  },
 
   robots: {
     index: false,
