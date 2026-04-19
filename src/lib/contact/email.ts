@@ -81,9 +81,7 @@ function getSubjectPrefix() {
   const appEnv = (process.env.NEXT_PUBLIC_APP_ENV ?? "").toLowerCase();
 
   if (appEnv === "production") return "";
-
   if (appEnv === "preview") return "[PREVIEW] ";
-
   if (appEnv === "development") return "[DEV] ";
 
   if (process.env.VERCEL_ENV === "preview") return "[PREVIEW] ";
@@ -156,7 +154,12 @@ export function buildInternalContactEmail(input: ContactEmailInput): BuiltEmail 
   return { subject, body };
 }
 
-export function buildContactConfirmationEmail(): BuiltEmail {
+export function buildContactConfirmationEmail(input: {
+  intent: ContactIntent;
+  full_name: string;
+  business_name?: string;
+  description: string;
+}): BuiltEmail {
   const prefix = getSubjectPrefix();
 
   return {
@@ -164,7 +167,16 @@ export function buildContactConfirmationEmail(): BuiltEmail {
     body: [
       "Hi,",
       "",
-      "Thanks — we’ve received your message and will get back to you within one business day.",
+      "We received your request:",
+      "",
+      `Type: ${humanizeIntent(input.intent)}`,
+      `Name: ${input.full_name}`,
+      ...(input.business_name ? [`Business: ${input.business_name}`] : []),
+      "",
+      "Summary:",
+      `"${input.description}"`,
+      "",
+      "We’ll follow up within one business day.",
       "",
       "Best,",
       "PluggedIn Pros",
@@ -172,7 +184,16 @@ export function buildContactConfirmationEmail(): BuiltEmail {
   };
 }
 
-export function buildContactConfirmationHtml() {
+export function buildContactConfirmationHtml(input: {
+  intent: ContactIntent;
+  full_name: string;
+  business_name?: string;
+  description: string;
+}) {
+  const businessLine = input.business_name
+    ? `<p style="margin:0 0 8px 0;"><strong>Business:</strong> ${escapeHtml(input.business_name)}</p>`
+    : "";
+
   return `
 <!doctype html>
 <html>
@@ -188,9 +209,18 @@ export function buildContactConfirmationHtml() {
             </tr>
             <tr>
               <td style="padding:0 32px 16px 32px;font-size:16px;line-height:1.6;color:#334155;">
-                <p style="margin:0 0 16px 0;">Thanks — we’ve received your message.</p>
-                <p style="margin:0 0 16px 0;">We’ll get back to you within one business day.</p>
-                <p style="margin:0;">Best,<br />PluggedIn Pros</p>
+                <p style="margin:0 0 16px 0;">We received your request:</p>
+
+                <p style="margin:0 0 8px 0;"><strong>Type:</strong> ${escapeHtml(humanizeIntent(input.intent))}</p>
+                <p style="margin:0 0 8px 0;"><strong>Name:</strong> ${escapeHtml(input.full_name)}</p>
+                ${businessLine}
+
+                <p style="margin:20px 0 8px 0;"><strong>Summary:</strong></p>
+                <blockquote style="margin:0;padding:12px 16px;border-left:4px solid #cbd5e1;background:#f8fafc;color:#334155;">
+                  ${escapeHtml(input.description)}
+                </blockquote>
+
+                <p style="margin:20px 0 0 0;">We’ll follow up within one business day.</p>
               </td>
             </tr>
             <tr>
@@ -205,4 +235,13 @@ export function buildContactConfirmationHtml() {
   </body>
 </html>
   `.trim();
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
 }

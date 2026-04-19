@@ -34,6 +34,7 @@ const ASSESSMENT_FOCUS_OPTIONS = [
   "Slow or inconsistent performance",
   "Guest network setup",
   "Network layout / equipment review",
+  "Other",
   "Not sure",
 ] as const;
 
@@ -44,14 +45,17 @@ const TROUBLESHOOTING_ISSUE_OPTIONS = [
   "Guest Wi-Fi problems",
   "Device connection issues",
   "Other",
+  "Not sure",
 ] as const;
 
 const UPGRADE_GOAL_OPTIONS = [
   "Better Wi-Fi coverage",
-  "Replace consumer / ISP equipment",
-  "Better guest network setup",
-  "More capacity / reliability",
-  "Better organization / rack cleanup",
+  "Improve reliability and performance",
+  "Better guest Wi-Fi setup",
+  "Add features (e.g., guest access, analytics)",
+  "Enable remote monitoring and support",
+  "Improve organization or equipment layout",
+  "Other",
   "Not sure",
 ] as const;
 
@@ -59,21 +63,14 @@ const INSTALLATION_PROJECT_OPTIONS = [
   "New business location",
   "Remodel / expansion",
   "New Wi-Fi network",
-  "Wired network / switching",
+  "Wired network equipment or cabling",
   "Guest network",
   "Other",
+  "Not sure",
 ] as const;
 
 function isValidEmail(email: string) {
   return /^\S+@\S+\.\S+$/.test(email);
-}
-
-function phoneDigits(raw: string) {
-  return raw.replace(/\D/g, "");
-}
-
-function isValidPhone(phone: string) {
-  return phoneDigits(phone).length >= 10;
 }
 
 function getIntentFromQuery(raw: string | null): Intent {
@@ -156,47 +153,26 @@ export default function ContactClient() {
     installationProjectTypes: [] as string[],
     installationSpaceSize: "" as SpaceSize,
 
-    website: "", // honeypot
+    website: "",
   });
 
   const validation = useMemo(() => {
     const nameOk = !!form.fullName.trim();
     const descriptionOk = !!form.description.trim();
+    const emailOk = isValidEmail(form.email.trim());
 
-    const emailRaw = form.email.trim();
-    const phoneRaw = form.phone.trim();
-
-    const emailOk = !!emailRaw && isValidEmail(emailRaw);
-    const phoneOk = !!phoneRaw && isValidPhone(phoneRaw);
-
-    let contactOk = false;
     let helper = "";
 
-    if (form.preferredContact === "email") {
-      contactOk = emailOk;
-      if (!emailOk) {
+    if (!nameOk || !descriptionOk || !emailOk) {
+      if (!nameOk || !descriptionOk) {
+        helper = "Please complete the required fields to submit.";
+      } else if (!emailOk) {
         helper = "Please enter a valid email address.";
       }
-    } else if (form.preferredContact === "phone") {
-      contactOk = phoneOk;
-      if (!phoneOk) {
-        helper = "Please enter a valid phone number.";
-      }
-    } else {
-      contactOk = emailOk || phoneOk;
-      if (!contactOk) {
-        helper = "Please provide at least one valid contact method: email or phone.";
-      }
     }
-
-    if (!nameOk || !descriptionOk) {
-      helper = "Please complete the required fields to submit.";
-    }
-
-    const canSubmit = nameOk && descriptionOk && contactOk;
 
     return {
-      canSubmit,
+      canSubmit: nameOk && descriptionOk && emailOk,
       helper,
     };
   }, [form]);
@@ -218,7 +194,7 @@ export default function ContactClient() {
 
           full_name: form.fullName.trim(),
           business_name: form.businessName.trim() || undefined,
-          email: form.email.trim() || undefined,
+          email: form.email.trim(),
           phone: form.phone.trim() || undefined,
           preferred_contact: form.preferredContact,
 
@@ -357,7 +333,9 @@ export default function ContactClient() {
               </div>
 
               <div className="grid gap-1">
-                <label className="text-sm font-medium text-slate-900">Email</label>
+                <label className="text-sm font-medium text-slate-900">
+                  Email <span className="text-[#FF4F00]">*</span>
+                </label>
                 <input
                   className="rounded-md border border-black/15 px-3 py-2 text-sm"
                   value={form.email}
@@ -365,6 +343,7 @@ export default function ContactClient() {
                   autoComplete="email"
                   inputMode="email"
                   placeholder="name@company.com"
+                  required
                 />
               </div>
 
@@ -378,6 +357,9 @@ export default function ContactClient() {
                   inputMode="tel"
                   placeholder="(415) 555-0123"
                 />
+                <div className="text-xs text-slate-600">
+                  Optional (helpful for faster coordination)
+                </div>
               </div>
             </div>
 
