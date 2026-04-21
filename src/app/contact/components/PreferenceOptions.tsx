@@ -1,4 +1,4 @@
-import { OPTION_CARD_CLASS, type PreferredContact } from "../contactFormConfig";
+import { type PreferredContact } from "../contactFormConfig";
 
 export default function PreferenceOptions({
   value,
@@ -9,45 +9,39 @@ export default function PreferenceOptions({
 }) {
   return (
     <fieldset className="grid gap-2">
-      <legend className="text-sm font-medium text-slate-700">
+      <legend className="text-sm font-medium text-[var(--pip-ink)]/82">
         Preferred contact method
       </legend>
 
-      <div className="grid gap-2 sm:grid-cols-3">
-        <label className={OPTION_CARD_CLASS}>
-          <div className="flex items-center gap-2">
-            <input
-              type="radio"
-              name="preferredContact"
-              checked={value === "email"}
-              onChange={() => onChange("email")}
-            />
-            Email
-          </div>
+      <div className="grid gap-x-5 gap-y-2 sm:grid-cols-3">
+        <label className="flex items-center gap-2 text-sm text-[var(--pip-ink)]/88">
+          <input
+            type="radio"
+            name="preferredContact"
+            checked={value === "email"}
+            onChange={() => onChange("email")}
+          />
+          Email
         </label>
 
-        <label className={OPTION_CARD_CLASS}>
-          <div className="flex items-center gap-2">
-            <input
-              type="radio"
-              name="preferredContact"
-              checked={value === "phone"}
-              onChange={() => onChange("phone")}
-            />
-            Phone
-          </div>
+        <label className="flex items-center gap-2 text-sm text-[var(--pip-ink)]/88">
+          <input
+            type="radio"
+            name="preferredContact"
+            checked={value === "phone"}
+            onChange={() => onChange("phone")}
+          />
+          Phone
         </label>
 
-        <label className={OPTION_CARD_CLASS}>
-          <div className="flex items-center gap-2">
-            <input
-              type="radio"
-              name="preferredContact"
-              checked={value === "either"}
-              onChange={() => onChange("either")}
-            />
-            Either
-          </div>
+        <label className="flex items-center gap-2 text-sm text-[var(--pip-ink)]/88">
+          <input
+            type="radio"
+            name="preferredContact"
+            checked={value === "either"}
+            onChange={() => onChange("either")}
+          />
+          Either
         </label>
       </div>
     </fieldset>

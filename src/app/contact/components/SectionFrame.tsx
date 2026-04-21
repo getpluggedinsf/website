@@ -8,15 +8,16 @@ export default function SectionFrame({
   description?: string;
 }) {
   return (
-    <section className="relative rounded-xl border border-[var(--pip-border)] bg-[rgba(255,255,255,0.18)] px-4 pb-4 pt-6 sm:px-5 sm:pb-5 sm:pt-7">
-      <div className="absolute left-3 top-0 -translate-y-1/2 bg-[var(--pip-bg-light)] px-2 sm:left-4">
-        <h3 className="font-heading text-lg font-semibold tracking-heading text-[var(--pip-ink)]">
+    <section className="space-y-4">
+      <div className="flex items-center gap-4">
+        <h3 className="shrink-0 font-heading text-xl font-semibold tracking-heading text-[var(--pip-ink)] sm:text-[1.35rem]">
           {title}
         </h3>
+        <div className="h-px flex-1 bg-[var(--pip-border)]" />
       </div>
 
       {description ? (
-        <p className="mb-4 text-sm text-slate-600">{description}</p>
+        <p className="text-sm text-[var(--pip-ink)]/72">{description}</p>
       ) : null}
 
       {children}

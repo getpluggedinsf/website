@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   INPUT_CLASS,
@@ -22,12 +22,25 @@ import IntentOptions from "./components/IntentOptions";
 import PreferenceOptions from "./components/PreferenceOptions";
 import SectionFrame from "./components/SectionFrame";
 
+type ErrorField = "fullName" | "email" | "description";
+type HighlightedFields = Partial<Record<ErrorField, boolean>>;
+
+const INLINE_ERROR_TEXT = "This field is required";
+const CTA_HELPER_TEXT = "Please complete all required fields to submit.";
+
 export default function ContactClient() {
   const sp = useSearchParams();
   const initialIntent = getIntentFromQuery(sp.get("intent"));
 
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [hasFailedSubmit, setHasFailedSubmit] = useState(false);
+  const [highlightedFields, setHighlightedFields] = useState<HighlightedFields>({});
+  const [primaryErrorField, setPrimaryErrorField] = useState<ErrorField | null>(null);
+
+  const fullNameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const descriptionRef = useRef<HTMLTextAreaElement>(null);
 
   const [form, setForm] = useState({
     intent: initialIntent as Intent,
@@ -57,30 +70,121 @@ export default function ContactClient() {
   });
 
   const validation = useMemo(() => {
-    const nameOk = !!form.fullName.trim();
-    const descriptionOk = !!form.description.trim();
-    const emailOk = isValidEmail(form.email.trim());
-
-    let helper = "";
-
-    if (!nameOk || !descriptionOk || !emailOk) {
-      if (!nameOk || !descriptionOk) {
-        helper = "Please complete the required fields to submit.";
-      } else if (!emailOk) {
-        helper = "Please enter a valid email address.";
-      }
-    }
+    const fullNameMissing = !form.fullName.trim();
+    const emailMissing = !form.email.trim();
+    const emailInvalid = !!form.email.trim() && !isValidEmail(form.email.trim());
+    const descriptionMissing = !form.description.trim();
 
     return {
-      canSubmit: nameOk && descriptionOk && emailOk,
-      helper,
+      fullNameMissing,
+      emailMissing,
+      emailInvalid,
+      descriptionMissing,
+      canSubmit:
+        !fullNameMissing &&
+        !emailMissing &&
+        !emailInvalid &&
+        !descriptionMissing,
     };
   }, [form]);
 
+  function getMissingFields(): ErrorField[] {
+    const missing: ErrorField[] = [];
+
+    if (!form.fullName.trim()) {
+      missing.push("fullName");
+    }
+
+    if (!form.email.trim() || !isValidEmail(form.email.trim())) {
+      missing.push("email");
+    }
+
+    if (!form.description.trim()) {
+      missing.push("description");
+    }
+
+    return missing;
+  }
+
+  function scrollToField(el: HTMLElement | null) {
+    if (!el) return;
+
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+
+    window.setTimeout(() => {
+      if ("focus" in el && typeof el.focus === "function") {
+        el.focus();
+      }
+    }, 250);
+  }
+
+  function focusFirstMissingField(field: ErrorField | null) {
+    if (field === "fullName") {
+      scrollToField(fullNameRef.current);
+      return;
+    }
+
+    if (field === "email") {
+      scrollToField(emailRef.current);
+      return;
+    }
+
+    if (field === "description") {
+      scrollToField(descriptionRef.current);
+    }
+  }
+
+  function updateHighlightsAfterChange(nextForm: typeof form) {
+    if (!hasFailedSubmit) return;
+
+    const nextHighlighted: HighlightedFields = {};
+
+    if (!nextForm.fullName.trim()) {
+      nextHighlighted.fullName = true;
+    }
+
+    if (!nextForm.email.trim() || !isValidEmail(nextForm.email.trim())) {
+      nextHighlighted.email = true;
+    }
+
+    if (!nextForm.description.trim()) {
+      nextHighlighted.description = true;
+    }
+
+    const firstRemainingMissing =
+      (nextHighlighted.fullName && "fullName") ||
+      (nextHighlighted.email && "email") ||
+      (nextHighlighted.description && "description") ||
+      null;
+
+    setHighlightedFields(nextHighlighted);
+    setPrimaryErrorField(firstRemainingMissing);
+  }
+
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validation.canSubmit || status === "submitting") return;
+    if (status === "submitting") return;
 
+    const missingFields = getMissingFields();
+
+    if (missingFields.length > 0) {
+      const nextHighlighted: HighlightedFields = {};
+      missingFields.forEach((field) => {
+        nextHighlighted[field] = true;
+      });
+
+      setHasFailedSubmit(true);
+      setHighlightedFields(nextHighlighted);
+      setPrimaryErrorField(missingFields[0]);
+      focusFirstMissingField(missingFields[0]);
+      return;
+    }
+
+    setHighlightedFields({});
+    setPrimaryErrorField(null);
     setStatus("submitting");
     setErrorMsg("");
 
@@ -131,23 +235,26 @@ export default function ContactClient() {
     }
   };
 
+  const errorInputClass =
+    "border-[var(--pip-orange)] bg-orange-50 focus:border-[var(--pip-orange)] focus:ring-2 focus:ring-[var(--pip-orange)]/25";
+
   return (
-    <section className="bg-[var(--pip-navy)]">
+    <section className="bg-[var(--pip-bg-mid)]">
       <main className="mx-auto max-w-6xl px-6 py-14 sm:py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-4xl">
-          <h1 className="font-heading text-3xl font-semibold tracking-heading text-white sm:text-4xl">
+          <h1 className="font-heading text-3xl font-semibold tracking-heading text-[var(--pip-ink)] sm:text-4xl">
             Contact
           </h1>
-          <h2 className="mt-4 font-heading text-xl font-semibold tracking-heading text-white sm:text-2xl">
+          <h2 className="mt-4 font-heading text-xl font-semibold tracking-heading text-[var(--pip-ink)] sm:text-2xl">
             Tell us a little about what you need.
           </h2>
-          <p className="mt-3 max-w-2xl text-slate-100/90">
+          <p className="mt-3 max-w-2xl text-[var(--pip-ink)]/80">
             A short description is enough to get started. We’ll review your message and get
             back to you within one business day.
           </p>
         </div>
 
-        <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-[color:var(--pip-border)] bg-[var(--pip-bg-mid)] shadow-[10px_16px_34px_rgba(10,18,34,0.28)]">
+        <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-[var(--pip-border)] bg-[var(--pip-bg-light)] shadow-[8px_14px_26px_rgba(22,33,58,0.10)]">
           <div className="p-5 sm:p-7 lg:p-8">
             {status === "success" && (
               <div className="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-[var(--pip-ink)]">
@@ -168,21 +275,29 @@ export default function ContactClient() {
             )}
 
             {(status === "idle" || status === "submitting" || status === "error") && (
-              <form onSubmit={onSubmit} className="grid gap-7 sm:gap-8">
+              <form onSubmit={onSubmit} className="grid gap-8 sm:gap-9">
                 <div className="hidden">
                   <label htmlFor="website">Website</label>
                   <input
                     id="website"
                     type="text"
                     value={form.website}
-                    onChange={(e) => setForm((f) => ({ ...f, website: e.target.value }))}
+                    onChange={(e) => {
+                      const nextForm = { ...form, website: e.target.value };
+                      setForm(nextForm);
+                      updateHighlightsAfterChange(nextForm);
+                    }}
                   />
                 </div>
 
                 <SectionFrame title="Request type">
                   <IntentOptions
                     intent={form.intent}
-                    onChange={(intent) => setForm((f) => ({ ...f, intent }))}
+                    onChange={(intent) => {
+                      const nextForm = { ...form, intent };
+                      setForm(nextForm);
+                      updateHighlightsAfterChange(nextForm);
+                    }}
                   />
                 </SectionFrame>
 
@@ -196,12 +311,27 @@ export default function ContactClient() {
                         Full Name <span className="text-[var(--pip-orange)]">*</span>
                       </label>
                       <input
-                        className={INPUT_CLASS}
+                        ref={fullNameRef}
+                        className={`${INPUT_CLASS} ${
+                          highlightedFields.fullName ? errorInputClass : ""
+                        }`}
                         value={form.fullName}
-                        onChange={(e) => setForm((f) => ({ ...f, fullName: e.target.value }))}
+                        onChange={(e) => {
+                          const nextForm = { ...form, fullName: e.target.value };
+                          setForm(nextForm);
+                          updateHighlightsAfterChange(nextForm);
+                        }}
                         autoComplete="name"
-                        required
+                        aria-invalid={!!highlightedFields.fullName}
+                        aria-describedby={
+                          primaryErrorField === "fullName" ? "fullName-error" : undefined
+                        }
                       />
+                      {primaryErrorField === "fullName" && (
+                        <div id="fullName-error" className="text-sm text-[var(--pip-orange)]">
+                          {INLINE_ERROR_TEXT}
+                        </div>
+                      )}
                     </div>
 
                     <div className="grid gap-1.5 sm:col-span-2">
@@ -211,9 +341,11 @@ export default function ContactClient() {
                       <input
                         className={INPUT_CLASS}
                         value={form.businessName}
-                        onChange={(e) =>
-                          setForm((f) => ({ ...f, businessName: e.target.value }))
-                        }
+                        onChange={(e) => {
+                          const nextForm = { ...form, businessName: e.target.value };
+                          setForm(nextForm);
+                          updateHighlightsAfterChange(nextForm);
+                        }}
                         autoComplete="organization"
                       />
                     </div>
@@ -223,14 +355,29 @@ export default function ContactClient() {
                         Email <span className="text-[var(--pip-orange)]">*</span>
                       </label>
                       <input
-                        className={INPUT_CLASS}
+                        ref={emailRef}
+                        className={`${INPUT_CLASS} ${
+                          highlightedFields.email ? errorInputClass : ""
+                        }`}
                         value={form.email}
-                        onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
+                        onChange={(e) => {
+                          const nextForm = { ...form, email: e.target.value };
+                          setForm(nextForm);
+                          updateHighlightsAfterChange(nextForm);
+                        }}
                         autoComplete="email"
                         inputMode="email"
                         placeholder="name@company.com"
-                        required
+                        aria-invalid={!!highlightedFields.email}
+                        aria-describedby={
+                          primaryErrorField === "email" ? "email-error" : undefined
+                        }
                       />
+                      {primaryErrorField === "email" && (
+                        <div id="email-error" className="text-sm text-[var(--pip-orange)]">
+                          {INLINE_ERROR_TEXT}
+                        </div>
+                      )}
                     </div>
 
                     <div className="grid gap-1.5">
@@ -238,12 +385,16 @@ export default function ContactClient() {
                       <input
                         className={INPUT_CLASS}
                         value={form.phone}
-                        onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
+                        onChange={(e) => {
+                          const nextForm = { ...form, phone: e.target.value };
+                          setForm(nextForm);
+                          updateHighlightsAfterChange(nextForm);
+                        }}
                         autoComplete="tel"
                         inputMode="tel"
                         placeholder="(415) 555-0123"
                       />
-                      <div className="text-xs text-[var(--pip-ink)]/75">
+                      <div className="text-xs text-[var(--pip-ink)]/72">
                         Optional (helpful for faster coordination)
                       </div>
                     </div>
@@ -252,9 +403,11 @@ export default function ContactClient() {
                   <div className="mt-5">
                     <PreferenceOptions
                       value={form.preferredContact}
-                      onChange={(preferredContact) =>
-                        setForm((f) => ({ ...f, preferredContact }))
-                      }
+                      onChange={(preferredContact) => {
+                        const nextForm = { ...form, preferredContact };
+                        setForm(nextForm);
+                        updateHighlightsAfterChange(nextForm);
+                      }}
                     />
                   </div>
                 </SectionFrame>
@@ -268,7 +421,11 @@ export default function ContactClient() {
                       <input
                         className={INPUT_CLASS}
                         value={form.siteAddress}
-                        onChange={(e) => setForm((f) => ({ ...f, siteAddress: e.target.value }))}
+                        onChange={(e) => {
+                          const nextForm = { ...form, siteAddress: e.target.value };
+                          setForm(nextForm);
+                          updateHighlightsAfterChange(nextForm);
+                        }}
                         placeholder="Street address or neighborhood in San Francisco"
                         autoComplete="street-address"
                       />
@@ -281,9 +438,14 @@ export default function ContactClient() {
                       <select
                         className={INPUT_CLASS}
                         value={form.timeline}
-                        onChange={(e) =>
-                          setForm((f) => ({ ...f, timeline: e.target.value as Timeline }))
-                        }
+                        onChange={(e) => {
+                          const nextForm = {
+                            ...form,
+                            timeline: e.target.value as Timeline,
+                          };
+                          setForm(nextForm);
+                          updateHighlightsAfterChange(nextForm);
+                        }}
                       >
                         <option value="">Select a timeline</option>
                         <option value="asap">ASAP</option>
@@ -298,12 +460,32 @@ export default function ContactClient() {
                         Description <span className="text-[var(--pip-orange)]">*</span>
                       </label>
                       <textarea
-                        className={`${INPUT_CLASS} min-h-[140px]`}
+                        ref={descriptionRef}
+                        className={`${INPUT_CLASS} min-h-[140px] ${
+                          highlightedFields.description ? errorInputClass : ""
+                        }`}
                         value={form.description}
-                        onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))}
+                        onChange={(e) => {
+                          const nextForm = { ...form, description: e.target.value };
+                          setForm(nextForm);
+                          updateHighlightsAfterChange(nextForm);
+                        }}
                         placeholder={getDescriptionPlaceholder(form.intent)}
-                        required
+                        aria-invalid={!!highlightedFields.description}
+                        aria-describedby={
+                          primaryErrorField === "description"
+                            ? "description-error"
+                            : undefined
+                        }
                       />
+                      {primaryErrorField === "description" && (
+                        <div
+                          id="description-error"
+                          className="text-sm text-[var(--pip-orange)]"
+                        >
+                          {INLINE_ERROR_TEXT}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </SectionFrame>
@@ -328,22 +510,23 @@ export default function ContactClient() {
                   </SectionFrame>
                 )}
 
-                <div className="space-y-5 pt-3">
-                  <div className="text-sm text-slate-100/90">
+                <div className="space-y-5 pt-4 pb-2">
+                  <div className="text-center text-sm text-[var(--pip-ink)]/78">
                     We’ll only use your information to follow up about this request.
                   </div>
 
-                  <div className="grid gap-3">
+                  <div className="grid justify-items-start gap-3">
                     <button
                       type="submit"
-                      disabled={!validation.canSubmit || status === "submitting"}
-                      className="btn-tap btn-mobile-full rounded-lg bg-[var(--pip-orange)] text-white shadow-[2px_4px_10px_rgba(22,33,58,0.22)] hover:opacity-90 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-600 disabled:opacity-100 sm:w-auto"
+                      className="btn-tap w-auto rounded-md border border-transparent bg-[var(--pip-orange)] px-6 text-white hover:opacity-90"
                     >
                       {status === "submitting" ? "Submitting…" : getSubmitLabel(form.intent)}
                     </button>
 
-                    {!validation.canSubmit && (
-                      <div className="text-sm text-slate-100/85">{validation.helper}</div>
+                    {hasFailedSubmit && Object.keys(highlightedFields).length > 0 && (
+                      <div className="text-sm text-[var(--pip-orange)]">
+                        {CTA_HELPER_TEXT}
+                      </div>
                     )}
                   </div>
                 </div>
@@ -352,7 +535,7 @@ export default function ContactClient() {
           </div>
         </div>
 
-        <div className="h-10 sm:h-14" />
+        <div className="h-12 sm:h-16" />
       </main>
     </section>
   );
