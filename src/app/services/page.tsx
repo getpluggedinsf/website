@@ -1,396 +1,344 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowRight, Network, Wifi, Wrench } from "lucide-react";
 import Section from "@/components/layout/Section";
+import SectionHeading from "@/components/layout/SectionHeading";
 import Surface from "@/components/layout/Surface";
 
-const assessmentPoints = [
-  "Wi-Fi coverage and signal behavior",
-  "Interference from neighboring networks",
-  "Equipment capabilities and limitations",
-  "Network segmentation and device usage",
-  "Infrastructure design issues affecting performance",
-];
+export const metadata: Metadata = {
+  title: "Wi-Fi & Network Infrastructure Services for San Francisco Small Businesses",
+  description:
+    "Structured Wi-Fi and network infrastructure services for San Francisco small businesses, including reliability reviews, troubleshooting, and network installation or upgrades.",
+  openGraph: {
+    title: "Wi-Fi & Network Infrastructure Services",
+    description:
+      "Reliable Wi-Fi reviews, troubleshooting, and network installation or upgrades for San Francisco small businesses.",
+    url: "/services",
+  },
+  alternates: {
+    canonical: "/services",
+  },
+};
 
-const troubleshootingPoints = [
-  "Correcting configuration issues",
-  "Improving wireless channel planning",
-  "Adjusting equipment placement or coverage",
-  "Implementing better network segmentation",
-  "Resolving infrastructure design problems affecting device communication",
-];
+const services = [
+  {
+    micro: "Start with clarity",
+    title: "Wi-Fi & Network Reliability Review",
+    href: "/services/network-reliability-review",
+    icon: Wifi,
+    description:
+      "A structured evaluation of your network environment, including coverage, interference, segmentation, and infrastructure health.",
+    listTitle: "Often the best starting point when:",
+    bullets: [
+      "you’re experiencing instability or inconsistent performance",
+      "you’re unsure what’s causing network issues",
+      "you want a clearer understanding before making changes",
+    ],
+    closing:
+      "A review helps determine whether your current system can be improved or if broader changes are needed – before time or money is spent in the wrong place.",
+    cta: "Learn more about the Review",
+  },
+  {
+    micro: "Restore stability",
+    title: "Network Troubleshooting & Stabilization",
+    href: "/services/network-troubleshooting",
+    icon: Wrench,
+    description:
+      "We diagnose and correct the underlying causes of unreliable networks through configuration changes, tuning, and targeted improvements.",
+    listTitle: "A good fit when:",
+    bullets: [
+      "Wi-Fi performance is inconsistent or unreliable",
+      "systems disconnect during peak hours",
+      "business-critical devices are affected by guest traffic or poor segmentation",
+      "you want to improve an existing setup before replacing equipment",
+    ],
+    closing:
+      "In many cases, stabilization resolves issues without requiring major upgrades — restoring stable, predictable performance during normal business operations.",
+    cta: "Learn more about Troubleshooting & Stabilization",
+  },
+  {
+    micro: "Build for reliability",
+    title: "Network Installation, Expansion & Upgrades",
+    href: "/services/network-installation",
+    icon: Network,
+    description:
+      "We design and implement business-grade network infrastructure for environments that require improved coverage, capacity, and long-term reliability.",
+    listTitle: "This may include:",
+    bullets: [
+      "upgrading existing equipment",
+      "expanding coverage with additional access points",
+      "improving network layout and organization",
+      "designing and installing networks for new or renovated spaces",
+    ],
+    secondListTitle: "Typically needed when:",
+    secondBullets: [
+      "your current equipment cannot support operational demand",
+      "you’re expanding your space or adding new systems",
+      "you’re opening a new location",
+      "the existing environment has outgrown incremental, ad hoc fixes",
+    ],
+    closing:
+      "The goal is not to add complexity — it is to build a network that performs reliably under real-world conditions.",
+    cta: "Learn more about Installation, Expansion & Upgrades",
+  },
+] as const;
 
-const upgradePoints = [
-  "Improved reliability under high device load",
-  "Stronger control over segmentation and traffic behavior",
-  "Better visibility into network performance",
-  "Remote monitoring and troubleshooting capabilities",
-  "Support for advanced features such as guest network integrations",
-  "More predictable operation in demanding environments",
-];
+const audiences = [
+  {
+    title: "Restaurants & Cafés",
+    body: "Networks that support POS systems, handheld devices, guest Wi-Fi, cameras, and peak-hour traffic without disrupting service.",
+  },
+  {
+    title: "Retail Stores",
+    body: "Stable connectivity for checkout systems, inventory tools, staff devices, and customer-facing network access.",
+  },
+  {
+    title: "Professional Offices",
+    body: "Structured networks that support staff systems, communication tools, and consistent performance throughout the workday.",
+  },
+  {
+    title: "Other Small Businesses",
+    body: "Reliable wireless and wired infrastructure for operational environments that depend on connected devices working quietly in the background.",
+  },
+] as const;
 
-const newLocationPoints = [
-  "POS systems and handheld ordering devices",
-  "Guest Wi-Fi access",
-  "Staff devices and operational systems",
-  "Cameras and security infrastructure",
-  "Streaming audio and other connected services",
-];
+function ServiceBulletList({ items }: { items: readonly string[] }) {
+  return (
+    <ul className="mt-3 space-y-3 text-[16px] leading-[1.75] text-slate-700">
+      {items.map((item) => (
+        <li key={item} className="flex items-start gap-3">
+          <span className="shrink-0 text-[var(--pip-orange)] leading-[1.75]">•</span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function ServicesPage() {
   return (
     <main className="w-full">
-      <Section tone="warm" padded="lg" borderTop={false}>
-        <div className="max-w-3xl">
-          <h1 className="font-heading tracking-heading text-4xl font-bold text-[var(--pip-ink)] sm:text-5xl">
-            A Structured Approach to Reliable Networks
+      <Section tone="warm" padded="lg">
+        <div className="max-w-[42rem]">
+          <h1 className="font-heading tracking-heading text-[2rem] font-semibold leading-[1.05] text-[var(--pip-ink)] sm:text-[2.25rem] lg:text-[2.55rem]">
+            Our Wi-Fi & Network Infrastructure Services
           </h1>
 
-          <div className="mt-6 space-y-4 text-[18px] leading-[1.75] text-slate-700">
+          <div className="mt-6 max-w-xl space-y-4 text-[18px] leading-[1.75] text-slate-700">
             <p>
-              Reliable connectivity rarely happens by accident. Networks evolve
-              over time as devices are added, equipment is replaced, and
-              operational needs change. Eventually, the network that once worked
-              well may begin to struggle under the demands placed on it.
+              We help San Francisco small businesses design, stabilize, and improve the
+              network infrastructure their operations depend on every day.
             </p>
+            <p>
+              Most projects begin with a structured evaluation to understand how your
+              current network is performing — and what’s needed to improve reliability,
+              coverage, and capacity.
+            </p>
+          </div>
 
-            <p>
-              PluggedIn Pros focuses exclusively on{" "}
-              <strong className="font-semibold text-[var(--pip-ink)]">
-                Wi-Fi and network infrastructure for small businesses
-              </strong>{" "}
-              — helping restaurants, retail shops, and offices maintain
-              reliable connectivity for POS systems, staff devices, guest
-              access, cameras, and other connected systems.
-            </p>
-
-            <p>
-              Most engagements begin with understanding how the existing network
-              behaves in the real environment. From there, the work typically
-              moves toward{" "}
-              <strong className="font-semibold text-[var(--pip-ink)]">
-                stabilization, expansion, or infrastructure improvements
-              </strong>
-              , depending on what the network needs to support.
-            </p>
+          <div className="mt-8">
+            <Link
+              href="/contact?intent=assessment"
+              className="btn-tap btn-mobile-full inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-md bg-[var(--pip-orange)] px-6 py-3 text-sm font-medium text-white no-underline transition hover:opacity-90"
+            >
+              Request a Network Reliability Review
+            </Link>
           </div>
         </div>
       </Section>
 
       <Section tone="light" padded="lg">
-        <div className="max-w-6xl">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold tracking-[0.08em] text-[var(--pip-orange)]">
-              HOW THE WORK TYPICALLY UNFOLDS
-            </p>
-          </div>
+        <SectionHeading
+          align="left"
+          title="A Structured Approach to Reliable Networks"
+          body="Reliable connectivity rarely happens by accident."
+        />
 
-          <div className="mt-8 space-y-8">
-            <Surface
-              padding="lg"
-              radius="lg"
-              border
-              shadow={false}
-              className="bg-white"
-            >
-              <div className="max-w-4xl">
-                <div className="text-sm font-semibold tracking-[0.08em] text-[var(--pip-orange)]">
-                  01
-                </div>
-
-                <h2 className="mt-2 text-[28px] font-semibold leading-snug text-[var(--pip-ink)]">
-                  Wi-Fi &amp; Network Reliability Assessment
-                </h2>
-
-                <p className="mt-4 max-w-3xl text-[17px] font-medium leading-[1.75] text-[var(--pip-ink)]">
-                  A structured evaluation of the current network environment.
-                </p>
-
-                <p className="mt-4 max-w-3xl text-[17px] leading-[1.8] text-slate-700">
-                  During an assessment, we examine factors that commonly affect
-                  reliability, including:
-                </p>
-
-                <div className="mt-5 max-w-[44rem] pl-2 md:pl-6">
-                  <ul className="space-y-3 text-[17px] leading-[1.8] text-slate-700">
-                    {assessmentPoints.map((item) => (
-                      <li key={item} className="flex gap-3">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--pip-ink)] opacity-70" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <p className="mt-6 max-w-3xl text-[17px] leading-[1.8] text-slate-700">
-                  The goal is to understand how the network behaves under real
-                  operating conditions and identify the factors contributing to
-                  instability.
-                </p>
-
-                <p className="mt-4 max-w-3xl text-[17px] leading-[1.8] text-slate-700">
-                  In many cases, the assessment reveals opportunities to
-                  stabilize the existing network without major infrastructure
-                  changes. In other environments, it highlights equipment or
-                  design limitations that may require broader improvements.
-                </p>
-
-                <div className="mt-6">
-                  <Link
-                    href="/services/reliability-review"
-                    className="text-sm font-medium text-[var(--pip-orange)] underline-offset-4 hover:underline"
-                  >
-                    Learn more about Network Reliability Assessments
-                  </Link>
-                </div>
-              </div>
-            </Surface>
-
-            <Surface padding="lg" radius="lg" border shadow={false} className="bg-white">
-              <div className="max-w-4xl">
-                <div className="text-sm font-semibold tracking-[0.08em] text-[var(--pip-orange)]">
-                  02
-                </div>
-
-                <h2 className="mt-2 text-[28px] font-semibold leading-snug text-[var(--pip-ink)]">
-                  Network Troubleshooting &amp; Stabilization
-                </h2>
-
-                <p className="mt-4 max-w-3xl text-[17px] font-medium leading-[1.75] text-[var(--pip-ink)]">
-                  When networks become unreliable, the first priority is
-                  restoring stable and predictable performance.
-                </p>
-
-                <p className="mt-4 max-w-3xl text-[17px] leading-[1.8] text-slate-700">
-                  PluggedIn Pros diagnoses the underlying causes of connectivity
-                  problems and implements targeted improvements that address the
-                  issues affecting the environment.
-                </p>
-
-                <p className="mt-4 max-w-3xl text-[17px] leading-[1.8] text-slate-700">
-                  This work may involve:
-                </p>
-
-                <div className="mt-5 max-w-[44rem] pl-2 md:pl-6">
-                  <ul className="space-y-3 text-[17px] leading-[1.8] text-slate-700">
-                    {troubleshootingPoints.map((item) => (
-                      <li key={item} className="flex gap-3">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--pip-ink)] opacity-70" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <p className="mt-6 max-w-3xl text-[17px] leading-[1.8] text-slate-700">
-                  The goal is not simply to “reset” the network, but to
-                  identify and correct the factors that cause instability.
-                </p>
-
-                <p className="mt-4 max-w-3xl text-[17px] leading-[1.8] text-slate-700">
-                  In many environments, thoughtful stabilization work can
-                  significantly improve reliability without requiring major
-                  infrastructure changes.
-                </p>
-
-                <div className="mt-6">
-                  <Link
-                    href="/services/network-troubleshooting"
-                    className="text-sm font-medium text-[var(--pip-orange)] underline-offset-4 hover:underline"
-                  >
-                    Learn more about Network Troubleshooting &amp;
-                    Stabilization
-                  </Link>
-                </div>
-              </div>
-            </Surface>
-
-            <Surface padding="lg" radius="lg" border shadow={false} className="bg-white">
-              <div className="max-w-4xl">
-                <div className="text-sm font-semibold tracking-[0.08em] text-[var(--pip-orange)]">
-                  03
-                </div>
-
-                <h2 className="mt-2 text-[28px] font-semibold leading-snug text-[var(--pip-ink)]">
-                  Network Design, Installation &amp; Upgrades
-                </h2>
-
-                <p className="mt-4 max-w-3xl text-[17px] font-medium leading-[1.75] text-[var(--pip-ink)]">
-                  In some environments, improving reliability requires
-                  expanding, upgrading, or redesigning the network
-                  infrastructure itself.
-                </p>
-
-                <p className="mt-4 max-w-3xl text-[17px] leading-[1.8] text-slate-700">
-                  Consumer-oriented and ISP-provided equipment often works well
-                  for basic connectivity, but may struggle when supporting busy
-                  business environments where many devices and systems operate
-                  simultaneously.
-                </p>
-
-                <p className="mt-4 max-w-3xl text-[17px] leading-[1.8] text-slate-700">
-                  PluggedIn Pros designs and implements{" "}
-                  <strong className="font-semibold text-[var(--pip-ink)]">
-                    business-grade network infrastructure
-                  </strong>{" "}
-                  that supports the demands of real operational environments.
-                </p>
-
-                <div className="mt-8 max-w-[46rem] space-y-10 pl-2 md:pl-6"> 
-                  <div className="border-l border-[var(--pip-border)] pl-4 md:pl-6 bg-[var(--pip-bg-light)]/50 rounded-lg py-4">
-                    <p className="text-xs tracking-widest mb-1 text-[var(--pip-orange)] opacity-100">
-                      UPGRADES
-                    </p>
-
-                    <h3 className="text-[22px] font-semibold leading-snug text-[var(--pip-ink)]">
-                      Network Infrastructure Upgrades
-                    </h3>
-
-                    <p className="mt-3 text-[17px] leading-[1.8] text-slate-700">
-                      Some environments reach the limits of what existing
-                      equipment can support.
-                    </p>
-
-                    <p className="mt-4 text-[17px] leading-[1.8] text-slate-700">
-                      Upgrading to business-grade network infrastructure can
-                      provide:
-                    </p>
-
-                    <div className="mt-5 max-w-[42rem] pl-2 md:pl-4">
-                      <ul className="space-y-3 text-[17px] leading-[1.8] text-slate-700">
-                        {upgradePoints.map((item) => (
-                          <li key={item} className="flex gap-3">
-                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--pip-ink)] opacity-70" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <p className="mt-5 text-[17px] leading-[1.8] text-slate-700">
-                      The goal is not complexity — it is stability, control,
-                      and predictable performance.
-                    </p>
-                  </div>
-
-                  <div className="border-l border-[var(--pip-border)] pl-4 md:pl-6">
-                    <p className="text-xs tracking-widest mb-1 text-[var(--pip-orange)] opacity-100">
-                      EXPANSION
-                    </p>
-
-                    <h3 className="text-[22px] font-semibold leading-snug text-[var(--pip-ink)]">
-                      Network Expansion &amp; Device Integration
-                    </h3>
-
-                    <p className="mt-3 text-[17px] leading-[1.8] text-slate-700">
-                      As businesses grow, new systems are often introduced into
-                      the network environment — including POS systems, cameras,
-                      audio streaming devices, and additional wireless coverage.
-                    </p>
-
-                    <p className="mt-4 text-[17px] leading-[1.8] text-slate-700">
-                      PluggedIn Pros helps ensure these additions are integrated
-                      properly without introducing instability elsewhere in the
-                      network.
-                    </p>
-                  </div>
-
-                  <div className="border-l border-[var(--pip-border)] pl-4 md:pl-6">
-                    <p className="text-xs tracking-widest mb-1 text-[var(--pip-orange)] opacity-100">
-                      NEW INSTALLATIONS
-                    </p>
-
-                    <h3 className="text-[22px] font-semibold leading-snug text-[var(--pip-ink)]">
-                      New Location Network Design &amp; Installation
-                    </h3>
-
-                    <p className="mt-3 text-[17px] leading-[1.8] text-slate-700">
-                      For new locations or major renovations, the most reliable
-                      networks are those designed intentionally from the
-                      beginning.
-                    </p>
-
-                    <p className="mt-4 text-[17px] leading-[1.8] text-slate-700">
-                      PluggedIn Pros designs and installs network infrastructure
-                      that supports:
-                    </p>
-
-                    <div className="mt-5 max-w-[42rem] pl-2 md:pl-4">
-                      <ul className="space-y-3 text-[17px] leading-[1.8] text-slate-700">
-                        {newLocationPoints.map((item) => (
-                          <li key={item} className="flex gap-3">
-                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--pip-ink)] opacity-70" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <p className="mt-5 text-[17px] leading-[1.8] text-slate-700">
-                      The goal is to build a network environment that performs
-                      reliably during real business operations — not just under
-                      ideal conditions.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-6">
-                  <Link
-                    href="/services/network-installation"
-                    className="text-sm font-medium text-[var(--pip-orange)] underline-offset-4 hover:underline"
-                  >
-                    Learn more about Network Design &amp; Installation
-                  </Link>
-                </div>
-              </div>
-            </Surface>
-          </div>
+        <div className="mt-6 max-w-3xl space-y-4 text-[17px] leading-[1.8] text-slate-700">
+          <p>
+            Networks evolve over time as devices are added, equipment is replaced, and
+            operational needs change. The most effective way to improve performance is to
+            first understand how the network behaves under real operating conditions.
+          </p>
+          <p>
+            From there, the work typically moves in one of three directions:
+            understanding the environment, stabilizing existing systems, or improving the
+            infrastructure itself.
+          </p>
         </div>
       </Section>
 
-      <Section tone="white" padded="md">
-        <div className="max-w-3xl">
-          <h2 className="font-heading tracking-heading text-3xl font-bold text-[var(--pip-ink)] md:text-4xl">
-            Choosing the Right Next Step
-          </h2>
+      <Section tone="mid" padded="lg">
+        <SectionHeading
+          align="center"
+          title="Our Services"
+          body="Our work typically falls into three categories: clarifying what’s happening, restoring stability, or improving the infrastructure itself."
+        />
 
-          <div className="mt-6 space-y-4 text-[17px] leading-[1.8] text-slate-700">
-            <p>Every network environment is different.</p>
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
+          {services.map((service, index) => {
+            const Icon = service.icon;
 
-            <p>
-              Some businesses need greater visibility into how their network is
-              behaving. Others need targeted stabilization work to resolve
-              persistent connectivity issues. And in some environments,
-              improving reliability requires stronger infrastructure that can
-              support the demands of daily operations.
-            </p>
+            return (
+              <Surface
+                key={service.title}
+                className={index === 2 ? "h-full md:col-span-2" : "h-full"}
+                padding="md"
+                radius="md"
+                border
+                shadow={false}
+              >
+                <div className="flex h-full flex-col">
+                  <div className="flex items-start gap-3">
+                    <Icon
+                      className="mt-1 h-5 w-5 shrink-0 text-[var(--pip-ink)]/70"
+                      strokeWidth={1.75}
+                      aria-hidden="true"
+                    />
+                    <h3 className="text-[22px] font-semibold leading-snug text-[var(--pip-ink)]">
+                      {service.title}
+                    </h3>
+                  </div>
 
-            <p>
-              Understanding what the network is doing today is the first step
-              toward building a network that performs reliably over time.
-            </p>
-          </div>
+                  <div className="mt-4 text-sm font-semibold tracking-[0.08em] text-[var(--pip-orange)]">
+                    {service.micro}
+                  </div>
+
+                  <p className="mt-2 text-[16px] leading-[1.75] text-slate-700">
+                    {service.description}
+                  </p>
+
+                  {"secondListTitle" in service && service.secondListTitle ? (
+                    <div className="mt-5 grid gap-6 lg:grid-cols-2">
+                      <div>
+                        <p className="text-sm font-medium text-[var(--pip-ink)]">
+                          {service.listTitle}
+                        </p>
+                        <ServiceBulletList items={service.bullets} />
+                      </div>
+
+                      <div>
+                        <p className="text-sm font-medium text-[var(--pip-ink)]">
+                          {service.secondListTitle}
+                        </p>
+                        <ServiceBulletList items={service.secondBullets} />
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="mt-5">
+                      <p className="text-sm font-medium text-[var(--pip-ink)]">
+                        {service.listTitle}
+                      </p>
+                      <ServiceBulletList items={service.bullets} />
+                    </div>
+                  )}
+
+                  <p className="mt-5 text-[16px] leading-[1.75] text-slate-700">
+                    {service.closing}
+                  </p>
+
+                  <div className="mt-auto pt-6">
+                    <Link
+                      href={service.href}
+                      className="inline-flex items-center gap-2 text-sm font-medium text-[var(--pip-ink)]/82 underline-offset-4 hover:text-[var(--pip-ink)] hover:underline"
+                    >
+                      <ArrowRight className="h-4 w-4 shrink-0" strokeWidth={1.9} />
+                      <span>{service.cta}</span>
+                    </Link>
+                  </div>
+                </div>
+              </Surface>
+            );
+          })}
+        </div>
+      </Section>
+
+      <Section tone="white" padded="lg">
+        <SectionHeading align="center" title="Choosing the Right Next Step" />
+
+        <div className="mx-auto mt-6 max-w-3xl space-y-4 text-[17px] leading-[1.8] text-slate-700">
+          <p>Every network environment is different.</p>
+
+          <p>
+            Some businesses need greater visibility into how their network is behaving.
+            Others need targeted stabilization work to resolve persistent connectivity
+            issues. And in some environments, improving reliability requires stronger
+            infrastructure that can support the demands of daily operations.
+          </p>
+
+          <ul className="space-y-2 pt-2">
+            <li>• If you’re unsure what’s causing issues, start with a Review.</li>
+            <li>• If your network is unstable or inconsistent, focus on Stabilization.</li>
+            <li>
+              • If your system has outgrown its current setup, Infrastructure improvements
+              may be needed.
+            </li>
+          </ul>
+
+          <p className="pt-2">
+            Understanding what the network is doing today is the first step toward
+            building a network that performs reliably over time.
+          </p>
         </div>
       </Section>
 
       <Section tone="navy" padded="xl">
         <div className="max-w-[42rem]">
           <h2 className="font-heading tracking-heading text-3xl font-bold text-white md:text-4xl">
-            Start with a Network Reliability Assessment
+            Not Sure Where to Start?
           </h2>
 
           <p className="mt-5 text-[17px] leading-[1.8] text-slate-200">
-            A Network Reliability Assessment provides a structured evaluation of
-            your existing network and practical recommendations for improving
-            reliability.
+            Most clients begin with a Network Reliability Review to understand what’s
+            working, what isn’t, and what to do next.
           </p>
 
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
             <Link
-              href="/contact?intent=schedule"
-              className="btn-tap btn-mobile-full inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-md bg-[var(--pip-orange)] px-6 py-3 text-sm font-medium text-white no-underline transition hover:opacity-90"
+              href="/contact?intent=assessment"
+              className="text-sm font-medium text-white underline-offset-4 hover:underline"
             >
-              Schedule a Network Assessment
+              → Request a Network Reliability Review
+            </Link>
+
+            <Link
+              href="/contact"
+              className="text-sm font-medium text-slate-200 underline-offset-4 hover:text-white hover:underline"
+            >
+              → Contact Us
             </Link>
           </div>
+        </div>
+      </Section>
+
+      <Section tone="white" padded="lg">
+        <SectionHeading
+          align="center"
+          title="Who We Help"
+          body="We work with small businesses where reliable connectivity is essential to day-to-day operations."
+        />
+
+        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+          {audiences.map((audience) => (
+            <Surface
+              key={audience.title}
+              className="h-full"
+              padding="lg"
+              radius="md"
+              border
+              shadow={false}
+            >
+              <div className="flex h-full flex-col">
+                <h3 className="text-[22px] font-semibold leading-snug text-[var(--pip-ink)]">
+                  {audience.title}
+                </h3>
+
+                <p className="mt-4 text-[17px] leading-relaxed text-slate-700">
+                  {audience.body}
+                </p>
+              </div>
+            </Surface>
+          ))}
         </div>
       </Section>
     </main>
