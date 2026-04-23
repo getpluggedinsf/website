@@ -154,8 +154,8 @@ export default function ServicesPage() {
           <div className="relative w-full">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-lg">
               <Image
-                src="/images/services/services-hero-network-install-ceiling-ap.webp"
-                alt="Technician installing a ceiling-mounted wireless access point in a restaurant space"
+                src="/images/services/wifi-network-assessment-small-business-cafe-tablet.webp"
+                alt="Technician analyzing Wi-Fi network performance on a tablet inside a small business café environment"
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -194,14 +194,14 @@ export default function ServicesPage() {
           body="Our work typically falls into three categories: clarifying what’s happening, restoring stability, or improving the infrastructure itself."
         />
 
-        <div className="mt-8 grid gap-5 md:grid-cols-2">
+        <div className="mt-8 grid gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
 
             return (
               <Surface
                 key={service.title}
-                className={index === 2 ? "h-full md:col-span-2" : "h-full"}
+                className="h-full"
                 padding="md"
                 radius="md"
                 border
@@ -327,37 +327,6 @@ export default function ServicesPage() {
               → Contact Us
             </Link>
           </div>
-        </div>
-      </Section>
-
-      <Section tone="white" padded="lg">
-        <SectionHeading
-          align="center"
-          title="Who We Help"
-          body="We work with small businesses where reliable connectivity is essential to day-to-day operations."
-        />
-
-        <div className="mt-10 grid gap-5 sm:grid-cols-2">
-          {audiences.map((audience) => (
-            <Surface
-              key={audience.title}
-              className="h-full"
-              padding="lg"
-              radius="md"
-              border
-              shadow={false}
-            >
-              <div className="flex h-full flex-col">
-                <h3 className="text-[22px] font-semibold leading-snug text-[var(--pip-ink)]">
-                  {audience.title}
-                </h3>
-
-                <p className="mt-4 text-[17px] leading-relaxed text-slate-700">
-                  {audience.body}
-                </p>
-              </div>
-            </Surface>
-          ))}
         </div>
       </Section>
     </main>
