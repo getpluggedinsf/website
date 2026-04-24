@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Network, Wifi, Wrench } from "lucide-react";
 import Section from "@/components/layout/Section";
-import SectionHeading from "@/components/layout/SectionHeading";
-import Surface from "@/components/layout/Surface";
 import Image from "next/image";
 import { StructuredApproach } from "@/components/services/StructuredApproach";
 import { OurServices } from "@/components/services/OurServices";
@@ -24,100 +21,6 @@ export const metadata: Metadata = {
   },
 };
 
-const services = [
-  {
-    micro: "Start with clarity",
-    title: "Wi-Fi & Network Reliability Review",
-    href: "/services/network-reliability-review",
-    icon: Wifi,
-    description:
-      "A structured evaluation of your network environment, including coverage, interference, segmentation, and infrastructure health.",
-    listTitle: "Often the best starting point when:",
-    bullets: [
-      "you’re experiencing instability or inconsistent performance",
-      "you’re unsure what’s causing network issues",
-      "you want a clearer understanding before making changes",
-    ],
-    closing:
-      "A review helps determine whether your current system can be improved or if broader changes are needed – before time or money is spent in the wrong place.",
-    cta: "Learn more about the Review",
-  },
-  {
-    micro: "Restore stability",
-    title: "Network Troubleshooting & Stabilization",
-    href: "/services/network-troubleshooting",
-    icon: Wrench,
-    description:
-      "We diagnose and correct the underlying causes of unreliable networks through configuration changes, tuning, and targeted improvements.",
-    listTitle: "A good fit when:",
-    bullets: [
-      "Wi-Fi performance is inconsistent or unreliable",
-      "systems disconnect during peak hours",
-      "business-critical devices are affected by guest traffic or poor segmentation",
-      "you want to improve an existing setup before replacing equipment",
-    ],
-    closing:
-      "In many cases, stabilization resolves issues without requiring major upgrades — restoring stable, predictable performance during normal business operations.",
-    cta: "Learn more about Troubleshooting & Stabilization",
-  },
-  {
-    micro: "Build for reliability",
-    title: "Network Installation, Expansion & Upgrades",
-    href: "/services/network-installation",
-    icon: Network,
-    description:
-      "We design and implement business-grade network infrastructure for environments that require improved coverage, capacity, and long-term reliability.",
-    listTitle: "This may include:",
-    bullets: [
-      "upgrading existing equipment",
-      "expanding coverage with additional access points",
-      "improving network layout and organization",
-      "designing and installing networks for new or renovated spaces",
-    ],
-    secondListTitle: "Typically needed when:",
-    secondBullets: [
-      "your current equipment cannot support operational demand",
-      "you’re expanding your space or adding new systems",
-      "you’re opening a new location",
-      "the existing environment has outgrown incremental, ad hoc fixes",
-    ],
-    closing:
-      "The goal is not to add complexity — it is to build a network that performs reliably under real-world conditions.",
-    cta: "Learn more about Installation, Expansion & Upgrades",
-  },
-] as const;
-
-const audiences = [
-  {
-    title: "Restaurants & Cafés",
-    body: "Networks that support POS systems, handheld devices, guest Wi-Fi, cameras, and peak-hour traffic without disrupting service.",
-  },
-  {
-    title: "Retail Stores",
-    body: "Stable connectivity for checkout systems, inventory tools, staff devices, and customer-facing network access.",
-  },
-  {
-    title: "Professional Offices",
-    body: "Structured networks that support staff systems, communication tools, and consistent performance throughout the workday.",
-  },
-  {
-    title: "Other Small Businesses",
-    body: "Reliable wireless and wired infrastructure for operational environments that depend on connected devices working quietly in the background.",
-  },
-] as const;
-
-function ServiceBulletList({ items }: { items: readonly string[] }) {
-  return (
-    <ul className="mt-3 space-y-3 text-[16px] leading-[1.75] text-slate-700">
-      {items.map((item) => (
-        <li key={item} className="flex items-start gap-3">
-          <span className="shrink-0 text-[var(--pip-orange)] leading-[1.75]">•</span>
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
 
 export default function ServicesPage() {
   return (

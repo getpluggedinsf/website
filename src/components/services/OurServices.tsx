@@ -91,7 +91,7 @@ export function OurServices() {
           return (
             <Surface
               key={service.title}
-              padding="none"
+              padding="sm"
               radius="lg"
               border
               shadow={false}
