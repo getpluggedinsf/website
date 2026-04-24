@@ -5,6 +5,7 @@ import Section from "@/components/layout/Section";
 import SectionHeading from "@/components/layout/SectionHeading";
 import Surface from "@/components/layout/Surface";
 import Image from "next/image";
+import { StructuredApproach } from "@/components/services/StructuredApproach";
 
 export const metadata: Metadata = {
   title: "Wi-Fi & Network Infrastructure Services for San Francisco Small Businesses",
@@ -166,26 +167,8 @@ export default function ServicesPage() {
         </div>
       </Section>
 
-      <Section tone="light" padded="lg">
-        <SectionHeading
-          align="left"
-          title="A Structured Approach to Reliable Networks"
-          body="Reliable connectivity rarely happens by accident."
-        />
+      <StructuredApproach />
 
-        <div className="mt-6 max-w-3xl space-y-4 text-[17px] leading-[1.8] text-slate-700">
-          <p>
-            Networks evolve over time as devices are added, equipment is replaced, and
-            operational needs change. The most effective way to improve performance is to
-            first understand how the network behaves under real operating conditions.
-          </p>
-          <p>
-            From there, the work typically moves in one of three directions:
-            understanding the environment, stabilizing existing systems, or improving the
-            infrastructure itself.
-          </p>
-        </div>
-      </Section>
 
       <Section tone="mid" padded="lg">
         <SectionHeading
