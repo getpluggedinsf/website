@@ -105,7 +105,7 @@ export function OurServices() {
               radius="lg"
               border
               shadow={false}
-              className="group overflow-hidden transition duration-200 hover:border-[var(--pip-orange)]/45 hover:shadow-sm"
+              className="overflow-hidden"
             >
               <div
                 className={[
@@ -113,14 +113,16 @@ export function OurServices() {
                   reverse ? "lg:[&>*:first-child]:order-2" : "",
                 ].join(" ")}
               >
-                <div className="relative min-h-[260px] overflow-hidden lg:min-h-[420px]">
-                  <Image
-                    src={service.image}
-                    alt={service.imageAlt}
-                    fill
-                    className="object-cover transition duration-300 group-hover:scale-[1.02]"
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                  />
+                <div className="p-4 sm:p-5 lg:p-6">
+                  <div className="group/image relative h-full overflow-hidden rounded-md">
+                    <Image
+                      src={service.image}
+                      alt={service.imageAlt}
+                      fill
+                      className="object-cover transition duration-300 group-hover/image:scale-[1.02]"
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                    />
+                  </div>
                 </div>
 
                 <div className="flex min-h-full flex-col justify-center px-6 py-8 sm:px-8 lg:px-12 lg:py-12">
@@ -149,10 +151,14 @@ export function OurServices() {
 
                       <Link
                         href={service.href}
-                        className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--pip-ink)] underline-offset-4 transition hover:text-[var(--pip-orange)] hover:underline"
+                        className="group/link inline-flex items-center gap-2 text-sm font-semibold text-[var(--pip-ink)] no-underline"
                       >
-                        {service.secondaryCta}
-                        <span aria-hidden="true">→</span>
+                        <span aria-hidden="true" className="inline-block no-underline">
+                          →
+                        </span>
+                        <span className="underline-offset-4 group-hover/link:underline">
+                          {service.secondaryCta}
+                        </span>
                       </Link>
                     </div>
                   </div>
