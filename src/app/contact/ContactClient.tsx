@@ -69,24 +69,6 @@ export default function ContactClient() {
     website: "",
   });
 
-  const validation = useMemo(() => {
-    const fullNameMissing = !form.fullName.trim();
-    const emailMissing = !form.email.trim();
-    const emailInvalid = !!form.email.trim() && !isValidEmail(form.email.trim());
-    const descriptionMissing = !form.description.trim();
-
-    return {
-      fullNameMissing,
-      emailMissing,
-      emailInvalid,
-      descriptionMissing,
-      canSubmit:
-        !fullNameMissing &&
-        !emailMissing &&
-        !emailInvalid &&
-        !descriptionMissing,
-    };
-  }, [form]);
 
   function getMissingFields(): ErrorField[] {
     const missing: ErrorField[] = [];
