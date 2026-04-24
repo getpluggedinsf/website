@@ -6,6 +6,7 @@ import SectionHeading from "@/components/layout/SectionHeading";
 import Surface from "@/components/layout/Surface";
 import Image from "next/image";
 import { StructuredApproach } from "@/components/services/StructuredApproach";
+import { OurServices } from "@/components/services/OurServices";
 
 export const metadata: Metadata = {
   title: "Wi-Fi & Network Infrastructure Services for San Francisco Small Businesses",
@@ -168,92 +169,7 @@ export default function ServicesPage() {
       </Section>
 
       <StructuredApproach />
-
-
-      <Section tone="mid" padded="lg">
-        <SectionHeading
-          align="center"
-          title="Our Services"
-          body="Our work typically falls into three categories: clarifying what’s happening, restoring stability, or improving the infrastructure itself."
-        />
-
-        <div className="mt-8 grid gap-6">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-
-            return (
-              <Surface
-                key={service.title}
-                className="h-full"
-                padding="md"
-                radius="md"
-                border
-                shadow={false}
-              >
-                <div className="flex h-full flex-col">
-                  <div className="flex items-start gap-3">
-                    <Icon
-                      className="mt-1 h-5 w-5 shrink-0 text-[var(--pip-ink)]/70"
-                      strokeWidth={1.75}
-                      aria-hidden="true"
-                    />
-                    <h3 className="text-[22px] font-semibold leading-snug text-[var(--pip-ink)]">
-                      {service.title}
-                    </h3>
-                  </div>
-
-                  <div className="mt-4 text-sm font-semibold tracking-[0.08em] text-[var(--pip-orange)]">
-                    {service.micro}
-                  </div>
-
-                  <p className="mt-2 text-[16px] leading-[1.75] text-slate-700">
-                    {service.description}
-                  </p>
-
-                  {"secondListTitle" in service && service.secondListTitle ? (
-                    <div className="mt-5 grid gap-6 lg:grid-cols-2">
-                      <div>
-                        <p className="text-sm font-medium text-[var(--pip-ink)]">
-                          {service.listTitle}
-                        </p>
-                        <ServiceBulletList items={service.bullets} />
-                      </div>
-
-                      <div>
-                        <p className="text-sm font-medium text-[var(--pip-ink)]">
-                          {service.secondListTitle}
-                        </p>
-                        <ServiceBulletList items={service.secondBullets} />
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="mt-5">
-                      <p className="text-sm font-medium text-[var(--pip-ink)]">
-                        {service.listTitle}
-                      </p>
-                      <ServiceBulletList items={service.bullets} />
-                    </div>
-                  )}
-
-                  <p className="mt-5 text-[16px] leading-[1.75] text-slate-700">
-                    {service.closing}
-                  </p>
-
-                  <div className="mt-auto pt-6">
-                    <Link
-                      href={service.href}
-                      className="inline-flex items-center gap-2 text-sm font-medium text-[var(--pip-ink)]/82 underline-offset-4 hover:text-[var(--pip-ink)] hover:underline"
-                    >
-                      <ArrowRight className="h-4 w-4 shrink-0" strokeWidth={1.9} />
-                      <span>{service.cta}</span>
-                    </Link>
-                  </div>
-                </div>
-              </Surface>
-            );
-          })}
-        </div>
-      </Section>
+      <OurServices />
 
       <Section tone="white" padded="lg">
         <SectionHeading align="center" title="Choosing the Right Next Step" />
