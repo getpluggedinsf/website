@@ -5,6 +5,7 @@ import { StructuredApproach } from "@/components/services/StructuredApproach";
 import { OurServices } from "@/components/services/OurServices";
 import { ChoosingNextStep } from "@/components/services/ChoosingNextStep";
 import { ServicesHero } from "@/components/services/ServicesHero";
+import { RealWorldEnvironments } from "@/components/services/RealWorldEnvironments";
 
 export const metadata: Metadata = {
   title: "Wi-Fi & Network Infrastructure Services for San Francisco Small Businesses",
@@ -30,6 +31,7 @@ export default function ServicesPage() {
       <StructuredApproach />
       <OurServices />
       <ChoosingNextStep />
+      <RealWorldEnvironments />
   
 
       <Section tone="navy" padded="xl">
