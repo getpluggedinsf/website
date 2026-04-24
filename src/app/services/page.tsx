@@ -7,6 +7,7 @@ import Surface from "@/components/layout/Surface";
 import Image from "next/image";
 import { StructuredApproach } from "@/components/services/StructuredApproach";
 import { OurServices } from "@/components/services/OurServices";
+import { ChoosingNextStep } from "@/components/services/ChoosingNextStep";
 
 export const metadata: Metadata = {
   title: "Wi-Fi & Network Infrastructure Services for San Francisco Small Businesses",
@@ -170,35 +171,8 @@ export default function ServicesPage() {
 
       <StructuredApproach />
       <OurServices />
-
-      <Section tone="white" padded="lg">
-        <SectionHeading align="center" title="Choosing the Right Next Step" />
-
-        <div className="mx-auto mt-6 max-w-3xl space-y-4 text-[17px] leading-[1.8] text-slate-700">
-          <p>Every network environment is different.</p>
-
-          <p>
-            Some businesses need greater visibility into how their network is behaving.
-            Others need targeted stabilization work to resolve persistent connectivity
-            issues. And in some environments, improving reliability requires stronger
-            infrastructure that can support the demands of daily operations.
-          </p>
-
-          <ul className="space-y-2 pt-2">
-            <li>• If you’re unsure what’s causing issues, start with a Review.</li>
-            <li>• If your network is unstable or inconsistent, focus on Stabilization.</li>
-            <li>
-              • If your system has outgrown its current setup, Infrastructure improvements
-              may be needed.
-            </li>
-          </ul>
-
-          <p className="pt-2">
-            Understanding what the network is doing today is the first step toward
-            building a network that performs reliably over time.
-          </p>
-        </div>
-      </Section>
+      <ChoosingNextStep />
+  
 
       <Section tone="navy" padded="xl">
         <div className="max-w-[42rem]">
