@@ -6,16 +6,16 @@ import Surface from "@/components/layout/Surface";
 
 const approachCards = [
   {
-    title: "Assess what’s happening now",
-    body: "Start with the real behavior of the network: coverage, interference, equipment limitations, configuration issues, and the symptoms affecting day-to-day operations.",
+    title: "Diagnose the root causes",
+    body: "Analyze the existing network: coverage, capacity, interference, equipment limitations, configuration issues, and the symptoms affecting day-to-day operations.",
   },
   {
-    title: "Stabilize what’s unreliable",
+    title: "Stabilize existing systems",
     body: "Address the issues causing slowdowns, dropouts, device conflicts, or unreliable business systems before adding unnecessary complexity.",
   },
   {
     title: "Design the right next step",
-    body: "When the existing setup can’t support the business reliably, plan practical improvements, upgrades, or installation work around the way the space actually operates.",
+    body: "Upgrade or expand the network when the existing environment can no longer support operational demand reliably."
   },
 ];
 
@@ -36,7 +36,7 @@ export function StructuredApproach() {
           </div>
 
           <p className="mt-5 text-xl leading-[1.6] text-[var(--pip-ink)] md:text-[1.4rem]">
-            The most useful network work starts by separating symptoms from causes.
+            Improving network reliability starts by separating symtoms from causes.
             From there, the path usually falls into one of three practical directions.
           </p>
         </div>
