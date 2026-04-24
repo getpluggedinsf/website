@@ -36,7 +36,7 @@ export function StructuredApproach() {
           </div>
 
           <p className="mt-5 text-xl leading-[1.6] text-[var(--pip-ink)] md:text-[1.4rem]">
-            Improving network reliability starts by separating symtoms from causes.
+            Improving network reliability starts by separating symptoms from causes.
             From there, the path usually falls into one of three practical directions.
           </p>
         </div>
