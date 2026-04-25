@@ -11,7 +11,7 @@ const services = [
     title: "Wi-Fi & Network Reliability Assessment",
     href: "/services/network-reliability-review",
     formHref: "/contact?intent=assessment",
-    image: "/images/services/wifi-network-assessment-small-business-cafe-tablet.webp",
+    image: "/images/services/our-services/wifi-network-assessment-small-business-cafe-tablet-analysis.webp",
     imageAlt:
       "Technician analyzing Wi-Fi network performance on a tablet inside a small business café environment",
     description:
@@ -30,9 +30,9 @@ const services = [
     title: "Network Troubleshooting & Stabilization",
     href: "/services/network-troubleshooting",
     formHref: "/contact?intent=troubleshooting",
-    image: "/images/home/how-we-help/network-rack-ethernet-cable-troubleshooting.webp",
+    image: "/images/services/our-services/network-rack-ethernet-cable-troubleshooting.webp",
     imageAlt:
-      "Technician troubleshooting network cabling and equipment in a small business network rack",
+      "Technician troubleshooting ethernet connections in a network rack",
     description:
       "Identify and fix the issues causing slowdowns, dropouts, and unreliable performance—through targeted tuning, configuration changes, and practical improvements.",
     bestFor: [
@@ -49,9 +49,9 @@ const services = [
     title: "Network Design, Installation & Upgrades",
     href: "/services/network-installation",
     formHref: "/contact?intent=installation",
-    image: "/images/home/how-we-help/wifi-access-point-installation-ceiling-technician.webp",
+    image: "/images/services/our-services/network-installation-router-small-business-it-rack.webp",
     imageAlt:
-      "Technician installing a ceiling-mounted wireless access point in a small business",
+      "Technician installing network equipment into a small business IT rack",
     description:
       "We design and implement business-grade network infrastructure for environments that require improved coverage, capacity, and long-term reliability—whether that means expanding coverage, upgrading equipment, or designing for a new or changing space.",
     bestFor: [
@@ -113,8 +113,8 @@ export function OurServices() {
                   reverse ? "lg:[&>*:first-child]:order-2" : "",
                 ].join(" ")}
               >
-                <div className="p-4 sm:p-5 lg:p-6">
-                  <div className="group/image relative h-full overflow-hidden rounded-md">
+                <div className="p-4 sm:p-5 lg:p-6 lg:h-full">
+                  <div className="group/image relative min-h-[260px] overflow-hidden rounded-md lg:h-full">
                     <Image
                       src={service.image}
                       alt={service.imageAlt}

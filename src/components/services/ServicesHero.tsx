@@ -38,7 +38,7 @@ export function ServicesHero() {
         <div className="relative w-full">
           <div className="group/image relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-lg">
             <Image
-              src="/images/services/wifi-network-assessment-small-business-cafe-tablet.webp"
+              src="/images/services/hero/wifi-network-assessment-small-business-cafe-tablet.webp"
               alt="Technician analyzing Wi-Fi network performance on a tablet inside a small business café environment"
               fill
               className="object-cover transition duration-300 group-hover/image:scale-[1.03]"
