@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import Section from "@/components/layout/Section";
 
 export function ServicesFinalCta() {
@@ -17,31 +16,35 @@ export function ServicesFinalCta() {
           </h2>
 
           <p className="mt-6 max-w-xl text-lg leading-8 text-white/80">
-            Most clients start with a Network Reliability Review to understand
-            what’s working, what isn’t, and what to do next.
+            Most clients start with a simple review to understand what’s
+            working, what isn’t, and what to do next.
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-7">
             <Link
-              href="/request-help"
+              href="/contact?intent=assessment"
               className="inline-flex items-center justify-center rounded-md bg-[var(--pip-orange)] px-6 py-3 text-sm font-semibold text-white transition hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-[var(--pip-orange)] focus:ring-offset-2 focus:ring-offset-[var(--pip-navy)]"
             >
-              Request a Network Reliability Review
+              Start with a Network Reliability Review
             </Link>
 
             <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-white/75 underline-offset-4 transition hover:text-white hover:underline"
+              href="/contact?intent=general"
+              className="group/link inline-flex items-center gap-2 text-sm font-semibold text-white/75 no-underline transition hover:text-white"
             >
-              Or just contact us
-              <ArrowRight className="h-4 w-4 shrink-0" strokeWidth={1.9} />
+              <span aria-hidden="true" className="text-[var(--pip-orange)] no-underline">
+                →
+              </span>
+              <span className="underline-offset-4 group-hover/link:underline">
+                Or just reach out
+              </span>
             </Link>
           </div>
         </div>
 
         <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/15 bg-white/5">
           <Image
-            src="/images/sections/restaurant-devices.jpg"
+            src="/images/services/where-to-start/restaurant-network-consultation-small-business-wifi-review.webp"
             alt="Small business restaurant environment with connected devices in normal operation"
             fill
             className="object-cover"
