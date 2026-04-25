@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import Section from "@/components/layout/Section";
+import { HoverImage } from "@/components/common/HoverImage";
 
 export function ServicesFinalCta() {
   return (
@@ -42,15 +42,12 @@ export function ServicesFinalCta() {
           </div>
         </div>
 
-        <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/15 bg-white/5">
-          <Image
-            src="/images/services/where-to-start/restaurant-network-consultation-small-business-wifi-review.webp"
-            alt="Small business restaurant environment with connected devices in normal operation"
-            fill
-            className="object-cover"
-            sizes="(min-width: 1024px) 40vw, 100vw"
-          />
-        </div>
+        <HoverImage
+          src="/images/services/where-to-start/restaurant-network-consultation-small-business-wifi-review.webp"
+          alt="Technician and restaurant owner reviewing network performance on a tablet during a Wi-Fi assessment"
+          className="border border-white/15 bg-white/5"
+          sizes="(min-width: 1024px) 40vw, 100vw"
+        />
       </div>
     </Section>
   );

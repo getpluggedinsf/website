@@ -38,8 +38,8 @@ export function ServicesHero() {
         <div className="relative w-full">
           <div className="group/image relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-lg">
             <Image
-              src="/images/services/hero/wifi-network-assessment-small-business-cafe-tablet.webp"
-              alt="Technician analyzing Wi-Fi network performance on a tablet inside a small business café environment"
+              src="/images/services/hero/busy-restaurant-network-environment-small-business-wifi.webp"
+              alt="Busy restaurant interior with staff and customers in a fast-paced environment, representing real-world conditions where reliable Wi-Fi and network performance are essential for small business operations."
               fill
               className="object-cover transition duration-300 group-hover/image:scale-[1.03]"
               sizes="(min-width: 1024px) 50vw, 100vw"
