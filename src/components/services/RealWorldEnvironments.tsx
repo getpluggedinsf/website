@@ -6,7 +6,7 @@ export function RealWorldEnvironments() {
   return (
     <Section tone="mid" padded="lg">
       <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.9fr] lg:gap-14">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl lg:order-2">
           <SectionHeading
             align="left"
             title="Built for Real-World Environments"
