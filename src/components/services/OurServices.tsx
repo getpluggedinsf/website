@@ -9,7 +9,7 @@ const services = [
     number: "01",
     micro: "START WITH CLARITY",
     title: "Wi-Fi & Network Reliability Assessment",
-    href: "/services/network-reliability-review",
+    href: "/services/network-assessment",
     formHref: "/contact?intent=assessment",
     image: "/images/services/our-services/wifi-network-assessment-small-business-cafe-tablet-analysis.webp",
     imageAlt:

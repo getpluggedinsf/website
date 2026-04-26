@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Section from "@/components/layout/Section";
 import { StructuredApproach } from "@/components/services/StructuredApproach";
 import { OurServices } from "@/components/services/OurServices";
 import { ChoosingNextStep } from "@/components/services/ChoosingNextStep";

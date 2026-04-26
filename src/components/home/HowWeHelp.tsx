@@ -9,7 +9,7 @@ const services = [
     step: "01",
     title: "Wi-Fi & Network Reliability Assessment",
     body: "A structured evaluation of coverage, interference, equipment limitations, and network design issues to identify the root causes of instability.",
-    href: "/services/reliability-review",
+    href: "/services/network-assessment",
     image: "/images/home/how-we-help/wifi-network-diagnostics-tablet-cafe.webp",
     alt: "Technician analyzing Wi-Fi network diagnostics on a tablet in a café",
   },

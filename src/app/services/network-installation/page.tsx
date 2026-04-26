@@ -1,76 +1,128 @@
-import type { Metadata } from "next";
-import ServiceDetailPage from "@/components/services/ServiceDetailPage";
-
-export const metadata: Metadata = {
-  title: "Network Installation, Expansion & Upgrades",
-  description:
-    "Business-grade network installation, expansion, and upgrades for coverage, capacity, and long-term reliability.",
-  alternates: {
-    canonical: "/services/network-installation",
-  },
-};
+import Link from "next/link";
+import { ServiceHero } from "@/components/services/detail/ServiceHero";
+import { ServiceSection } from "@/components/services/detail/ServiceSection";
+import { ServicesFinalCta } from "@/components/services/ServicesFinalCta";
 
 export default function NetworkInstallationPage() {
   return (
-    <ServiceDetailPage
-      backHref="/services"
-      backLabel="Back to Services"
-      title="Network Installation, Expansion & Upgrades"
-      opening={[
-        "When existing infrastructure can no longer support operational demand, improvements need to go beyond configuration.",
-        "We design and implement business-grade network infrastructure built for reliability, coverage, and long-term performance.",
-      ]}
-      involves={{
-        title: "What This Includes",
-        bullets: [
-          "upgrading routers, gateways, and access points",
-          "expanding coverage with additional access points",
-          "improving network layout and organization",
-          "integrating new systems into the network",
-          "designing and installing networks for new or renovated spaces",
-        ],
-      }}
-      whenItMakesSense={{
-        title: "When This Makes Sense",
-        bullets: [
-          "your current equipment is at capacity",
-          "you’re expanding your space or adding systems",
-          "coverage gaps affect operations",
-          "existing setups rely on consumer-grade hardware",
-          "incremental fixes are no longer effective",
-        ],
-      }}
-      whatYouGet={{
-        title: "What You Get",
-        bullets: [
-          "improved reliability under load",
-          "better coverage and performance",
-          "structured, manageable infrastructure",
-          "systems designed for real-world usage",
-        ],
-      }}
-      whatHappensNext={{
-        title: "What Happens Next",
-        intro: "After implementation:",
-        bullets: [
-          "networks can be tuned and optimized",
-          "systems can be monitored and maintained",
-          "future expansion becomes easier and more predictable",
-        ],
-      }}
-      related={[
-        {
-          href: "/services/network-reliability-review",
-          label: "Wi-Fi & Network Reliability Review",
-        },
-        {
-          href: "/services/network-troubleshooting",
-          label: "Network Troubleshooting & Stabilization",
-        },
-      ]}
-      finalCtaTitle="Build a network that supports how your business actually operates."
-      finalCtaLabel="Discuss Your Project"
-      finalCtaHref="/contact?intent=installation"
-    />
+    <main className="w-full">
+      <ServiceHero
+        eyebrow="Network Installation"
+        title="Network Design, Installation & Upgrades"
+        description="Build a network that supports how your business actually operates. When your current setup can’t keep up, we design and implement practical, reliable infrastructure for coverage, performance, and long-term growth."
+        image={{
+          src: "/images/services/installation/network-installation-router-small-business-it-rack.webp",
+          alt: "Technician installing network equipment into a small business IT rack",
+        }}
+        primaryCta={{
+          label: "Plan your network upgrade",
+          href: "/contact?intent=installation",
+        }}
+        secondaryCta={{
+          label: "Or just reach out",
+          href: "/contact?intent=general",
+        }}
+      />
+
+      <ServiceSection
+        title="What This Is"
+        tone="mid"
+        contained
+        body={[
+          "Network design, installation, and upgrade work focuses on improving or rebuilding network infrastructure when existing systems can no longer support operational demand.",
+          "Rather than layering fixes on top of outdated or limited setups, the goal is to create a network that is structured, manageable, and reliable under real-world conditions.",
+        ]}
+      />
+
+      <ServiceSection
+        title="Types of Work This Includes"
+        items={[
+          "Upgrading routers, gateways, switches, and access points",
+          "Expanding coverage with additional access points",
+          "Improving network layout, rack organization, and cable management",
+          "Integrating new systems into the network",
+          "Designing and installing networks for new or renovated spaces",
+          "Enabling capabilities such as remote monitoring, troubleshooting access, and guest network management",
+        ]}
+      />
+
+      <ServiceSection
+        title="What to Expect"
+        tone="mid"
+        body={[
+          "Work typically begins by reviewing the current environment or project requirements, then designing a solution that fits how the space is actually used.",
+          "Installation and upgrades are carried out with an emphasis on clean, organized infrastructure and minimal disruption to operations.",
+          "The result is a network that is easier to manage, more predictable under load, and better suited for future growth.",
+        ]}
+      />
+
+      <ServiceSection
+        title="When This Makes Sense"
+        items={[
+          "Your current equipment is at capacity",
+          "You’re expanding your space or adding systems",
+          "Coverage gaps affect operations",
+          "Existing setups rely on consumer-grade hardware",
+          "Incremental fixes are no longer effective",
+          "You want to add capabilities such as remote access, monitoring, or guest network management",
+        ]}
+      />
+
+      <ServiceSection
+        title="What You Get"
+        tone="mid"
+        contained
+        items={[
+          "Improved reliability under load",
+          "Better coverage and performance",
+          "Structured, manageable infrastructure",
+          "Systems designed for real-world usage",
+          "Clear, practical documentation of how your network is structured and configured",
+        ]}
+      />
+
+      <ServiceSection
+        title="What Happens Next"
+        body={[
+          "After installation or upgrades, the network can be tuned and optimized as needed to support consistent performance.",
+          "With a solid foundation in place, future changes—whether expansion, new systems, or increased demand—become easier and more predictable.",
+        ]}
+      />
+
+      <ServiceSection title="Related Services" tone="mid">
+        <div className="flex flex-col gap-3 text-[16px] leading-7">
+          <Link
+            href="/services/network-assessment"
+            className="text-[var(--pip-ink)] underline-offset-4 hover:underline"
+          >
+            → Wi-Fi & Network Reliability Assessment
+          </Link>
+
+          <Link
+            href="/services/network-troubleshooting"
+            className="text-[var(--pip-ink)] underline-offset-4 hover:underline"
+          >
+            → Network Troubleshooting & Stabilization
+          </Link>
+        </div>
+      </ServiceSection>
+
+      <ServicesFinalCta
+        title="Ready to Discuss Your Project?"
+        body="Whether you’re upgrading equipment, expanding coverage, or planning a new space, we can help design the right next step."
+        image={{
+          src: "/images/services/installation/network-installation-cta-upgrade-planning-laptop.webp",
+          alt: "Technician reviewing a network upgrade plan with a small business owner",
+        }}
+        primaryCta={{
+          label: "Plan Your Network Upgrade",
+          href: "/contact?intent=installation",
+        }}
+        secondaryCta={{
+          label: "Or just reach out",
+          href: "/contact?intent=general",
+        }}
+      />
+    </main>
   );
 }
