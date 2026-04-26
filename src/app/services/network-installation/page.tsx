@@ -28,6 +28,7 @@ export default function NetworkInstallationPage() {
       <ServiceSectionGroup tone="white">
       <ServiceSection
         title="What This Is"
+        variant="anchor"
         contained
         body={[
           "Network design, installation, and upgrade work focuses on improving or rebuilding network infrastructure when existing systems can no longer support operational demand.",
@@ -37,6 +38,7 @@ export default function NetworkInstallationPage() {
 
       <ServiceSection
         title="Types of Work This Includes"
+        variant="scan"
         items={[
           "Upgrading routers, gateways, switches, and access points",
           "Expanding coverage with additional access points",
@@ -51,6 +53,7 @@ export default function NetworkInstallationPage() {
       <ServiceSectionGroup tone="mid">
       <ServiceSection
         title="What to Expect"
+        variant="process"
         body={[
           "Work typically begins by reviewing the current environment or project requirements, then designing a solution that fits how the space is actually used.",
           "Installation and upgrades are carried out with an emphasis on clean, organized infrastructure and minimal disruption to operations.",
@@ -60,6 +63,7 @@ export default function NetworkInstallationPage() {
 
       <ServiceSection
         title="When This Makes Sense"
+        variant="decision"
         items={[
           "Your current equipment is at capacity",
           "You’re expanding your space or adding systems",
@@ -74,6 +78,7 @@ export default function NetworkInstallationPage() {
       <ServiceSectionGroup tone="white">
       <ServiceSection
         title="What You Get"
+        variant="outcome"
         contained
         items={[
           "Improved reliability under load",
@@ -86,13 +91,14 @@ export default function NetworkInstallationPage() {
 
       <ServiceSection
         title="What Happens Next"
+        variant="reassurance"
         body={[
           "After installation or upgrades, the network can be tuned and optimized as needed to support consistent performance.",
           "With a solid foundation in place, future changes—whether expansion, new systems, or increased demand—become easier and more predictable.",
         ]}
       />
 
-      <ServiceSection title="Related Services">
+      <ServiceSection title="Related Services" variant="related">
         <div className="flex flex-col gap-3 text-[16px] leading-7">
           <Link
             href="/services/network-assessment"

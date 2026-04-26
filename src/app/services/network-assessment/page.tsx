@@ -28,6 +28,7 @@ export default function NetworkAssessmentPage() {
       <ServiceSectionGroup tone="white">
       <ServiceSection
         title="What This Is"
+        variant="anchor"
         contained
         body={[
           "A Wi-Fi & Network Reliability Assessment is a structured evaluation of your network environment.",
@@ -37,6 +38,7 @@ export default function NetworkAssessmentPage() {
 
       <ServiceSection
         title="What This Involves"
+        variant="scan"
         body="During an assessment, we evaluate:"
         items={[
           "Wi-Fi coverage and signal behavior",
@@ -51,6 +53,7 @@ export default function NetworkAssessmentPage() {
       <ServiceSectionGroup tone="mid">
       <ServiceSection
         title="What to Expect"
+        variant="process"
         body={[
           "Assessments are typically performed on-site during normal business conditions.",
           "We observe how the network behaves in real use, review key systems, and evaluate the environment as it operates day to day.",
@@ -60,6 +63,7 @@ export default function NetworkAssessmentPage() {
 
       <ServiceSection
         title="When This Makes Sense"
+        variant="decision"
         items={[
           "You’re experiencing inconsistent or unreliable performance",
           "You’re not sure what’s causing network issues",
@@ -72,6 +76,7 @@ export default function NetworkAssessmentPage() {
       <ServiceSectionGroup tone="white">
       <ServiceSection
         title="What You Get"
+        variant="outcome"
         contained
         items={[
           "A clearer understanding of current network behavior",
@@ -83,6 +88,7 @@ export default function NetworkAssessmentPage() {
 
       <ServiceSection
         title="What Happens Next"
+        variant="reassurance"
         body={[
           "Based on what we find, the next step is usually straightforward.",
           "In many cases, issues can be resolved through targeted stabilization without major changes. In others, improvements may require upgrades or expanded coverage.",
@@ -90,7 +96,7 @@ export default function NetworkAssessmentPage() {
         ]}
       />
 
-      <ServiceSection title="Related Services">
+      <ServiceSection title="Related Services" variant="related">
         <div className="flex flex-col gap-3 text-[16px] leading-7">
           <Link
             href="/services/network-troubleshooting"

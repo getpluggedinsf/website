@@ -28,6 +28,7 @@ export default function NetworkTroubleshootingPage() {
       <ServiceSectionGroup tone="white">
       <ServiceSection
         title="What This Is"
+        variant="anchor"
         contained
         body={[
           "Network Troubleshooting & Stabilization focuses on correcting the underlying causes of unreliable network performance.",
@@ -37,6 +38,7 @@ export default function NetworkTroubleshootingPage() {
 
       <ServiceSection
         title="What This Involves"
+        variant="scan"
         body="Stabilization work may include:"
         items={[
           "Correcting configuration issues",
@@ -51,6 +53,7 @@ export default function NetworkTroubleshootingPage() {
       <ServiceSectionGroup tone="mid">
       <ServiceSection
         title="What to Expect"
+        variant="process"
         body={[
           "Stabilization focuses on correcting the causes of instability as they are identified.",
           "In some cases, this work follows a formal assessment. In others, issues are diagnosed and resolved directly as part of the stabilization process.",
@@ -60,6 +63,7 @@ export default function NetworkTroubleshootingPage() {
 
       <ServiceSection
         title="When This Makes Sense"
+        variant="decision"
         items={[
           "Wi-Fi drops or slows during peak hours",
           "POS or operational systems disconnect",
@@ -73,6 +77,7 @@ export default function NetworkTroubleshootingPage() {
       <ServiceSectionGroup tone="white">
       <ServiceSection
         title="What You Get"
+        variant="outcome"
         contained
         items={[
           "Improved reliability under real-world conditions",
@@ -84,6 +89,7 @@ export default function NetworkTroubleshootingPage() {
 
       <ServiceSection
         title="What Happens Next"
+        variant="reassurance"
         body={[
           "In many cases, stabilization resolves issues without requiring major upgrades.",
           "If underlying limitations remain, the next step may involve targeted improvements, equipment upgrades, or expanded infrastructure.",
@@ -91,7 +97,7 @@ export default function NetworkTroubleshootingPage() {
         ]}
       />
 
-      <ServiceSection title="Related Services">
+      <ServiceSection title="Related Services" variant="related">
         <div className="flex flex-col gap-3 text-[16px] leading-7">
           <Link
             href="/services/network-assessment"
