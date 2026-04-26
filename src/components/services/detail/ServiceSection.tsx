@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import Section from "@/components/layout/Section";
 import Surface from "@/components/layout/Surface";
 import { ServiceList } from "./ServiceList";
 
@@ -7,7 +6,6 @@ type ServiceSectionProps = {
   title: string;
   body?: string | string[];
   items?: readonly string[];
-  tone?: "white" | "mid";
   contained?: boolean;
   children?: ReactNode;
 };
@@ -16,7 +14,6 @@ export function ServiceSection({
   title,
   body,
   items,
-  tone = "white",
   contained = false,
   children,
 }: ServiceSectionProps) {
@@ -29,7 +26,7 @@ export function ServiceSection({
       </h2>
 
       {paragraphs.length > 0 && (
-        <div className="mt-5 space-y-4 text-[17px] leading-[1.7] text-slate-700">
+        <div className="mt-4 space-y-3 text-[17px] leading-[1.65] text-slate-700">
           {paragraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
@@ -42,15 +39,11 @@ export function ServiceSection({
     </div>
   );
 
-  return (
-    <Section tone={tone} padded="md">
-      {contained ? (
-        <Surface padding="lg" radius="lg" border shadow={false}>
-          {content}
-        </Surface>
-      ) : (
-        content
-      )}
-    </Section>
+  return contained ? (
+    <Surface padding="lg" radius="lg" border shadow={false}>
+      {content}
+    </Surface>
+  ) : (
+    content
   );
 }

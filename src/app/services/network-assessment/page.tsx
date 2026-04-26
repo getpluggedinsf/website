@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ServiceHero } from "@/components/services/detail/ServiceHero";
 import { ServiceSection } from "@/components/services/detail/ServiceSection";
 import { ServicesFinalCta } from "@/components/services/ServicesFinalCta";
+import { ServiceSectionGroup } from "@/components/services/detail/ServiceSectionGroup";
 
 export default function NetworkAssessmentPage() {
   return (
@@ -24,9 +25,9 @@ export default function NetworkAssessmentPage() {
         }}
       />
 
+      <ServiceSectionGroup tone="white">
       <ServiceSection
         title="What This Is"
-        tone="mid"
         contained
         body={[
           "A Wi-Fi & Network Reliability Assessment is a structured evaluation of your network environment.",
@@ -45,10 +46,11 @@ export default function NetworkAssessmentPage() {
           "Infrastructure design affecting performance",
         ]}
       />
+      </ServiceSectionGroup>
 
+      <ServiceSectionGroup tone="mid">
       <ServiceSection
         title="What to Expect"
-        tone="mid"
         body={[
           "Assessments are typically performed on-site during normal business conditions.",
           "We observe how the network behaves in real use, review key systems, and evaluate the environment as it operates day to day.",
@@ -65,10 +67,11 @@ export default function NetworkAssessmentPage() {
           "You want to make informed decisions before upgrading",
         ]}
       />
+      </ServiceSectionGroup>
 
+      <ServiceSectionGroup tone="white">
       <ServiceSection
         title="What You Get"
-        tone="mid"
         contained
         items={[
           "A clearer understanding of current network behavior",
@@ -87,7 +90,7 @@ export default function NetworkAssessmentPage() {
         ]}
       />
 
-      <ServiceSection title="Related Services" tone="mid">
+      <ServiceSection title="Related Services">
         <div className="flex flex-col gap-3 text-[16px] leading-7">
           <Link
             href="/services/network-troubleshooting"
@@ -104,6 +107,7 @@ export default function NetworkAssessmentPage() {
           </Link>
         </div>
       </ServiceSection>
+      </ServiceSectionGroup>
 
       <ServicesFinalCta
         title="Not Sure Where to Start?"

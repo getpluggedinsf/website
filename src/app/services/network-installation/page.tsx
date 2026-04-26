@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ServiceHero } from "@/components/services/detail/ServiceHero";
 import { ServiceSection } from "@/components/services/detail/ServiceSection";
 import { ServicesFinalCta } from "@/components/services/ServicesFinalCta";
+import { ServiceSectionGroup } from "@/components/services/detail/ServiceSectionGroup";
 
 export default function NetworkInstallationPage() {
   return (
@@ -24,9 +25,9 @@ export default function NetworkInstallationPage() {
         }}
       />
 
+      <ServiceSectionGroup tone="white">
       <ServiceSection
         title="What This Is"
-        tone="mid"
         contained
         body={[
           "Network design, installation, and upgrade work focuses on improving or rebuilding network infrastructure when existing systems can no longer support operational demand.",
@@ -45,10 +46,11 @@ export default function NetworkInstallationPage() {
           "Enabling capabilities such as remote monitoring, troubleshooting access, and guest network management",
         ]}
       />
+      </ServiceSectionGroup>
 
+      <ServiceSectionGroup tone="mid">
       <ServiceSection
         title="What to Expect"
-        tone="mid"
         body={[
           "Work typically begins by reviewing the current environment or project requirements, then designing a solution that fits how the space is actually used.",
           "Installation and upgrades are carried out with an emphasis on clean, organized infrastructure and minimal disruption to operations.",
@@ -67,10 +69,11 @@ export default function NetworkInstallationPage() {
           "You want to add capabilities such as remote access, monitoring, or guest network management",
         ]}
       />
+      </ServiceSectionGroup>
 
+      <ServiceSectionGroup tone="white">
       <ServiceSection
         title="What You Get"
-        tone="mid"
         contained
         items={[
           "Improved reliability under load",
@@ -89,7 +92,7 @@ export default function NetworkInstallationPage() {
         ]}
       />
 
-      <ServiceSection title="Related Services" tone="mid">
+      <ServiceSection title="Related Services">
         <div className="flex flex-col gap-3 text-[16px] leading-7">
           <Link
             href="/services/network-assessment"
@@ -106,6 +109,7 @@ export default function NetworkInstallationPage() {
           </Link>
         </div>
       </ServiceSection>
+      </ServiceSectionGroup>
 
       <ServicesFinalCta
         title="Ready to Discuss Your Project?"

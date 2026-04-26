@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ServiceHero } from "@/components/services/detail/ServiceHero";
 import { ServiceSection } from "@/components/services/detail/ServiceSection";
 import { ServicesFinalCta } from "@/components/services/ServicesFinalCta";
+import { ServiceSectionGroup } from "@/components/services/detail/ServiceSectionGroup";
 
 export default function NetworkTroubleshootingPage() {
   return (
@@ -24,9 +25,9 @@ export default function NetworkTroubleshootingPage() {
         }}
       />
 
+      <ServiceSectionGroup tone="white">
       <ServiceSection
         title="What This Is"
-        tone="mid"
         contained
         body={[
           "Network Troubleshooting & Stabilization focuses on correcting the underlying causes of unreliable network performance.",
@@ -45,10 +46,11 @@ export default function NetworkTroubleshootingPage() {
           "Resolving infrastructure-related issues",
         ]}
       />
+      </ServiceSectionGroup>
 
+      <ServiceSectionGroup tone="mid">
       <ServiceSection
         title="What to Expect"
-        tone="mid"
         body={[
           "Stabilization focuses on correcting the causes of instability as they are identified.",
           "In some cases, this work follows a formal assessment. In others, issues are diagnosed and resolved directly as part of the stabilization process.",
@@ -66,10 +68,11 @@ export default function NetworkTroubleshootingPage() {
           "The network is no longer functioning as expected",
         ]}
       />
+      </ServiceSectionGroup>
 
+      <ServiceSectionGroup tone="white">
       <ServiceSection
         title="What You Get"
-        tone="mid"
         contained
         items={[
           "Improved reliability under real-world conditions",
@@ -88,7 +91,7 @@ export default function NetworkTroubleshootingPage() {
         ]}
       />
 
-      <ServiceSection title="Related Services" tone="mid">
+      <ServiceSection title="Related Services">
         <div className="flex flex-col gap-3 text-[16px] leading-7">
           <Link
             href="/services/network-assessment"
@@ -105,6 +108,7 @@ export default function NetworkTroubleshootingPage() {
           </Link>
         </div>
       </ServiceSection>
+      </ServiceSectionGroup>
 
       <ServicesFinalCta
         title="Need Help Stabilizing Your Network?" 

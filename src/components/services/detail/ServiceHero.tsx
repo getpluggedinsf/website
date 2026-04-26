@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { HoverImage } from "@/components/common/HoverImage";
 import Section from "@/components/layout/Section";
+import Image from "next/image";
 
 type ServiceHeroProps = {
   eyebrow?: string;
@@ -68,12 +68,18 @@ export function ServiceHero({
           </div>
         </div>
 
-        <HoverImage
-          src={image.src}
-          alt={image.alt}
-          sizes="(min-width: 1024px) 45vw, 100vw"
-          className="border border-[var(--pip-border)] bg-white"
-        />
+        <div className="lg:h-full">
+          <div className="group/image relative min-h-[280px] overflow-hidden rounded-lg border border-[var(--pip-border)] bg-white lg:h-full">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              priority
+              className="object-cover transition duration-300 group-hover/image:scale-[1.02]"
+            />
+          </div>
+        </div>
       </div>
     </Section>
   );
