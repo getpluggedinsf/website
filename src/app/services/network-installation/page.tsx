@@ -1,163 +1,161 @@
-import Link from "next/link";
-import { ServiceHero } from "@/components/services/detail/ServiceHero";
-import { ServiceSection } from "@/components/services/detail/ServiceSection";
-import { ServicesFinalCta } from "@/components/services/ServicesFinalCta";
-import { ServiceSectionGroup } from "@/components/services/detail/ServiceSectionGroup";
+import { ServiceDetailPage } from "@/components/services/detail/ServiceDetailPage";
 
 export default function NetworkInstallationPage() {
   return (
-    <main className="w-full">
-      <ServiceHero
-        eyebrow="Network Installation"
-        title="Network Design, Installation & Upgrades"
-        description="Build a network that supports how your business actually operates. When your current setup can’t keep up, we design and implement practical, reliable infrastructure for coverage, performance, and long-term growth."
-        image={{
+    <ServiceDetailPage
+      hero={{
+        eyebrow: "Network Installation",
+        title: "Network Design, Installation & Upgrades",
+        description:
+          "Build a network that supports how your business actually operates. When your current setup can’t keep up, we design and implement practical, reliable infrastructure for coverage, performance, and long-term growth.",
+        image: {
           src: "/images/services/installation/network-installation-router-small-business-it-rack.webp",
           alt: "Technician installing network equipment into a small business IT rack",
-        }}
-        primaryCta={{
+        },
+        primaryCta: {
           label: "Plan your network upgrade",
           href: "/contact?intent=installation",
-        }}
-        secondaryCta={{
+        },
+        secondaryCta: {
           label: "Or just reach out",
           href: "/contact?intent=general",
-        }}
-      />
-
-      <ServiceSectionGroup tone="white">
-        <ServiceSection
-          title="What This Is"
-          variant="anchor"
-          contained
-          body={[
-            "Network design, installation, and upgrade work focuses on improving or rebuilding network infrastructure when existing systems can no longer support operational demand.",
-            "Rather than layering fixes on top of outdated or limited setups, the goal is to create a network that is structured, manageable, and reliable under real-world conditions.",
-          ]}
-        />
-
-        <ServiceSection
-          title="Types of Work This Includes"
-          body="Installation and upgrade work may include:"
-          variant="grid"
-          items={[
-            {
-              title: "Upgrading network equipment",
-              description:
-                "Replace or improve routers, gateways, switches, and access points when current hardware can no longer keep up.",
-            },
-            {
-              title: "Expanding wireless coverage",
-              description:
-                "Add or reposition access points to reduce dead zones and improve performance across the space.",
-            },
-            {
-              title: "Improving layout and organization",
-              description:
-                "Clean up network layout, rack organization, and cable management so the system is easier to support.",
-            },
-            {
-              title: "Integrating new systems",
-              description:
-                "Connect new POS, camera, guest access, or operational systems into the network more reliably.",
-            },
-            {
-              title: "Designing for new or renovated spaces",
-              description:
-                "Plan and install network infrastructure around how the space will actually be used.",
-            },
-            {
-              title: "Adding management capabilities",
-              description:
-                "Enable capabilities such as remote monitoring, troubleshooting access, and guest network management when appropriate.",
-            },
-          ]}
-        />
-      </ServiceSectionGroup>
-
-      <ServiceSectionGroup tone="mid">
-        <ServiceSection
-          title="What to Expect"
-          variant="process"
-          body={[
-            "Work typically begins by reviewing the current environment or project requirements, then designing a solution that fits how the space is actually used.",
-            "Installation and upgrades are carried out with an emphasis on clean, organized infrastructure and minimal disruption to operations.",
-            "The result is a network that is easier to manage, more predictable under load, and better suited for future growth.",
-          ]}
-        />
-
-        <ServiceSection
-          title="When This Makes Sense"
-          variant="decision"
-          items={[
-            "Your current equipment is at capacity",
-            "You’re expanding your space or adding systems",
-            "Coverage gaps affect operations",
-            "Existing setups rely on consumer-grade hardware",
-            "Incremental fixes are no longer effective",
-            "You want to add capabilities such as remote access, monitoring, or guest network management",
-          ]}
-        />
-      </ServiceSectionGroup>
-
-      <ServiceSectionGroup tone="white">
-        <ServiceSection
-          title="What You Get"
-          variant="outcome"
-          contained
-          items={[
-            "Improved reliability under load",
-            "Better coverage and performance",
-            "Structured, manageable infrastructure",
-            "Systems designed for real-world usage",
-            "Clear, practical documentation of how your network is structured and configured",
-          ]}
-        />
-
-        <ServiceSection
-          title="What Happens Next"
-          variant="reassurance"
-          body={[
-            "After installation or upgrades, the network can be tuned and optimized as needed to support consistent performance.",
-            "With a solid foundation in place, future changes—whether expansion, new systems, or increased demand—become easier and more predictable.",
-          ]}
-        />
-
-        <ServiceSection title="Related Services" variant="related">
-          <div className="flex flex-col gap-3 text-[16px] leading-7">
-            <Link
-              href="/services/network-assessment"
-              className="text-[var(--pip-ink)] underline-offset-4 hover:underline"
-            >
-              → Wi-Fi & Network Reliability Assessment
-            </Link>
-
-            <Link
-              href="/services/network-troubleshooting"
-              className="text-[var(--pip-ink)] underline-offset-4 hover:underline"
-            >
-              → Network Troubleshooting & Stabilization
-            </Link>
-          </div>
-        </ServiceSection>
-      </ServiceSectionGroup>
-
-      <ServicesFinalCta
-        title="Ready to Discuss Your Project?"
-        body="Whether you’re upgrading equipment, expanding coverage, or planning a new space, we can help design the right next step."
-        image={{
+        },
+      }}
+      intro={{
+        title: "What This Is",
+        body: [
+          "Network design, installation, and upgrade work focuses on improving or rebuilding network infrastructure when existing systems can no longer support operational demand.",
+          "Rather than layering fixes on top of outdated or limited setups, the goal is to create a network that is structured, manageable, and reliable under real-world conditions.",
+        ],
+      }}
+      involves={{
+        title: "Types of Work This Includes",
+        body: "Installation and upgrade work may include:",
+        items: [
+          {
+            title: "Upgrading network equipment",
+            description:
+              "Replace or improve routers, gateways, switches, and access points when current hardware can no longer keep up.",
+          },
+          {
+            title: "Expanding wireless coverage",
+            description:
+              "Add or reposition access points to reduce dead zones and improve performance across the space.",
+          },
+          {
+            title: "Improving layout and organization",
+            description:
+              "Clean up network layout, rack organization, and cable management so the system is easier to support.",
+          },
+          {
+            title: "Integrating new systems",
+            description:
+              "Connect new POS, camera, guest access, or operational systems into the network more reliably.",
+          },
+          {
+            title: "Designing for new or renovated spaces",
+            description:
+              "Plan and install network infrastructure around how the space will actually be used.",
+          },
+          {
+            title: "Adding management capabilities",
+            description:
+              "Enable capabilities such as remote monitoring, troubleshooting access, and guest network management when appropriate.",
+          },
+        ],
+      }}
+      process={{
+        title: "What to Expect",
+        steps: [
+          {
+            title: "Review requirements",
+            description:
+              "Work begins by understanding the current environment, project goals, and how the space is actually used.",
+          },
+          {
+            title: "Design the right approach",
+            description:
+              "The plan is shaped around coverage, capacity, reliability, layout, and practical business needs.",
+          },
+          {
+            title: "Install cleanly",
+            description:
+              "Equipment, cabling, and network layout are implemented with organization and minimal disruption in mind.",
+          },
+          {
+            title: "Prepare for growth",
+            description:
+              "The finished setup should be easier to manage, support, and expand as the business changes.",
+          },
+        ],
+      }}
+      fit={{
+        title: "When This Makes Sense",
+        items: [
+          "Your current equipment is at capacity",
+          "You’re expanding your space or adding systems",
+          "Coverage gaps affect operations",
+          "Existing setups rely on consumer-grade hardware",
+          "Incremental fixes are no longer effective",
+          "You want to add capabilities such as remote access, monitoring, or guest network management",
+        ],
+      }}
+      outcomes={{
+        title: "What You Get",
+        items: [
+          "Improved reliability under load",
+          "Better coverage and performance",
+          "Structured, manageable infrastructure",
+          "Systems designed for real-world usage",
+          "Clear, practical documentation of how your network is structured and configured",
+        ],
+      }}
+      next={{
+        title: "What Happens Next",
+        body: [
+          "After installation or upgrades, the network can be tuned and optimized as needed to support consistent performance.",
+          "With a solid foundation in place, future changes—whether expansion, new systems, or increased demand—become easier and more predictable.",
+        ],
+      }}
+      related={{
+        title: "Related Services",
+        services: [
+          {
+            title: "Wi-Fi & Network Reliability Assessment",
+            description:
+              "For understanding what is happening before deciding whether stabilization, upgrades, or installation work makes sense.",
+            href: "/services/network-assessment",
+            image:
+              "/images/services/assessment/wifi-network-assessment-small-business-cafe-tablet-analysis.webp",
+            alt: "Technician analyzing Wi-Fi network performance on a tablet inside a small business café environment",
+          },
+          {
+            title: "Network Troubleshooting & Stabilization",
+            description:
+              "For unstable, inconsistent, or unreliable networks that need targeted correction.",
+            href: "/services/network-troubleshooting",
+            image:
+              "/images/services/troubleshooting/network-troubleshooting-server-rack-cable-adjustment.webp",
+            alt: "Technician troubleshooting network equipment and cables in a small business IT rack",
+          },
+        ],
+      }}
+      finalCta={{
+        title: "Ready to Discuss Your Project?",
+        body: "Whether you’re upgrading equipment, expanding coverage, or planning a new space, we can help design the right next step.",
+        image: {
           src: "/images/services/installation/network-installation-cta-upgrade-planning-laptop.webp",
           alt: "Technician reviewing a network upgrade plan with a small business owner",
-        }}
-        primaryCta={{
+        },
+        primaryCta: {
           label: "Plan Your Network Upgrade",
           href: "/contact?intent=installation",
-        }}
-        secondaryCta={{
+        },
+        secondaryCta: {
           label: "Or just reach out",
           href: "/contact?intent=general",
-        }}
-      />
-    </main>
+        },
+      }}
+    />
   );
 }

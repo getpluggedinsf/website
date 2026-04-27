@@ -19,6 +19,7 @@ type ServiceSectionProps = {
   contained?: boolean;
   children?: ReactNode;
   variant?: ServiceSectionVariant;
+  align?: "left" | "center";
 };
 
 const variantStyles: Record<
@@ -31,7 +32,7 @@ const variantStyles: Record<
   }
 > = {
   anchor: {
-    body: "mt-4 space-y-4 text-[17px] leading-[1.75] text-slate-700",
+    body: "mt-3 space-y-3 text-[17px] leading-[1.7] text-slate-700",
   },
   scan: {
     body: "mt-4 space-y-3 text-[17px] leading-[1.65] text-slate-700",
@@ -56,8 +57,8 @@ const variantStyles: Record<
     childrenContainer: "mt-5",
   },
   grid: {
-    body: "mx-auto mt-4 max-w-3xl text-center text-[17px] leading-[1.65] text-slate-700",
-    listContainer: "mt-5",
+    body: "mt-3 max-w-3xl text-left text-[17px] leading-[1.65] text-slate-700",
+    listContainer: "mt-4",
   },
 };
 
@@ -66,7 +67,9 @@ function GridItems({ items }: { items: readonly ServiceListItem[] }) {
     <div className="flex flex-wrap justify-center gap-4">
       {items.map((item) => {
         const card =
-          typeof item === "string" ? { title: item, description: undefined } : item;
+          typeof item === "string"
+            ? { title: item, description: undefined }
+            : item;
 
         return (
           <div
@@ -89,6 +92,14 @@ function GridItems({ items }: { items: readonly ServiceListItem[] }) {
   );
 }
 
+function ServiceSectionHeader({ title }: { title: string }) {
+  return (
+    <h2 className="font-heading text-2xl font-semibold leading-tight tracking-heading text-[var(--pip-ink)] md:text-[1.7rem]">
+      {title}
+    </h2>
+  );
+}
+
 export function ServiceSection({
   title,
   body,
@@ -96,6 +107,7 @@ export function ServiceSection({
   contained = false,
   children,
   variant = "anchor",
+  align = "left",
 }: ServiceSectionProps) {
   const paragraphs = Array.isArray(body) ? body : body ? [body] : [];
   const styles = variantStyles[variant];
@@ -103,21 +115,14 @@ export function ServiceSection({
 
   const content = (
     <div className={isGrid ? "max-w-6xl" : "max-w-3xl"}>
-      <h2
-        className={[
-          "font-heading text-3xl font-semibold leading-tight tracking-heading text-[var(--pip-ink)]",
-          isGrid ? "text-center" : "",
-        ].join(" ")}
-      >
-        {title}
-      </h2>
-
+      <ServiceSectionHeader title={title} />
       {paragraphs.length > 0 && (
         <div
-          className={
+          className={[
             styles.body ??
-            "mt-4 space-y-3 text-[17px] leading-[1.65] text-slate-700"
-          }
+              "mt-4 space-y-3 text-[17px] leading-[1.65] text-slate-700",
+            isGrid && align === "center" ? "mx-auto text-center" : "",
+          ].join(" ")}
         >
           {paragraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
