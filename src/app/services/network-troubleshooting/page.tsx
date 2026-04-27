@@ -26,94 +26,113 @@ export default function NetworkTroubleshootingPage() {
       />
 
       <ServiceSectionGroup tone="white">
-      <ServiceSection
-        title="What This Is"
-        variant="anchor"
-        contained
-        body={[
-          "Network Troubleshooting & Stabilization focuses on correcting the underlying causes of unreliable network performance.",
-          "Instead of working around issues or adding temporary fixes, the goal is to make the network behave consistently under real operating conditions.",
-        ]}
-      />
+        <ServiceSection
+          title="What This Is"
+          variant="anchor"
+          contained
+          body={[
+            "Network Troubleshooting & Stabilization focuses on correcting the underlying causes of unreliable network performance.",
+            "Instead of working around issues or adding temporary fixes, the goal is to make the network behave consistently under real operating conditions.",
+          ]}
+        />
 
-      <ServiceSection
-        title="What This Involves"
-        variant="scan"
-        body="Stabilization work may include:"
-        items={[
-          "Correcting configuration issues",
-          "Improving wireless channel planning",
-          "Adjusting equipment placement",
-          "Refining network segmentation",
-          "Resolving infrastructure-related issues",
-        ]}
-      />
+        <ServiceSection
+          title="What This Involves"
+          body="Stabilization work may include:"
+          variant="grid"
+          items={[
+            {
+              title: "Correcting configuration issues",
+              description:
+                "Resolve settings or configuration choices that contribute to slowdowns, dropouts, or inconsistent behavior.",
+            },
+            {
+              title: "Improving wireless channel planning",
+              description:
+                "Reduce interference and congestion by adjusting how wireless access points use available channels.",
+            },
+            {
+              title: "Adjusting equipment placement",
+              description:
+                "Improve performance by evaluating where access points, routers, or network equipment are positioned.",
+            },
+            {
+              title: "Refining network segmentation",
+              description:
+                "Separate business systems, guest access, and devices so traffic is better organized and conflicts are reduced.",
+            },
+            {
+              title: "Resolving infrastructure-related issues",
+              description:
+                "Identify cabling, hardware, or layout issues that may be contributing to unreliable performance.",
+            },
+          ]}
+        />
       </ServiceSectionGroup>
 
       <ServiceSectionGroup tone="mid">
-      <ServiceSection
-        title="What to Expect"
-        variant="process"
-        body={[
-          "Stabilization focuses on correcting the causes of instability as they are identified.",
-          "In some cases, this work follows a formal assessment. In others, issues are diagnosed and resolved directly as part of the stabilization process.",
-          "Changes are made carefully and tested under real conditions to help ensure the network behaves consistently during normal operation.",
-        ]}
-      />
-
-      <ServiceSection
-        title="When This Makes Sense"
-        variant="decision"
-        items={[
-          "Wi-Fi drops or slows during peak hours",
-          "POS or operational systems disconnect",
-          "Guest traffic interferes with business systems",
-          "Performance is inconsistent or unpredictable",
-          "The network is no longer functioning as expected",
-        ]}
-      />
+        <ServiceSection
+          title="What to Expect"
+          variant="process"
+          body={[
+            "Stabilization focuses on correcting the causes of instability as they are identified.",
+            "In some cases, this work follows a formal assessment. In others, issues are diagnosed and resolved directly as part of the stabilization process.",
+            "Changes are made carefully and tested under real conditions to help ensure the network behaves consistently during normal operation.",
+          ]}
+        />
+        <ServiceSection
+          title="When This Makes Sense"
+          variant="decision"
+          items={[
+            "Wi-Fi drops or slows during peak hours",
+            "POS or operational systems disconnect",
+            "Guest traffic interferes with business systems",
+            "Performance is inconsistent or unpredictable",
+            "The network is no longer functioning as expected",
+          ]}
+        />
       </ServiceSectionGroup>
 
       <ServiceSectionGroup tone="white">
-      <ServiceSection
-        title="What You Get"
-        variant="outcome"
-        contained
-        items={[
-          "Improved reliability under real-world conditions",
-          "Better separation between systems",
-          "Fewer disruptions during peak operations",
-          "A network that behaves more predictably",
-        ]}
-      />
+        <ServiceSection
+          title="What You Get"
+          variant="outcome"
+          contained
+          items={[
+            "Improved reliability under real-world conditions",
+            "Better separation between systems",
+            "Fewer disruptions during peak operations",
+            "A network that behaves more predictably",
+          ]}
+        />
 
-      <ServiceSection
-        title="What Happens Next"
-        variant="reassurance"
-        body={[
-          "In many cases, stabilization resolves issues without requiring major upgrades.",
-          "If underlying limitations remain, the next step may involve targeted improvements, equipment upgrades, or expanded infrastructure.",
-          "The goal is always to take the simplest effective step toward a stable, reliable network.",
-        ]}
-      />
+        <ServiceSection
+          title="What Happens Next"
+          variant="reassurance"
+          body={[
+            "In many cases, stabilization resolves issues without requiring major upgrades.",
+            "If underlying limitations remain, the next step may involve targeted improvements, equipment upgrades, or expanded infrastructure.",
+            "The goal is always to take the simplest effective step toward a stable, reliable network.",
+          ]}
+        />
 
-      <ServiceSection title="Related Services" variant="related">
-        <div className="flex flex-col gap-3 text-[16px] leading-7">
-          <Link
-            href="/services/network-assessment"
-            className="text-[var(--pip-ink)] underline-offset-4 hover:underline"
-          >
-            → Wi-Fi & Network Reliability Assessment
-          </Link>
-
-          <Link
-            href="/services/network-installation"
-            className="text-[var(--pip-ink)] underline-offset-4 hover:underline"
-          >
-            → Network Design, Installation & Upgrades
-          </Link>
-        </div>
-      </ServiceSection>
+        <ServiceSection title="Related Services" variant="related">
+          <div className="flex flex-col gap-3 text-[16px] leading-7">
+            <Link
+              href="/services/network-assessment"
+              className="text-[var(--pip-ink)] underline-offset-4 hover:underline"
+            >
+              → Wi-Fi & Network Reliability Assessment
+            </Link>
+  
+            <Link
+              href="/services/network-installation"
+              className="text-[var(--pip-ink)] underline-offset-4 hover:underline"
+            >
+              → Network Design, Installation & Upgrades
+            </Link>
+          </div>
+        </ServiceSection>
       </ServiceSectionGroup>
 
       <ServicesFinalCta
