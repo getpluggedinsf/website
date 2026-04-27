@@ -1,204 +1,121 @@
+import { ServiceHero } from "@/components/services/detail/ServiceHero";
+import { AboutSection } from "@/components/about/AboutSection";
+import { ServicesFinalCta } from "@/components/services/ServicesFinalCta";
+
 export default function AboutPage() {
   return (
     <main className="w-full">
-      {/* H1 */}
-      <section className="w-full">
-        <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
-          <div className="max-w-3xl">
-            <h1 className="text-balance text-4xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-5xl">
-              About PluggedIn Pros
-            </h1>
-          </div>
-        </div>
-      </section>
 
-      {/* Our Focus */}
-      <section className="w-full border-t border-slate-200">
-        <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-3xl">
-              Our Focus
-            </h2>
+      {/* Hero */}
+      <ServiceHero
+        eyebrow="About PluggedIn Pros"
+        title="Practical Network Infrastructure for San Francisco Small Businesses"
+        description="PluggedIn Pros focuses on improving the reliability of Wi-Fi and network environments that businesses depend on every day."
+        image={{
+          src: "/images/about/about-hero-technician-network-rack.webp",
+          alt: "Technician working on network infrastructure in a professional environment",
+        }}
+        primaryCta={{
+          label: "Start with a Network Assessment",
+          href: "/contact?intent=assessment",
+        }}
+        secondaryCta={{
+          label: "Or just reach out",
+          href: "/contact?intent=general",
+        }}
+      />
 
-            <p className="mt-4 text-base leading-relaxed text-slate-700">
-              PluggedIn Pros specializes in Wi-Fi and network infrastructure for
-              small businesses in San Francisco.
-            </p>
+      {/* Focus */}
+      <AboutSection
+        title="A Focus on Reliable Network Infrastructure"
+        body={`Many IT providers offer broad support across everything from email to devices to software.
 
-            <p className="mt-4 text-base leading-relaxed text-slate-700">
-              Too often, network systems are treated as afterthoughts — until
-              something breaks. Equipment gets added over time. Access points
-              are placed for convenience. Guest and POS traffic share the same
-              network without clear separation.
-            </p>
+PluggedIn Pros focuses specifically on Wi-Fi and network infrastructure — the foundation that modern business systems depend on.
 
-            <p className="mt-4 text-base leading-relaxed text-slate-700">
-              The result is instability that surfaces during the worst possible
-              moments.
-            </p>
+POS systems, handheld devices, guest Wi-Fi, cameras, and payment systems all rely on stable connectivity. When the network becomes unreliable, these systems often appear to fail even when they’re functioning correctly.
 
-            <p className="mt-4 text-base leading-relaxed text-slate-700">
-              Our focus is simple: design and maintain reliable infrastructure
-              so business owners can focus on running their operations.
-            </p>
-          </div>
-        </div>
-      </section>
+Our work focuses on making those environments stable, predictable, and built for real-world usage.`}
+      />
 
-      {/* Why Infrastructure Matters */}
-      <section className="w-full border-t border-slate-200">
-        <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-3xl">
-              Why Infrastructure Matters
-            </h2>
+      {/* Experience */}
+      <AboutSection
+        tone="mid"
+        title="Built on Real-World Infrastructure Experience"
+        body={`PluggedIn Pros is led by Mark Steiner, a San Francisco technology professional with decades of experience working with networked systems and infrastructure.
 
-            <p className="mt-4 text-base leading-relaxed text-slate-700">
-              In restaurants, retail spaces, offices, and service-based
-              businesses, connectivity is operational.
-            </p>
+His background includes early work in UNIX systems administration and enterprise environments supporting production systems where reliability was critical.
 
-            <p className="mt-4 text-base leading-relaxed text-slate-700">
-              When the network is unstable:
-            </p>
+More recently, he spent nearly a decade working directly in restaurant technology environments — installing POS systems, configuring networks, and supporting infrastructure during live service.
 
-            <ul className="mt-4 space-y-3 text-base leading-relaxed text-slate-700">
-              {[
-                "Transactions slow or fail",
-                "Staff workflows are interrupted",
-                "Guest experiences suffer",
-                "Owners lose time diagnosing issues",
-              ].map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--pip-navy)] opacity-70" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+This combination of enterprise systems experience and hands-on restaurant work informs how PluggedIn Pros approaches network design today.`}
+      />
 
-            <p className="mt-6 text-base leading-relaxed text-slate-700">
-              Reliable infrastructure reduces stress and prevents recurring
-              problems.
-            </p>
+      {/* Real Environments */}
+      <AboutSection
+        title="Experience in Operational Environments"
+        body="Restaurant and small business networks often support multiple systems at the same time:"
+        items={[
+          "POS terminals",
+          "Handheld ordering devices",
+          "Guest Wi-Fi",
+          "Streaming systems",
+          "Security cameras",
+          "Payment systems",
+        ]}
+      />
 
-            <p className="mt-4 text-base leading-relaxed text-slate-700">
-              We approach network design with long-term stability in mind — not
-              quick fixes.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Approach */}
+      <AboutSection
+        tone="mid"
+        title="A Structured Approach to Reliable Networks"
+        body="Work typically follows a simple progression:"
+        items={[
+          "Assessment — Understand how the network behaves under real conditions",
+          "Stabilization — Resolve configuration issues and performance bottlenecks",
+          "Design & Improvement — Upgrade infrastructure when needed to support long-term reliability",
+        ]}
+      />
 
-      {/* How We Work */}
-      <section className="w-full border-t border-slate-200">
-        <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-3xl">
-              How We Work
-            </h2>
+      {/* Local Focus */}
+      <AboutSection
+        title="Serving San Francisco Small Businesses"
+        body="San Francisco environments present unique challenges:"
+        items={[
+          "Dense wireless interference",
+          "Multi-tenant buildings",
+          "Older construction",
+          "Outdoor coverage requirements",
+          "High device density",
+        ]}
+      />
 
-            <p className="mt-4 text-base leading-relaxed text-slate-700">
-              We prioritize:
-            </p>
+      {/* Closing */}
+      <AboutSection
+        tone="mid"
+        title="Practical Infrastructure, Built to Work"
+        body={`PluggedIn Pros was founded to provide small businesses with access to practical network infrastructure expertise.
 
-            <ul className="mt-4 space-y-3 text-base leading-relaxed text-slate-700">
-              {[
-                "Clear explanations",
-                "Practical recommendations",
-                "Clean installations and organization",
-                "Proper segmentation between guest and operational systems",
-                "Infrastructure sized appropriately for real-world usage",
-              ].map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--pip-navy)] opacity-70" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+The goal is simple: stable, predictable networks that support daily operations.`}
+      />
 
-            <div className="mt-6 space-y-4 text-base leading-relaxed text-slate-700">
-              <p>No unnecessary complexity.</p>
-              <p>No overbuilt enterprise architecture.</p>
-              <p>No pressure to purchase hardware that isn’t needed.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Final CTA */}
+      <ServicesFinalCta
+        title="Start with a Network Assessment"
+        body="If your network has become unreliable or unpredictable, a structured assessment is the first step toward understanding what’s happening and what to do next."
+        image={{
+          src: "/images/about/about-cta-owner-consultation.webp",
+          alt: "Technician discussing network improvements with a small business owner",
+        }}
+        primaryCta={{
+          label: "Start with a Network Assessment",
+          href: "/contact?intent=assessment",
+        }}
+        secondaryCta={{
+          label: "Or just reach out",
+          href: "/contact?intent=general",
+        }}
+      />
 
-      {/* Local Experience */}
-      <section className="w-full border-t border-slate-200">
-        <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-3xl">
-              Local Experience
-            </h2>
-
-            <p className="mt-4 text-base leading-relaxed text-slate-700">
-              San Francisco presents unique network challenges:
-            </p>
-
-            <ul className="mt-4 space-y-3 text-base leading-relaxed text-slate-700">
-              {[
-                "Dense wireless interference",
-                "Multi-tenant buildings",
-                "Older construction and thick walls",
-                "Outdoor seating and patio coverage",
-                "High peak-hour device density",
-              ].map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--pip-navy)] opacity-70" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p className="mt-6 text-base leading-relaxed text-slate-700">
-              We design and optimize networks for these real-world conditions —
-              not ideal lab environments.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Commitment */}
-      <section className="w-full border-t border-slate-200">
-        <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-3xl">
-              Our Commitment
-            </h2>
-
-            <p className="mt-4 text-base leading-relaxed text-slate-700">
-              We aim to be steady, reliable, and easy to work with.
-            </p>
-
-            <p className="mt-4 text-base leading-relaxed text-slate-700">
-              Most businesses don’t want to think about their network every day.
-              They just want it to work.
-            </p>
-
-            <p className="mt-4 text-base leading-relaxed text-slate-700">
-              That’s the standard we design for.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Serving San Francisco Small Businesses */}
-      <section className="w-full border-t border-slate-200">
-        <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-[var(--pip-navy)] sm:text-3xl">
-              Serving San Francisco Small Businesses
-            </h2>
-
-            <p className="mt-4 text-base leading-relaxed text-slate-700">
-              PluggedIn Pros provides on-site Wi-Fi and network infrastructure
-              services throughout San Francisco.
-            </p>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
