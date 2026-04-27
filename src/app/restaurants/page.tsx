@@ -5,6 +5,7 @@ import Section from "@/components/layout/Section";
 import Surface from "@/components/layout/Surface";
 import { HoverImage } from "@/components/common/HoverImage";
 import { ServicesFinalCta } from "@/components/services/ServicesFinalCta";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Wi-Fi & Network Infrastructure for San Francisco Restaurants",
@@ -278,14 +279,16 @@ export default function RestaurantsPage() {
             </div>
           </div>
 
-          <HoverImage
-            src="/images/restaurants/restaurant-network-environment-san-francisco.webp"
-            alt="Busy restaurant environment with staff and connected point of sale technology"
-            sizes="(min-width: 1024px) 45vw, 100vw"
-            aspectClass="aspect-[4/3]"
-            className="border border-white/15 bg-white/5"
-            priority
-          />
+          <div className="group/image relative aspect-[4/3] w-full overflow-hidden rounded-lg lg:max-w-[560px] lg:justify-self-end">
+            <Image
+              src="/images/restaurants/restaurant-wifi-network-busy-dining-room-pos.webp"
+              alt="Busy restaurant environment with staff and connected point of sale technology"
+              fill
+              className="object-cover transition duration-300 group-hover/image:scale-[1.02]"
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              priority
+            />
+          </div>
         </div>
       </Section>
 
