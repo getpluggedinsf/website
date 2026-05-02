@@ -417,8 +417,8 @@ export default function RestaurantsPage() {
       <Section tone="white" padded="lg">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <HoverImage
-            src="/images/restaurants/san-francisco-restaurant-network-environment.webp"
-            alt="San Francisco restaurant dining room with connected business technology"
+            src="/images/restaurants/restaurant-kitchen-chef-using-kds-network-environment.webp"
+            alt="Chef using kitchen display system in busy restaurant kitchen during service"
             sizes="(min-width: 1024px) 40vw, 100vw"
             aspectClass="aspect-[4/3]"
             className="border border-[var(--pip-border)] bg-white"
@@ -453,8 +453,8 @@ export default function RestaurantsPage() {
         title="Start with a Network Assessment"
         body="If your restaurant network has become unpredictable or difficult to manage, a structured assessment can help identify what’s happening and what to do next."
         image={{
-          src: "/images/restaurants/restaurant-network-assessment-cta.webp",
-          alt: "Technician reviewing restaurant network performance with a small business owner",
+          src: "/images/restaurants/restaurant-owner-network-consultation-laptop.webp",
+          alt: "Technician discussing network performance with restaurant owner over a laptop at a bar",
         }}
         primaryCta={{
           label: "Start with a Network Assessment",

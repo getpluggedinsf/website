@@ -12,8 +12,8 @@ export default function AboutPage() {
         title="Practical Network Infrastructure for San Francisco Small Businesses"
         description="PluggedIn Pros focuses on improving the reliability of Wi-Fi and network environments that businesses depend on every day."
         image={{
-          src: "/images/about/about-hero-technician-network-rack.webp",
-          alt: "Technician working on network infrastructure in a professional environment",
+          src: "/images/about/restaurant-network-technician-rack-assessment.webp",
+          alt: "Technician working on a laptop connected to a network rack in a restaurant environment, analyzing network systems",
         }}
         primaryCta={{
           label: "Start with a Network Assessment",
@@ -103,8 +103,8 @@ The goal is simple: stable, predictable networks that support daily operations.`
         title="Start with a Network Assessment"
         body="If your network has become unreliable or unpredictable, a structured assessment is the first step toward understanding what’s happening and what to do next."
         image={{
-          src: "/images/about/about-cta-owner-consultation.webp",
-          alt: "Technician discussing network improvements with a small business owner",
+          src: "/images/about/restaurant-owner-consultation-network-discussion.webp",
+          alt: "Technician having a relaxed conversation with a restaurant owner at a bar, discussing network improvements",
         }}
         primaryCta={{
           label: "Start with a Network Assessment",
