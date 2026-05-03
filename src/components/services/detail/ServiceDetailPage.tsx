@@ -33,6 +33,7 @@ type ServiceDetailPageProps = {
     title: string;
     body?: ReactNode;
     items: CardItem[];
+    note?: ReactNode;
   };
   process: {
     title: string;
@@ -102,7 +103,7 @@ function NarrativeCard({ title, body }: { title: string; body: ReactNode[] }) {
   );
 }
 
-function FeatureGrid({ title, body, items }: ServiceDetailPageProps["involves"]) {
+function FeatureGrid({ title, body, items, note }: ServiceDetailPageProps["involves"]) {
   return (
     <Section tone="mid" padded="lg">
       <SectionTitle title={title} body={body} />
@@ -126,6 +127,12 @@ function FeatureGrid({ title, body, items }: ServiceDetailPageProps["involves"])
           </Surface>
         ))}
       </div>
+
+      {note && (
+        <p className="mx-auto mt-6 max-w-3xl text-center text-[15px] leading-7 text-slate-600">
+          {note}
+        </p>
+      )}
     </Section>
   );
 }

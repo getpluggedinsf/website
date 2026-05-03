@@ -1,4 +1,8 @@
 import { ServiceDetailPage } from "@/components/services/detail/ServiceDetailPage";
+import Link from "next/link";
+
+const inlineLinkClass =
+  "font-medium text-[var(--pip-ink)] underline underline-offset-4 decoration-[var(--pip-orange)]/45 hover:decoration-[var(--pip-orange)]";
 
 export const metadata = {
   title: "Network Design, Installation & Upgrades",
@@ -45,6 +49,13 @@ export default function NetworkInstallationPage() {
         body: [
           "Network design, installation, and upgrade work focuses on improving or rebuilding network infrastructure when existing systems can no longer support operational demand.",
           "Rather than layering fixes on top of outdated or limited setups, the goal is to create a network that is structured, manageable, and reliable under real-world conditions.",
+          <>
+            In{" "}
+            <Link href="/restaurants" className={inlineLinkClass}>
+              restaurant environments
+            </Link>
+            , this includes supporting POS systems, guest Wi-Fi, streaming services, and staff devices without performance conflicts.
+          </>,
         ],
       }}
       involves={{
@@ -82,6 +93,15 @@ export default function NetworkInstallationPage() {
               "Enable capabilities such as remote monitoring, troubleshooting access, and guest network management when appropriate.",
           },
         ],
+        note: (
+          <>
+            These design considerations are especially important in{" "}
+            <Link href="/restaurants" className={inlineLinkClass}>
+              restaurant environments
+            </Link>{" "}
+            where multiple systems operate simultaneously throughout the day.
+          </>
+        ),
       }}
       process={{
         title: "What to Expect",
@@ -134,6 +154,13 @@ export default function NetworkInstallationPage() {
         body: [
           "After installation or upgrades, the network can be tuned and optimized as needed to support consistent performance.",
           "With a solid foundation in place, future changes—whether expansion, new systems, or increased demand—become easier and more predictable.",
+          <>
+            These decisions are based on{" "}
+            <Link href="/about" className={inlineLinkClass}>
+              real-world experience
+            </Link>{" "}
+            designing and supporting network infrastructure in live business environments.
+          </>
         ],
       }}
       related={{
