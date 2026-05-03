@@ -58,16 +58,16 @@ export function ServicesFinalCta({
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-7">
             <Link
               href={primaryCta.href}
-              className="inline-flex items-center justify-center rounded-md bg-[var(--pip-orange)] px-6 py-3 text-sm font-semibold text-white transition hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-[var(--pip-orange)] focus:ring-offset-2 focus:ring-offset-[var(--pip-navy)]"
+              className="inline-flex items-center justify-center rounded-md bg-[var(--pip-orange)] px-6 py-3.5 text-[16px] font-semibold text-white transition hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-[var(--pip-orange)] focus:ring-offset-2 focus:ring-offset-[var(--pip-navy)]"
             >
               {primaryCta.label}
             </Link>
 
             <Link
               href={secondaryCta.href}
-              className="group/link inline-flex items-center gap-2 text-sm font-semibold text-white/75 no-underline transition hover:text-white"
+              className="group/link inline-flex items-center gap-2 text-[16px] font-semibold text-white no-underline"
             >
-              <span aria-hidden="true" className="text-white/75 no-underline">
+              <span aria-hidden="true" className="text-[var(--pip-orange)] text-base font-bold transition-transform duration-200 group-hover/link:translate-x-0.5">
                 →
               </span>
               <span className="underline-offset-4 group-hover/link:underline">

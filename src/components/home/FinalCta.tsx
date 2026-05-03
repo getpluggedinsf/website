@@ -33,11 +33,18 @@ export default function FinalCta() {
               Schedule a Network Assessment
             </Link>
 
-            <Link
-              href="/services/reliability-review"
-              className="text-sm font-medium text-slate-200 underline-offset-4 hover:text-white hover:underline"
-            >
-              Learn what happens during an assessment
+            <Link href="/services/network-assessment">
+              <span className="group/link inline-flex items-center gap-2 text-[16px] font-semibold text- no-underline">
+                <span
+                  aria-hidden="true"
+                  className="text-[var(--pip-orange)] text-base font-bold transition-transform duration-200 group-hover/link:translate-x-0.5"
+                >
+                  →
+                </span>
+                <span className="underline-offset-4 group-hover/link:underline">
+                  Learn what happens during an assessment
+                </span>
+              </span>
             </Link>
           </div>
 

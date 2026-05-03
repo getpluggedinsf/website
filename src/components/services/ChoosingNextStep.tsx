@@ -48,18 +48,17 @@ export function ChoosingNextStep() {
                       {item.prompt}
                     </p>
 
-                    <Link
-                      href={item.href}
-                      className="group/link mt-1 inline-flex items-center gap-2 text-[16px] font-semibold leading-6 text-[var(--pip-ink)] no-underline"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className="text-[var(--pip-orange)] no-underline"
-                      >
-                        →
-                      </span>
-                      <span className="underline-offset-4 group-hover/link:underline">
-                        {item.action}
+                    <Link href={item.href}>
+                      <span className="group/link inline-flex items-center gap-2 text-[16px] font-semibold text-[var(--pip-ink)] no-underline">
+                        <span
+                          aria-hidden="true"
+                          className="text-[var(--pip-orange)] text-base font-bold transition-transform duration-200 group-hover/link:translate-x-0.5"
+                        >
+                          →
+                        </span>
+                        <span className="underline-offset-4 group-hover/link:underline">
+                          {item.action}
+                        </span>
                       </span>
                     </Link>
                   </div>

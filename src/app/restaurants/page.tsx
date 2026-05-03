@@ -296,13 +296,17 @@ export default function RestaurantsPage() {
                 Start with a Network Assessment
               </Link>
 
-              <Link
-                href="/contact?intent=general"
-                className="group/link inline-flex items-center gap-2 text-sm font-semibold text-slate-200"
-              >
-                <span aria-hidden="true">→</span>
-                <span className="underline-offset-4 group-hover/link:underline">
-                  Or just reach out
+              <Link href="/contact?intent=general">
+                <span className="group/link inline-flex items-center gap-2 text-[16px] font-semibold text-white no-underline">
+                  <span
+                    aria-hidden="true"
+                    className="text-[var(--pip-orange)] text-base font-bold transition-transform duration-200 group-hover/link:translate-x-0.5"
+                  >
+                    →
+                  </span>
+                  <span className="underline-offset-4 group-hover/link:underline">
+                    Or just reach out
+                  </span>
                 </span>
               </Link>
             </div>
@@ -427,15 +431,17 @@ export default function RestaurantsPage() {
                 {step.description}
               </p>
 
-              <Link
-                href={step.href}
-                className="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--pip-ink)]"
-              >
-                <span className="text-[var(--pip-orange)]" aria-hidden="true">
-                  →
-                </span>
-                <span className="underline-offset-4 group-hover/link:underline">
-                  Learn more
+              <Link href={step.href}>
+                <span className="group/link inline-flex items-center gap-2 text-[16px] font-semibold text-[var(--pip-ink)] no-underline">
+                  <span
+                    aria-hidden="true"
+                    className="text-[var(--pip-orange)] text-base font-bold transition-transform duration-200 group-hover/link:translate-x-0.5"
+                  >
+                    →
+                  </span>
+                  <span className="underline-offset-4 group-hover/link:underline">
+                    Learn more
+                  </span>
                 </span>
               </Link>
             </Surface>

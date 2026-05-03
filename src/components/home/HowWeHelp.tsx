@@ -74,11 +74,18 @@ export default function HowWeHelp() {
               </p>
 
               <div className="mt-auto pt-6">
-                <Link
-                  href={service.href}
-                  className="text-sm font-medium text-[var(--pip-ink)] underline-offset-4 hover:underline"
-                >
-                  Learn more
+                <Link href={service.href}>
+                  <span className="group/link inline-flex items-center gap-2 text-[16px] font-semibold text-[var(--pip-ink)] no-underline">
+                    <span
+                      aria-hidden="true"
+                      className="text-[var(--pip-orange)] text-base font-bold transition-transform duration-200 group-hover/link:translate-x-0.5"
+                    >
+                      →
+                    </span>
+                    <span className="underline-offset-4 group-hover/link:underline">
+                      Learn more
+                    </span>
+                  </span>
                 </Link>
               </div>
             </div>

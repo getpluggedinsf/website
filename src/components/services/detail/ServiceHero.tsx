@@ -95,16 +95,16 @@ export function ServiceHero({
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-7">
             <Link
               href={primaryCta.href}
-              className="inline-flex items-center justify-center rounded-md bg-[var(--pip-orange)] px-6 py-3 text-sm font-semibold text-white transition hover:brightness-105"
+              className="inline-flex items-center justify-center rounded-md bg-[var(--pip-orange)] px-6 py-3.5 text-[16px] font-semibold text-white transition hover:brightness-105"
             >
               {primaryCta.label}
             </Link>
 
             <Link
               href={secondaryCta.href}
-              className="group/link inline-flex items-center gap-2 text-sm font-semibold text-[var(--pip-ink)] no-underline"
+              className="group/link inline-flex items-center gap-2 text-[16px] font-semibold text-[var(--pip-ink)] no-underline"
             >
-              <span aria-hidden="true" className="text-[var(--pip-orange)]">
+              <span aria-hidden="true" className="text-[var(--pip-orange)] text-base font-bold transition-transform duration-200 group-hover/link:translate-x-0.5">
                 →
               </span>
               <span className="underline-offset-4 group-hover/link:underline">
