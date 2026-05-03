@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { Check } from "lucide-react";
 import Section from "@/components/layout/Section";
@@ -26,11 +27,11 @@ type ServiceDetailPageProps = {
   hero: HeroProps;
   intro: {
     title: string;
-    body: string[];
+    body: ReactNode[];
   };
   involves: {
     title: string;
-    body?: string;
+    body?: ReactNode;
     items: CardItem[];
   };
   process: {
@@ -39,15 +40,17 @@ type ServiceDetailPageProps = {
   };
   fit: {
     title: string;
-    items: string[];
+    items: ReactNode[];
+    note?: ReactNode;
   };
   outcomes: {
     title: string;
-    items: string[];
+    items: ReactNode[];
+    note?: ReactNode;
   };
   next: {
     title: string;
-    body: string[];
+    body: ReactNode[];
   };
   related: {
     title: string;
@@ -62,7 +65,7 @@ function SectionTitle({
   align = "center",
 }: {
   title: string;
-  body?: string;
+  body?: ReactNode;
   align?: "left" | "center";
 }) {
   return (
@@ -129,7 +132,15 @@ function ProcessSteps({ title, steps }: ServiceDetailPageProps["process"]) {
   );
 }
 
-function ChecklistPanel({ title, items }: { title: string; items: string[] }) {
+function ChecklistPanel({
+  title,
+  items,
+  note,
+}: {
+  title: string;
+  items: ReactNode[];
+  note?: ReactNode;
+}) {
   return (
     <Surface padding="lg" radius="lg" border shadow={false}>
       <h3 className="font-heading text-2xl font-semibold tracking-heading text-[var(--pip-ink)]">
@@ -137,13 +148,19 @@ function ChecklistPanel({ title, items }: { title: string; items: string[] }) {
       </h3>
 
       <ul className="mt-5 space-y-3 text-[16px] leading-7 text-slate-700">
-        {items.map((item) => (
-          <li key={item} className="flex gap-3">
+        {items.map((item, index) => (
+          <li key={index} className="flex gap-3">
             <Check className="mt-1 h-4 w-4 shrink-0 text-[var(--pip-orange)]" strokeWidth={2} />
             <span>{item}</span>
           </li>
         ))}
       </ul>
+
+      {note && (
+        <p className="mt-5 text-[15px] leading-7 text-slate-600">
+          {note}
+        </p>
+      )}
     </Surface>
   );
 }
@@ -158,8 +175,8 @@ function FitAndOutcomes({
   return (
     <Section tone="mid" padded="lg">
       <div className="grid gap-6 lg:grid-cols-2">
-        <ChecklistPanel title={fit.title} items={fit.items} />
-        <ChecklistPanel title={outcomes.title} items={outcomes.items} />
+        <ChecklistPanel title={fit.title} items={fit.items} note={fit.note} />
+        <ChecklistPanel title={outcomes.title} items={outcomes.items} note={outcomes.note} />
       </div>
     </Section>
   );
@@ -173,8 +190,8 @@ function Narrative({ title, body }: ServiceDetailPageProps["next"]) {
           {title}
         </h2>
         <div className="mt-5 space-y-4 text-[17px] leading-[1.75] text-slate-700">
-          {body.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
+          {body.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
           ))}
         </div>
       </div>
@@ -253,8 +270,8 @@ export function ServiceDetailPage({
             {intro.title}
           </h2>
           <div className="mt-5 space-y-4 text-[17px] leading-[1.75] text-slate-700">
-            {intro.body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+            {intro.body.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
             ))}
           </div>
         </div>

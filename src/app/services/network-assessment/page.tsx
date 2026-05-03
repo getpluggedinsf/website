@@ -1,4 +1,8 @@
+import Link from "next/link";
 import { ServiceDetailPage } from "@/components/services/detail/ServiceDetailPage";
+
+const inlineLinkClass =
+  "font-medium text-[var(--pip-ink)] underline underline-offset-4 decoration-[var(--pip-orange)]/45 hover:decoration-[var(--pip-orange)]";
 
 export const metadata = {
   title: "Wi-Fi & Network Reliability Assessment",
@@ -13,7 +17,6 @@ export const metadata = {
   },
 };
 
-
 export default function NetworkAssessmentPage() {
   return (
     <ServiceDetailPage
@@ -23,7 +26,6 @@ export default function NetworkAssessmentPage() {
           { label: "Services", href: "/services" },
           { label: "Assessment" },
         ],
-
         eyebrow: "Network Assessment",
         title: "Wi-Fi & Network Reliability Assessment",
         description:
@@ -46,6 +48,13 @@ export default function NetworkAssessmentPage() {
         body: [
           "A Wi-Fi & Network Reliability Assessment is a structured evaluation of your network environment.",
           "Instead of guessing or making incremental changes, the assessment focuses on how your network behaves under real operating conditions—so decisions can be based on what’s actually happening, not assumptions.",
+          <>
+            In{" "}
+            <Link href="/restaurants" className={inlineLinkClass}>
+              restaurant environments
+            </Link>
+            , this often includes how POS systems, guest Wi-Fi, and other operational systems perform under real service conditions.
+          </>,
         ],
       }}
       involves={{
@@ -112,6 +121,15 @@ export default function NetworkAssessmentPage() {
           "Systems behave differently under load than they do when idle",
           "You want to make informed decisions before upgrading",
         ],
+        note: (
+          <>
+            This is especially common in{" "}
+            <Link href="/restaurants" className={inlineLinkClass}>
+              restaurant environments
+            </Link>{" "}
+            where peak service periods place uneven demand on the network.
+          </>
+        ),
       }}
       outcomes={{
         title: "What You Get",
@@ -128,6 +146,13 @@ export default function NetworkAssessmentPage() {
           "Based on what we find, the next step is usually straightforward.",
           "In many cases, issues can be resolved through targeted stabilization without major changes. In others, improvements may require upgrades or expanded coverage.",
           "The goal is not to add complexity, but to take the simplest effective step toward a more reliable network.",
+          <>
+            This approach is based on{" "}
+            <Link href="/about" className={inlineLinkClass}>
+              real-world infrastructure experience
+            </Link>{" "}
+            working in live business environments.
+          </>,
         ],
       }}
       related={{
