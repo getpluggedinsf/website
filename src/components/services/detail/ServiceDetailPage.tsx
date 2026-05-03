@@ -171,27 +171,29 @@ function ChecklistPanel({
   note?: ReactNode;
 }) {
   return (
-    <Surface padding="lg" radius="lg" border shadow={false} className="bg-white">
+    <Surface padding="lg" radius="lg" border shadow={false} className="bg-white flex flex-col">
       <h3 className="font-heading text-2xl font-semibold tracking-heading text-[var(--pip-ink)]">
         {title}
       </h3>
 
-      <ul className="mt-5 space-y-2 text-[16px] leading-7 text-slate-700">
-        {items.map((item, index) => (
-          <li
-            key={index}
-            className="group/item flex gap-3 rounded-md px-2 py-1.5 transition duration-200 hover:bg-[var(--pip-bg-light)]"
-          >
-            <Check
-              className="mt-1 h-5 w-5 shrink-0 text-[var(--pip-orange)] transition duration-200 group-hover/item:scale-110 group-hover/item:text-[var(--pip-orange)]"
-              strokeWidth={2.6}
-            />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
+      <div className="mt-5 flex-1">
+        <ul className="mt-5 space-y-2 text-[16px] leading-7 text-slate-700">
+          {items.map((item, index) => (
+            <li
+              key={index}
+              className="group/item flex gap-3 rounded-md px-2 py-1.5 transition duration-200 hover:bg-[var(--pip-bg-light)]"
+            >
+              <Check
+                className="mt-1 h-5 w-5 shrink-0 text-[var(--pip-orange)] transition duration-200 group-hover/item:scale-110 group-hover/item:text-[var(--pip-orange)]"
+                strokeWidth={2.6}
+              />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
 
-      {note && <p className="mt-5 text-[15px] leading-7 text-slate-600">{note}</p>}
+        {note && <p className="mt-5 text-[15px] leading-7 text-slate-600">{note}</p>}
+      </div>
     </Surface>
   );
 }

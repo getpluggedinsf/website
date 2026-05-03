@@ -1,4 +1,8 @@
 import { ServiceDetailPage } from "@/components/services/detail/ServiceDetailPage";
+import Link from "next/link";
+
+const inlineLinkClass =
+  "font-medium text-[var(--pip-ink)] underline underline-offset-4 decoration-[var(--pip-orange)]/45 hover:decoration-[var(--pip-orange)]";
 
 export const metadata = {
   title: "Network Troubleshooting & Stabilization",
@@ -45,6 +49,13 @@ export default function NetworkTroubleshootingPage() {
         body: [
           "Network Troubleshooting & Stabilization focuses on correcting the underlying causes of unreliable network performance.",
           "Instead of working around issues or adding temporary fixes, the goal is to make the network behave consistently under real operating conditions.",
+          <>
+            In{" "}
+            <Link href="/restaurants" className={inlineLinkClass}>
+              restaurant environments
+            </Link>
+            , these issues often appear during peak service when POS systems, guest Wi-Fi, and staff devices are all competing for network resources.
+          </>,
         ],
       }}
       involves={{
@@ -112,6 +123,15 @@ export default function NetworkTroubleshootingPage() {
           "Performance is inconsistent or unpredictable",
           "The network is no longer functioning as expected",
         ],
+        note: (
+          <>
+            These patterns are especially common in{" "}
+            <Link href="/restaurants" className={inlineLinkClass}>
+              restaurant environments
+            </Link>{" "}
+            where demand spikes and multiple systems rely on the network simultaneously.
+          </>
+        ),
       }}
       outcomes={{
         title: "What You Get",
@@ -128,6 +148,13 @@ export default function NetworkTroubleshootingPage() {
           "In many cases, stabilization resolves issues without requiring major upgrades.",
           "If underlying limitations remain, the next step may involve targeted improvements, equipment upgrades, or expanded infrastructure.",
           "The goal is always to take the simplest effective step toward a stable, reliable network.",
+          <>
+            This approach is based on{" "}
+            <Link href="/about" className={inlineLinkClass}>
+              real-world experience
+            </Link>{" "}
+            working with live network environments where reliability matters day to day.
+          </>
         ],
       }}
       related={{
