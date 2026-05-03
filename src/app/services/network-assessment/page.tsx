@@ -1,9 +1,29 @@
 import { ServiceDetailPage } from "@/components/services/detail/ServiceDetailPage";
 
+export const metadata = {
+  title: "Wi-Fi & Network Reliability Assessment",
+  description:
+    "A structured assessment to identify Wi-Fi and network performance issues, coverage gaps, and system limitations, with clear next steps for improvement.",
+  alternates: { canonical: "/services/network-assessment" },
+  openGraph: {
+    title: "Wi-Fi & Network Reliability Assessment",
+    description:
+      "A structured assessment to identify Wi-Fi and network performance issues, coverage gaps, and system limitations, with clear next steps for improvement.",
+    url: "/services/network-assessment",
+  },
+};
+
+
 export default function NetworkAssessmentPage() {
   return (
     <ServiceDetailPage
       hero={{
+        breadcrumb: [
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services" },
+          { label: "Assessment" },
+        ],
+
         eyebrow: "Network Assessment",
         title: "Wi-Fi & Network Reliability Assessment",
         description:

@@ -7,13 +7,13 @@ import { RealWorldEnvironments } from "@/components/services/RealWorldEnvironmen
 import { ServicesFinalCta } from "@/components/services/ServicesFinalCta";
 
 export const metadata: Metadata = {
-  title: "Wi-Fi & Network Infrastructure Services for San Francisco Small Businesses",
+  title: "Wi-Fi & Network Services",
   description:
-    "Structured Wi-Fi and network infrastructure services for San Francisco small businesses, including reliability reviews, troubleshooting, and network installation or upgrades.",
+    "Network reliability assessments, troubleshooting, stabilization, and infrastructure design for small business Wi-Fi and network systems.",
   openGraph: {
-    title: "Wi-Fi & Network Infrastructure Services",
+    title: "Wi-Fi & Network Services",
     description:
-      "Reliable Wi-Fi reviews, troubleshooting, and network installation or upgrades for San Francisco small businesses.",
+      "Network reliability assessments, troubleshooting, stabilization, and infrastructure design for small business Wi-Fi and network systems.",
     url: "/services",
   },
   alternates: {
@@ -25,7 +25,12 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <main className="w-full">
-      <ServicesHero />
+      <ServicesHero
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "Services" },
+        ]}
+      />
       <StructuredApproach />
       <OurServices />
       <ChoosingNextStep />

@@ -1,9 +1,28 @@
 import { ServiceDetailPage } from "@/components/services/detail/ServiceDetailPage";
 
+export const metadata = {
+  title: "Network Design, Installation & Upgrades",
+  description:
+    "Design and install reliable network infrastructure, upgrade existing systems, and build networks that support business operations and future growth.",
+  alternates: { canonical: "/services/network-installation" },
+  openGraph: {
+    title: "Network Design, Installation & Upgrades",
+    description:
+      "Design and install reliable network infrastructure, upgrade existing systems, and build networks that support business operations and future growth.",
+    url: "/services/network-installation",
+  },
+};
+
 export default function NetworkInstallationPage() {
   return (
     <ServiceDetailPage
       hero={{
+        breadcrumb: [
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services" },
+          { label: "Design & Installation" },
+        ],
+
         eyebrow: "Network Installation",
         title: "Network Design, Installation & Upgrades",
         description:

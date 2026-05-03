@@ -11,14 +11,14 @@ import FinalCta from "@/components/home/FinalCta";
 
 export const metadata: Metadata = {
   title:
-    "Reliable Wi-Fi & Network Infrastructure for San Francisco Restaurants and Small Businesses",
+    "Wi-Fi & Network Infrastructure for San Francisco Businesses",
   description:
-    "Reliable Wi-Fi, network troubleshooting, and infrastructure upgrades for San Francisco restaurants, retail shops, and offices.",
+    "Wi-Fi and network infrastructure services for San Francisco businesses, supporting POS systems, guest Wi-Fi, and reliable day-to-day operations.",
   openGraph: {
     title:
       "Wi-Fi & Network Infrastructure for San Francisco Businesses",
     description:
-      "Reliable Wi-Fi, network troubleshooting, and infrastructure upgrades for San Francisco restaurants, retail shops, and offices.",
+      "Wi-Fi and network infrastructure services for San Francisco businesses, supporting POS systems, guest Wi-Fi, and reliable day-to-day operations.",
     url: "/",
   },
   alternates: {

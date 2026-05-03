@@ -2,12 +2,29 @@ import { ServiceHero } from "@/components/services/detail/ServiceHero";
 import { AboutSection } from "@/components/about/AboutSection";
 import { ServicesFinalCta } from "@/components/services/ServicesFinalCta";
 
+export const metadata = {
+  title: "About PluggedIn Pros",
+  description:
+    "Learn about PluggedIn Pros and the experience behind a structured approach to reliable Wi-Fi and network infrastructure for small businesses.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About PluggedIn Pros",
+    description:
+      "Learn about PluggedIn Pros and the experience behind a structured approach to reliable Wi-Fi and network infrastructure for small businesses.",
+    url: "/about",
+  },
+};
+
 export default function AboutPage() {
   return (
     <main className="w-full">
 
       {/* Hero */}
       <ServiceHero
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "About" },
+        ]}
         eyebrow="About PluggedIn Pros"
         title="Practical Network Infrastructure for San Francisco Small Businesses"
         description="PluggedIn Pros focuses on improving the reliability of Wi-Fi and network environments that businesses depend on every day."

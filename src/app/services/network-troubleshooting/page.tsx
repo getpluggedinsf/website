@@ -1,9 +1,28 @@
 import { ServiceDetailPage } from "@/components/services/detail/ServiceDetailPage";
 
+export const metadata = {
+  title: "Network Troubleshooting & Stabilization",
+  description:
+    "Diagnose and resolve network instability, slow performance, and system conflicts affecting Wi-Fi, POS systems, and connected business devices.",
+  alternates: { canonical: "/services/network-troubleshooting" },
+  openGraph: {
+    title: "Network Troubleshooting & Stabilization",
+    description:
+      "Diagnose and resolve network instability, slow performance, and system conflicts affecting Wi-Fi, POS systems, and connected business devices.",
+    url: "/services/network-troubleshooting",
+  },
+};
+
 export default function NetworkTroubleshootingPage() {
   return (
     <ServiceDetailPage
       hero={{
+        breadcrumb: [
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services" },
+          { label: "Stabilization" },
+        ],
+
         eyebrow: "Network Troubleshooting",
         title: "Network Troubleshooting & Stabilization",
         description:

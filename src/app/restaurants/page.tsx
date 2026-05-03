@@ -7,11 +7,19 @@ import { HoverImage } from "@/components/common/HoverImage";
 import { ServicesFinalCta } from "@/components/services/ServicesFinalCta";
 import Image from "next/image";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Wi-Fi & Network Infrastructure for San Francisco Restaurants",
   description:
-    "Reliable Wi-Fi and network infrastructure for San Francisco restaurants, including POS systems, staff devices, guest Wi-Fi, cameras, streaming systems, and connected restaurant technology.",
+    "Wi-Fi and network infrastructure for San Francisco restaurants, supporting POS systems, guest Wi-Fi, streaming music platforms, cameras, and reliable service operations.",
+  alternates: { canonical: "/restaurants" },
+  openGraph: {
+    title: "Wi-Fi & Network Infrastructure for San Francisco Restaurants",
+    description:
+      "Wi-Fi and network infrastructure for San Francisco restaurants, supporting POS systems, guest Wi-Fi, streaming music platforms, cameras, and reliable service operations.",
+    url: "/restaurants",
+  },
 };
+
 
 const challenges = [
   {
@@ -238,6 +246,28 @@ export default function RestaurantsPage() {
   return (
     <main className="w-full">
       <Section tone="navy" padded="lg">
+        <nav
+          aria-label="Breadcrumb"
+          className="mb-10 text-sm text-slate-500"
+        >
+          <ol className="flex flex-wrap items-center gap-2">
+            <li className="flex items-center gap-2">
+              <Link
+                href="/"
+                className="hover:text-[var(--pip-ink)] hover:underline"
+              >
+                Home
+              </Link>
+              <span aria-hidden="true" className="text-slate-400">
+                /
+              </span>
+            </li>
+
+            <li>
+              <span aria-current="page">Restaurants</span>
+            </li>
+          </ol>
+        </nav>
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--pip-orange)]">

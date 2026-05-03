@@ -1,8 +1,14 @@
 import Link from "next/link";
-import Section from "@/components/layout/Section";
 import Image from "next/image";
+import Section from "@/components/layout/Section";
+
+type BreadcrumbItem = {
+  label: string;
+  href?: string;
+};
 
 type ServiceHeroProps = {
+  breadcrumb?: BreadcrumbItem[];
   eyebrow?: string;
   title: string;
   description: string;
@@ -21,6 +27,7 @@ type ServiceHeroProps = {
 };
 
 export function ServiceHero({
+  breadcrumb,
   eyebrow,
   title,
   description,
@@ -29,7 +36,46 @@ export function ServiceHero({
   secondaryCta,
 }: ServiceHeroProps) {
   return (
-    <Section tone="white" padded="lg">
+    <Section tone="white" padded={breadcrumb?.length ? "md" : "lg"}>
+      {breadcrumb && breadcrumb.length > 0 && (
+        <nav
+          aria-label="Breadcrumb"
+          className="mb-10 text-sm text-slate-500"
+        >
+          <ol className="flex flex-wrap items-center gap-2">
+            {breadcrumb.map((item, index) => {
+              const isCurrent = index === breadcrumb.length - 1;
+
+              return (
+                <li key={item.label} className="flex items-center gap-2">
+                  {index > 0 && (
+                    <span aria-hidden="true" className="text-slate-400">
+                      /
+                    </span>
+                  )}
+
+                  {item.href && !isCurrent ? (
+                    <Link
+                      href={item.href}
+                      className="no-underline transition hover:text-[var(--pip-ink)] hover:underline"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <span
+                      aria-current={isCurrent ? "page" : undefined}
+                      className="text-slate-600"
+                    >
+                      {item.label}
+                    </span>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+        </nav>
+      )}
+
       <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.95fr] lg:gap-14">
         <div className="max-w-2xl">
           {eyebrow && (
