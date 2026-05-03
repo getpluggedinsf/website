@@ -73,10 +73,32 @@ function SectionTitle({
       <h2 className="font-heading text-3xl font-semibold leading-tight tracking-heading text-[var(--pip-ink)] md:text-4xl">
         {title}
       </h2>
-      {body && (
-        <p className="mt-4 text-[17px] leading-[1.7] text-slate-700">{body}</p>
-      )}
+      {body && <p className="mt-4 text-[17px] leading-[1.7] text-slate-700">{body}</p>}
     </div>
+  );
+}
+
+function NarrativeCard({ title, body }: { title: string; body: ReactNode[] }) {
+  return (
+    <Section tone="white" padded="lg">
+      <Surface
+        padding="lg"
+        radius="lg"
+        border
+        shadow={false}
+        className="mx-auto max-w-3xl bg-white transition duration-200 hover:border-[var(--pip-ink)] hover:shadow-sm"
+      >
+        <h2 className="text-center font-heading text-3xl font-semibold leading-tight tracking-heading text-[var(--pip-ink)] md:text-4xl">
+          {title}
+        </h2>
+
+        <div className="mt-6 space-y-4 text-left text-[17px] leading-[1.75] text-slate-700">
+          {body.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
+      </Surface>
+    </Section>
   );
 }
 
@@ -93,7 +115,7 @@ function FeatureGrid({ title, body, items }: ServiceDetailPageProps["involves"])
             radius="lg"
             border
             shadow={false}
-            className="w-full transition duration-200 hover:border-[var(--pip-border-strong)] hover:bg-[var(--pip-surface)] sm:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-2rem)/3)]"
+            className="w-full bg-white transition duration-200 hover:-translate-y-0.5 hover:border-[var(--pip-ink)] hover:shadow-sm sm:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-2rem)/3)]"
           >
             <h3 className="text-[17px] font-semibold leading-snug text-[var(--pip-ink)]">
               {item.title}
@@ -115,11 +137,18 @@ function ProcessSteps({ title, steps }: ServiceDetailPageProps["process"]) {
 
       <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {steps.map((step, index) => (
-          <Surface key={step.title} padding="md" radius="lg" border shadow={false}>
-            <div className="text-sm font-semibold tracking-[0.14em] text-[var(--pip-orange)]">
+          <Surface
+            key={step.title}
+            padding="md"
+            radius="lg"
+            border
+            shadow={false}
+            className="bg-white transition duration-200 hover:-translate-y-0.5 hover:border-[var(--pip-ink)] hover:shadow-sm"
+          >
+            <div className="text-center text-sm font-bold tracking-[0.16em] text-[var(--pip-orange)]">
               {String(index + 1).padStart(2, "0")}
             </div>
-            <h3 className="mt-3 text-[17px] font-semibold leading-snug text-[var(--pip-ink)]">
+            <h3 className="mt-4 text-[17px] font-semibold leading-snug text-[var(--pip-ink)]">
               {step.title}
             </h3>
             <p className="mt-3 text-[15px] leading-6 text-slate-700">
@@ -142,25 +171,27 @@ function ChecklistPanel({
   note?: ReactNode;
 }) {
   return (
-    <Surface padding="lg" radius="lg" border shadow={false}>
+    <Surface padding="lg" radius="lg" border shadow={false} className="bg-white">
       <h3 className="font-heading text-2xl font-semibold tracking-heading text-[var(--pip-ink)]">
         {title}
       </h3>
 
-      <ul className="mt-5 space-y-3 text-[16px] leading-7 text-slate-700">
+      <ul className="mt-5 space-y-2 text-[16px] leading-7 text-slate-700">
         {items.map((item, index) => (
-          <li key={index} className="flex gap-3">
-            <Check className="mt-1 h-4 w-4 shrink-0 text-[var(--pip-orange)]" strokeWidth={2} />
+          <li
+            key={index}
+            className="group/item flex gap-3 rounded-md px-2 py-1.5 transition duration-200 hover:bg-[var(--pip-bg-light)]"
+          >
+            <Check
+              className="mt-1 h-5 w-5 shrink-0 text-[var(--pip-orange)] transition duration-200 group-hover/item:scale-110 group-hover/item:text-[var(--pip-orange)]"
+              strokeWidth={2.6}
+            />
             <span>{item}</span>
           </li>
         ))}
       </ul>
 
-      {note && (
-        <p className="mt-5 text-[15px] leading-7 text-slate-600">
-          {note}
-        </p>
-      )}
+      {note && <p className="mt-5 text-[15px] leading-7 text-slate-600">{note}</p>}
     </Surface>
   );
 }
@@ -182,23 +213,6 @@ function FitAndOutcomes({
   );
 }
 
-function Narrative({ title, body }: ServiceDetailPageProps["next"]) {
-  return (
-    <Section tone="white" padded="lg">
-      <div className="max-w-3xl">
-        <h2 className="font-heading text-3xl font-semibold leading-tight tracking-heading text-[var(--pip-ink)] md:text-4xl">
-          {title}
-        </h2>
-        <div className="mt-5 space-y-4 text-[17px] leading-[1.75] text-slate-700">
-          {body.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
-        </div>
-      </div>
-    </Section>
-  );
-}
-
 function RelatedServices({ title, services }: ServiceDetailPageProps["related"]) {
   return (
     <Section tone="mid" padded="lg">
@@ -206,43 +220,44 @@ function RelatedServices({ title, services }: ServiceDetailPageProps["related"])
 
       <div className="mt-8 grid gap-6 md:grid-cols-2">
         {services.map((service) => (
-          <Surface
-            key={service.href}
-            padding="sm"
-            radius="lg"
-            border
-            shadow={false}
-            className="overflow-hidden transition duration-200 hover:border-[var(--pip-border-strong)]"
-          >
-            <HoverImage
-              src={service.image}
-              alt={service.alt}
-              sizes="(min-width: 768px) 50vw, 100vw"
-              aspectClass="aspect-[16/9]"
-              className="border border-[var(--pip-border)] bg-white"
-            />
+          <Link key={service.href} href={service.href} className="group/card block no-underline">
+            <Surface
+              padding="sm"
+              radius="lg"
+              border
+              shadow={false}
+              className="h-full overflow-hidden bg-white transition duration-200 group-hover/card:-translate-y-0.5 group-hover/card:border-[var(--pip-orange)] group-hover/card:ring-1 group-hover/card:ring-[var(--pip-orange)] group-hover/card:shadow-sm"
+            >
+              <HoverImage
+                src={service.image}
+                alt={service.alt}
+                sizes="(min-width: 768px) 50vw, 100vw"
+                aspectClass="aspect-[16/9]"
+                className="border border-[var(--pip-border)] bg-white"
+              />
 
-            <div className="px-3 pb-3 pt-5">
-              <h3 className="font-heading text-2xl font-semibold leading-tight tracking-heading text-[var(--pip-ink)]">
-                {service.title}
-              </h3>
-              <p className="mt-3 text-[16px] leading-7 text-slate-700">
-                {service.description}
-              </p>
+              <div className="px-3 pb-3 pt-5">
+                <h3 className="font-heading text-2xl font-semibold leading-tight tracking-heading text-[var(--pip-ink)]">
+                  {service.title}
+                </h3>
+                <p className="mt-3 text-[16px] leading-7 text-slate-700">
+                  {service.description}
+                </p>
 
-              <Link
-                href={service.href}
-                className="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--pip-ink)] no-underline"
-              >
-                <span className="text-[var(--pip-orange)]" aria-hidden="true">
-                  →
-                </span>
-                <span className="underline-offset-4 group-hover/link:underline">
-                  Learn more
-                </span>
-              </Link>
-            </div>
-          </Surface>
+                <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--pip-ink)]">
+                  <span
+                    className="text-base font-bold text-[var(--pip-orange)] transition-transform duration-200 group-hover/card:translate-x-0.5"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                  <span className="underline-offset-4 group-hover/card:underline">
+                    Learn more
+                  </span>
+                </div>
+              </div>
+            </Surface>
+          </Link>
         ))}
       </div>
     </Section>
@@ -264,23 +279,11 @@ export function ServiceDetailPage({
     <main className="w-full">
       <ServiceHero {...hero} />
 
-      <Section tone="white" padded="lg">
-        <div className="max-w-3xl">
-          <h2 className="font-heading text-3xl font-semibold leading-tight tracking-heading text-[var(--pip-ink)] md:text-4xl">
-            {intro.title}
-          </h2>
-          <div className="mt-5 space-y-4 text-[17px] leading-[1.75] text-slate-700">
-            {intro.body.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
-      </Section>
-
+      <NarrativeCard title={intro.title} body={intro.body} />
       <FeatureGrid {...involves} />
       <ProcessSteps {...process} />
       <FitAndOutcomes fit={fit} outcomes={outcomes} />
-      <Narrative {...next} />
+      <NarrativeCard title={next.title} body={next.body} />
       <RelatedServices {...related} />
 
       <ServicesFinalCta {...finalCta} />
