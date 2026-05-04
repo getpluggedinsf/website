@@ -19,7 +19,17 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  async redirects() {
+    return [
+      {
+        source: "/bcard",
+        destination:
+          "/?utm_source=bcard&utm_medium=qr&utm_campaign=offline",
+        permanent: false, // 307 redirect (recommended)
+      },
+    ];
+  },
 };
 
 export default nextConfig;
-

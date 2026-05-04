@@ -1,0 +1,132 @@
+import Link from "next/link";
+import Image from "next/image";
+import Section from "@/components/layout/Section";
+
+type BreadcrumbItem = {
+  label: string;
+  href?: string;
+};
+
+type ServiceHeroProps = {
+  breadcrumb?: BreadcrumbItem[];
+  eyebrow?: string;
+  title: string;
+  description: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  primaryCta: {
+    label: string;
+    href: string;
+  };
+  secondaryCta: {
+    label: string;
+    href: string;
+  };
+};
+
+export function ServiceHero({
+  breadcrumb,
+  eyebrow,
+  title,
+  description,
+  image,
+  primaryCta,
+  secondaryCta,
+}: ServiceHeroProps) {
+  return (
+    <Section tone="white" padded={breadcrumb?.length ? "md" : "lg"}>
+      {breadcrumb && breadcrumb.length > 0 && (
+        <nav
+          aria-label="Breadcrumb"
+          className="mb-10 text-sm text-slate-500"
+        >
+          <ol className="flex flex-wrap items-center gap-2">
+            {breadcrumb.map((item, index) => {
+              const isCurrent = index === breadcrumb.length - 1;
+
+              return (
+                <li key={item.label} className="flex items-center gap-2">
+                  {index > 0 && (
+                    <span aria-hidden="true" className="text-slate-400">
+                      /
+                    </span>
+                  )}
+
+                  {item.href && !isCurrent ? (
+                    <Link
+                      href={item.href}
+                      className="no-underline transition hover:text-[var(--pip-ink)] hover:underline"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <span
+                      aria-current={isCurrent ? "page" : undefined}
+                      className="text-slate-600"
+                    >
+                      {item.label}
+                    </span>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+        </nav>
+      )}
+
+      <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.95fr] lg:gap-14">
+        <div className="max-w-2xl">
+          {eyebrow && (
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--pip-orange)]">
+              {eyebrow}
+            </p>
+          )}
+
+          <h1 className="mt-4 font-heading text-4xl font-semibold leading-tight tracking-heading text-[var(--pip-ink)] md:text-5xl">
+            {title}
+          </h1>
+
+          <p className="mt-6 text-xl leading-[1.6] text-slate-700 md:text-[1.35rem]">
+            {description}
+          </p>
+
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-7">
+            <Link
+              href={primaryCta.href}
+              className="inline-flex items-center justify-center rounded-md bg-[var(--pip-orange)] px-6 py-3.5 text-[16px] font-semibold text-white transition hover:brightness-105"
+            >
+              {primaryCta.label}
+            </Link>
+
+            <Link
+              href={secondaryCta.href}
+              className="group/link inline-flex items-center gap-2 text-[16px] font-semibold text-[var(--pip-ink)] no-underline"
+            >
+              <span aria-hidden="true" className="text-[var(--pip-orange)] text-base font-bold transition-transform duration-200 group-hover/link:translate-x-0.5">
+                →
+              </span>
+              <span className="underline-offset-4 group-hover/link:underline">
+                {secondaryCta.label}
+              </span>
+            </Link>
+          </div>
+        </div>
+
+        <div className="lg:h-full">
+          <div className="group/image relative min-h-[280px] overflow-hidden rounded-lg border border-[var(--pip-border)] bg-white lg:h-full">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              priority
+              className="object-cover transition duration-300 group-hover/image:scale-[1.02]"
+            />
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
+}

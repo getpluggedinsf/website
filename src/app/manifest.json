@@ -1,0 +1,21 @@
+{
+  "name": "PluggedIn Pros",
+  "short_name": "PluggedIn",
+  "icons": [
+    {
+      "src": "/icon-192-v1.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512-v1.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#1C2A44",
+  "background_color": "#F7F8FA",
+  "display": "standalone"
+}

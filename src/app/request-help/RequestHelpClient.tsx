@@ -3,8 +3,6 @@
 
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
 
 type Intent = "tech_issue" | "planning_change" | "general_inquiry";
 type PreferredContact = "email" | "phone";
@@ -152,8 +150,6 @@ export default function RequestHelpClient() {
   };
 
   return (
-    <>
-      <Nav />
 
       <main className="mx-auto max-w-3xl px-6 py-12">
         <h1 className="text-3xl font-semibold text-[#191970] sm:text-4xl">
@@ -406,8 +402,6 @@ export default function RequestHelpClient() {
         </div>
       </main>
 
-      <Footer />
-    </>
   );
 }
 
