@@ -61,7 +61,7 @@ export default function Hero() {
 
       <div className="relative h-[460px] overflow-hidden rounded-xl border border-[var(--pip-border)] bg-white shadow-sm md:h-[560px]">
         <Image
-          src="/images/home/hero/restaurant-wifi-access-point-ceiling.webp"
+          src="/images/home/hero/restaurant-wifi-access-point-ceiling-v1.webp"
           alt="Ceiling-mounted Wi-Fi access point in a restaurant environment"
           fill
           className="object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"

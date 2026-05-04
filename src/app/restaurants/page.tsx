@@ -314,7 +314,7 @@ export default function RestaurantsPage() {
 
           <div className="group/image relative aspect-[4/3] w-full overflow-hidden rounded-lg lg:max-w-[560px] lg:justify-self-end">
             <Image
-              src="/images/restaurants/restaurant-wifi-network-busy-dining-room-pos.webp"
+              src="/images/restaurants/restaurant-wifi-network-busy-dining-room-pos-v1.webp"
               alt="Busy restaurant environment with staff and connected point of sale technology"
               fill
               className="object-cover transition duration-300 group-hover/image:scale-[1.02]"
@@ -452,7 +452,7 @@ export default function RestaurantsPage() {
       <Section tone="white" padded="lg">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <HoverImage
-            src="/images/restaurants/restaurant-kitchen-chef-using-kds-network-environment.webp"
+            src="/images/restaurants/restaurant-kitchen-chef-using-kds-network-environment-v1.webp"
             alt="Chef using kitchen display system in busy restaurant kitchen during service"
             sizes="(min-width: 1024px) 40vw, 100vw"
             aspectClass="aspect-[4/3]"
@@ -488,7 +488,7 @@ export default function RestaurantsPage() {
         title="Start with a Network Assessment"
         body="If your restaurant network has become unpredictable or difficult to manage, a structured assessment can help identify what’s happening and what to do next."
         image={{
-          src: "/images/restaurants/restaurant-owner-network-consultation-laptop.webp",
+          src: "/images/restaurants/restaurant-owner-network-consultation-laptop-v1.webp",
           alt: "Technician discussing network performance with restaurant owner over a laptop at a bar",
         }}
         primaryCta={{

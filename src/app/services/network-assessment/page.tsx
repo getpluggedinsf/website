@@ -31,7 +31,7 @@ export default function NetworkAssessmentPage() {
         description:
           "Understand how your network is actually performing before making changes. A structured assessment helps identify what’s working, what isn’t, and what to do next.",
         image: {
-          src: "/images/services/assessment/wifi-network-assessment-small-business-cafe-tablet-analysis.webp",
+          src: "/images/services/assessment/wifi-network-assessment-small-business-cafe-tablet-analysis-v1.webp",
           alt: "Technician analyzing Wi-Fi network performance on a tablet inside a small business café environment",
         },
         primaryCta: {
@@ -164,7 +164,7 @@ export default function NetworkAssessmentPage() {
               "For unstable, inconsistent, or unreliable networks that need targeted correction.",
             href: "/services/network-troubleshooting",
             image:
-              "/images/services/troubleshooting/network-troubleshooting-server-rack-cable-adjustment.webp",
+              "/images/services/troubleshooting/network-troubleshooting-server-rack-cable-adjustment-v1.webp",
             alt: "Technician troubleshooting network equipment and cables in a small business IT rack",
           },
           {
@@ -173,7 +173,7 @@ export default function NetworkAssessmentPage() {
               "For spaces that need better coverage, upgraded equipment, or a more reliable infrastructure foundation.",
             href: "/services/network-installation",
             image:
-              "/images/services/installation/network-installation-router-small-business-it-rack.webp",
+              "/images/services/installation/network-installation-router-small-business-it-rack-v1.webp",
             alt: "Technician installing network equipment into a small business IT rack",
           },
         ],
@@ -182,7 +182,7 @@ export default function NetworkAssessmentPage() {
         title: "Not Sure Where to Start?",
         body: "Start with a simple assessment to understand what’s working, what isn’t, and what to do next.",
         image: {
-          src: "/images/services/assessment/network-assessment-cta-owner-review-tablet.webp",
+          src: "/images/services/assessment/network-assessment-cta-owner-review-tablet-v1.webp",
           alt: "Technician reviewing Wi-Fi assessment findings on a tablet with a small business owner",
         },
         primaryCta: {

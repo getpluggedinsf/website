@@ -64,7 +64,7 @@ export default function WhyChooseUs() {
         >
           <div className="relative aspect-[4/3] w-full">
             <Image
-              src="/images/home/why-choose-us/network-rack-patch-cables-technician.webp"
+              src="/images/home/why-choose-us/network-rack-patch-cables-technician-v1.webp"
               alt="Technician organizing patch cables in a network rack"
               fill
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"

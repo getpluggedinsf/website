@@ -6,25 +6,25 @@ import Image from "next/image";
 const audiences = [
   {
     title: "Restaurants & cafés",
-    image: "coffee-shop-pos-payment-terminal.webp",
+    image: "coffee-shop-pos-payment-terminal-v1.webp",
     alt: "Barista using a POS payment terminal in a coffee shop environment",
     body: "Environments where POS systems, staff devices, guest Wi-Fi, music, and cameras all depend on the same network.",
   },
   {
     title: "Retail shops",
-    image: "retail-shop-owner-tablet-inventory.webp",
+    image: "retail-shop-owner-tablet-inventory-v1.webp",
     alt: "Retail shop owner using a tablet for inventory management",
     body: "Storefront businesses that rely on stable connectivity for checkout, back-office work, inventory tools, and customer-facing systems.",
   },
   {
     title: "Professional offices",
-    image: "office-workspace-laptop-business-network.webp",
+    image: "office-workspace-laptop-business-network-v1.webp",
     alt: "Professional working on a laptop in a modern office network environment",
     body: "Offices and studios that need reliable wireless coverage, predictable performance, and clean internal connectivity.",
   },
   {
     title: "Other small businesses",
-    image: "barbershop-mobile-payment-card-reader.webp",
+    image: "barbershop-mobile-payment-card-reader-v1.webp",
     alt: "Customer payment using a mobile card reader in a barbershop",
     body: "Device-heavy environments where day-to-day operations depend on networks that work consistently and quietly in the background.",
   },

@@ -64,7 +64,7 @@ export default function FinalCta() {
         >
           <div className="relative aspect-[4/3] w-full">
             <Image
-              src="/images/home/network-assessment/wifi-analysis-tablet-cafe.webp"
+              src="/images/home/network-assessment/wifi-analysis-tablet-cafe-v1.webp"
               alt="Technician analyzing Wi-Fi performance on a tablet in a café environment"
               fill
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"

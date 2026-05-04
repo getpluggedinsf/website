@@ -31,7 +31,7 @@ export function RealWorldEnvironments() {
 
         <div className="group/image relative aspect-[4/3] overflow-hidden rounded-lg border border-[var(--pip-border)] bg-white">
           <Image
-            src="/images/services/real-world-environments/restaurant-kitchen-network-reliability-real-world-environment.webp"
+            src="/images/services/real-world-environments/restaurant-kitchen-network-reliability-real-world-environment-v1.webp"
             alt="Chef in a busy restaurant kitchen using a tablet during service, representing real-world business environments where reliable network performance is critical"
             fill
             className="object-cover transition duration-300 group-hover/image:scale-[1.02]"

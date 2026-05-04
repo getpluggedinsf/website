@@ -86,7 +86,7 @@ export function ServicesHero({ breadcrumb }: ServicesHeroProps) {
         <div className="relative w-full">
           <div className="group/image relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-lg">
             <Image
-              src="/images/services/hero/busy-restaurant-network-environment-small-business-wifi.webp"
+              src="/images/services/hero/busy-restaurant-network-environment-small-business-wifi-v1.webp"
               alt="Busy restaurant interior with staff and customers in a fast-paced environment, representing real-world conditions where reliable Wi-Fi and network performance are essential for small business operations."
               fill
               className="object-cover transition duration-300 group-hover/image:scale-[1.03]"

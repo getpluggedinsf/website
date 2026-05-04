@@ -32,7 +32,7 @@ export default function NetworkInstallationPage() {
         description:
           "Build a network that supports how your business actually operates. When your current setup can’t keep up, we design and implement practical, reliable infrastructure for coverage, performance, and long-term growth.",
         image: {
-          src: "/images/services/installation/network-installation-router-small-business-it-rack.webp",
+          src: "/images/services/installation/network-installation-router-small-business-it-rack-v1.webp",
           alt: "Technician installing network equipment into a small business IT rack",
         },
         primaryCta: {
@@ -172,7 +172,7 @@ export default function NetworkInstallationPage() {
               "For understanding what is happening before deciding whether stabilization, upgrades, or installation work makes sense.",
             href: "/services/network-assessment",
             image:
-              "/images/services/assessment/wifi-network-assessment-small-business-cafe-tablet-analysis.webp",
+              "/images/services/assessment/wifi-network-assessment-small-business-cafe-tablet-analysis-v1.webp",
             alt: "Technician analyzing Wi-Fi network performance on a tablet inside a small business café environment",
           },
           {
@@ -181,7 +181,7 @@ export default function NetworkInstallationPage() {
               "For unstable, inconsistent, or unreliable networks that need targeted correction.",
             href: "/services/network-troubleshooting",
             image:
-              "/images/services/troubleshooting/network-troubleshooting-server-rack-cable-adjustment.webp",
+              "/images/services/troubleshooting/network-troubleshooting-server-rack-cable-adjustment-v1.webp",
             alt: "Technician troubleshooting network equipment and cables in a small business IT rack",
           },
         ],
@@ -190,7 +190,7 @@ export default function NetworkInstallationPage() {
         title: "Ready to Discuss Your Project?",
         body: "Whether you’re upgrading equipment, expanding coverage, or planning a new space, we can help design the right next step.",
         image: {
-          src: "/images/services/installation/network-installation-cta-upgrade-planning-laptop.webp",
+          src: "/images/services/installation/network-installation-cta-upgrade-planning-laptop-v1.webp",
           alt: "Technician reviewing a network upgrade plan with a small business owner",
         },
         primaryCta: {

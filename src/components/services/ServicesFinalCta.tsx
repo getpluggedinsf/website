@@ -21,7 +21,7 @@ type ServicesFinalCtaProps = {
 };
 
 const defaultImage = {
-  src: "/images/services/where-to-start/restaurant-network-consultation-small-business-wifi-review.webp",
+  src: "/images/services/where-to-start/restaurant-network-consultation-small-business-wifi-review-v1.webp",
   alt: "Technician and restaurant owner reviewing network performance on a tablet during a Wi-Fi assessment",
 };
 

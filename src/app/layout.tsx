@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/og/pluggedin-pros-og.jpg",
+        url: "/images/og/pluggedin-pros-og-v1.jpg",
         width: 1200,
         height: 630,
         alt: "PluggedIn Pros Wi-Fi and network infrastructure for San Francisco small businesses",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "Wi-Fi & Network Infrastructure for San Francisco Businesses",
     description:
       "Reliable Wi-Fi, network troubleshooting, and infrastructure upgrades for San Francisco restaurants, retail shops, and offices.",
-    images: ["/images/og/pluggedin-pros-og.jpg"],
+    images: ["/images/og/pluggedin-pros-og-v1.jpg"],
   },
 
   robots: {

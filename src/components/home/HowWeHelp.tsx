@@ -10,7 +10,7 @@ const services = [
     title: "Wi-Fi & Network Reliability Assessment",
     body: "A structured evaluation of coverage, interference, equipment limitations, and network design issues to identify the root causes of instability.",
     href: "/services/network-assessment",
-    image: "/images/home/how-we-help/wifi-network-diagnostics-tablet-cafe.webp",
+    image: "/images/home/how-we-help/wifi-network-diagnostics-tablet-cafe-v1.webp",
     alt: "Technician analyzing Wi-Fi network diagnostics on a tablet in a café",
   },
   {
@@ -18,7 +18,7 @@ const services = [
     title: "Network Troubleshooting & Stabilization",
     body: "Diagnosis and stabilization of unstable networks through configuration changes, tuning, and targeted fixes so critical systems operate reliably during normal business operations.",
     href: "/services/network-troubleshooting",
-    image: "/images/home/how-we-help/network-rack-ethernet-cable-troubleshooting.webp",
+    image: "/images/home/how-we-help/network-rack-ethernet-cable-troubleshooting-v1.webp",
     alt: "Technician troubleshooting ethernet connections in a network rack",
   },
   {
@@ -26,7 +26,7 @@ const services = [
     title: "Network Design, Installation & Upgrades",
     body: "Business-grade network upgrades for environments where existing equipment cannot deliver reliable performance, expansion to eliminate coverage gaps, and design and installation for new sites.",
     href: "/services/network-installation",
-    image: "/images/home/how-we-help/wifi-access-point-installation-ceiling-technician.webp",
+    image: "/images/home/how-we-help/wifi-access-point-installation-ceiling-technician-v1.webp",
     alt: "Technician installing a ceiling-mounted Wi-Fi access point",
   },
 ];

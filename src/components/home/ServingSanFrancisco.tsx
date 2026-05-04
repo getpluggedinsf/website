@@ -44,7 +44,7 @@ export default function ServingSanFrancisco() {
         >
           <div className="relative aspect-[4/3] w-full">
             <Image
-              src="/images/home/serving-sf/san-francisco-small-business-network-environment.webp"
+              src="/images/home/serving-sf/san-francisco-small-business-network-environment-v1.webp"
               alt="Interior of a San Francisco small business using modern network infrastructure"
               fill
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"

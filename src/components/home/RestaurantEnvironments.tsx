@@ -63,7 +63,7 @@ export default function RestaurantEnvironments() {
         >
           <div className="relative aspect-[4/3] w-full">
             <Image
-              src="/images/home/designed-for-restaurants/restaurant-kitchen-tablet-pos-system.webp"
+              src="/images/home/designed-for-restaurants/restaurant-kitchen-tablet-pos-system-v1.webp"
               alt="Chef using an iPad in a busy restaurant kitchen to manage orders and operations"
               fill
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"

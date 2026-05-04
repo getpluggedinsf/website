@@ -11,7 +11,7 @@ const services = [
     title: "Wi-Fi & Network Reliability Assessment",
     href: "/services/network-assessment",
     formHref: "/contact?intent=assessment",
-    image: "/images/services/our-services/wifi-network-assessment-small-business-cafe-tablet-analysis.webp",
+    image: "/images/services/our-services/wifi-network-assessment-small-business-cafe-tablet-analysis-v1.webp",
     imageAlt:
       "Technician analyzing Wi-Fi network performance on a tablet inside a small business café environment",
     description:
@@ -30,7 +30,7 @@ const services = [
     title: "Network Troubleshooting & Stabilization",
     href: "/services/network-troubleshooting",
     formHref: "/contact?intent=troubleshooting",
-    image: "/images/services/our-services/network-rack-ethernet-cable-troubleshooting.webp",
+    image: "/images/services/our-services/network-rack-ethernet-cable-troubleshooting-v1.webp",
     imageAlt:
       "Technician troubleshooting ethernet connections in a network rack",
     description:
@@ -49,7 +49,7 @@ const services = [
     title: "Network Design, Installation & Upgrades",
     href: "/services/network-installation",
     formHref: "/contact?intent=installation",
-    image: "/images/services/our-services/network-installation-router-small-business-it-rack.webp",
+    image: "/images/services/our-services/network-installation-router-small-business-it-rack-v1.webp",
     imageAlt:
       "Technician installing network equipment into a small business IT rack",
     description:

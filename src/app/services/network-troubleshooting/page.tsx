@@ -32,7 +32,7 @@ export default function NetworkTroubleshootingPage() {
         description:
           "Restore stable, predictable network performance. We identify and fix the issues causing slowdowns, dropouts, and unreliable behavior—including situations where networks are no longer functioning as expected.",
         image: {
-          src: "/images/services/troubleshooting/network-troubleshooting-server-rack-cable-adjustment.webp",
+          src: "/images/services/troubleshooting/network-troubleshooting-server-rack-cable-adjustment-v1.webp",
           alt: "Technician troubleshooting network equipment and cables in a small business IT rack",
         },
         primaryCta: {
@@ -166,7 +166,7 @@ export default function NetworkTroubleshootingPage() {
               "For understanding what is happening before deciding whether stabilization, upgrades, or installation work makes sense.",
             href: "/services/network-assessment",
             image:
-              "/images/services/assessment/wifi-network-assessment-small-business-cafe-tablet-analysis.webp",
+              "/images/services/assessment/wifi-network-assessment-small-business-cafe-tablet-analysis-v1.webp",
             alt: "Technician analyzing Wi-Fi network performance on a tablet inside a small business café environment",
           },
           {
@@ -175,7 +175,7 @@ export default function NetworkTroubleshootingPage() {
               "For spaces that need better coverage, upgraded equipment, or a more reliable infrastructure foundation.",
             href: "/services/network-installation",
             image:
-              "/images/services/installation/network-installation-router-small-business-it-rack.webp",
+              "/images/services/installation/network-installation-router-small-business-it-rack-v1.webp",
             alt: "Technician installing network equipment into a small business IT rack",
           },
         ],
@@ -184,7 +184,7 @@ export default function NetworkTroubleshootingPage() {
         title: "Need Help Stabilizing Your Network?",
         body: "If your network is slow, unstable, or unreliable, we can help identify the cause and move toward the simplest effective fix.",
         image: {
-          src: "/images/services/troubleshooting/network-troubleshooting-cta-owner-resolution-review.webp",
+          src: "/images/services/troubleshooting/network-troubleshooting-cta-owner-resolution-review-v1.webp",
           alt: "Technician discussing network troubleshooting results with a small business owner",
         },
         primaryCta: {
