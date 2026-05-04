@@ -207,7 +207,7 @@ function CardGrid({
           radius="lg"
           border
           shadow={false}
-          className="transition duration-200 hover:border-[var(--pip-border-strong)] hover:bg-[var(--pip-surface)]"
+          className="bg-white transition duration-200 hover:-translate-y-0.5 hover:border-[var(--pip-ink)] hover:shadow-sm"
         >
           <h3 className="text-[17px] font-semibold leading-snug text-[var(--pip-ink)]">
             {item.title}
@@ -226,11 +226,17 @@ function Checklist({ items }: { items: readonly string[] }) {
     <ul className="mt-8 grid gap-4 md:grid-cols-2">
       {items.map((item) => (
         <li key={item}>
-          <Surface padding="md" radius="lg" border shadow={false}>
+          <Surface
+            padding="md"
+            radius="lg"
+            border
+            shadow={false}
+            className="group/item bg-white transition duration-200 hover:border-[var(--pip-ink)] hover:shadow-sm"
+          >
             <div className="flex gap-3 text-[16px] leading-7 text-slate-700">
               <Check
-                className="mt-1 h-4 w-4 shrink-0 text-[var(--pip-orange)]"
-                strokeWidth={2}
+                className="mt-1 h-5 w-5 shrink-0 text-[var(--pip-orange)] transition duration-200 group-hover/item:scale-110"
+                strokeWidth={2.6}
               />
               <span>{item}</span>
             </div>
@@ -326,7 +332,7 @@ export default function RestaurantsPage() {
       </Section>
 
       <Section tone="white" padded="lg">
-        <div className="max-w-3xl">
+        <div className="mx-auto max-w-3xl">
           <h2 className="font-heading text-3xl font-semibold leading-tight tracking-heading text-[var(--pip-ink)] md:text-4xl">
             Why Restaurant Networks Are Different
           </h2>
@@ -396,7 +402,12 @@ export default function RestaurantsPage() {
               radius="lg"
               border
               shadow={false}
+              className="group/faq relative overflow-hidden bg-white transition duration-200 hover:border-[var(--pip-ink)] hover:shadow-sm"
             >
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 top-0 h-full w-1 bg-[var(--pip-orange)] opacity-0 transition duration-200 group-hover/faq:opacity-100"
+                />
               <h3 className="text-[17px] font-semibold leading-snug text-[var(--pip-ink)]">
                 {faq.question}
               </h3>
@@ -416,35 +427,38 @@ export default function RestaurantsPage() {
 
         <div className="mt-8 grid gap-5 md:grid-cols-3">
           {helpSteps.map((step) => (
-            <Surface
+            <Link
               key={step.title}
-              padding="md"
-              radius="lg"
-              border
-              shadow={false}
-              className="transition duration-200 hover:border-[var(--pip-border-strong)] hover:bg-white"
+              href={step.href}
+              className="group/card block h-full no-underline"
             >
-              <h3 className="text-[17px] font-semibold leading-snug text-[var(--pip-ink)]">
-                {step.title}
-              </h3>
-              <p className="mt-3 text-[15px] leading-6 text-slate-700">
-                {step.description}
-              </p>
+              <Surface
+                padding="md"
+                radius="lg"
+                border
+                shadow={false}
+                className="h-full bg-white transition duration-200 group-hover/card:-translate-y-0.5 group-hover/card:border-[var(--pip-orange)]/60 group-hover/card:shadow-sm"
+              >
+                <h3 className="text-[17px] font-semibold leading-snug text-[var(--pip-ink)]">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-[15px] leading-6 text-slate-700">
+                  {step.description}
+                </p>
 
-              <Link href={step.href}>
-                <span className="group/link inline-flex items-center gap-2 text-[16px] font-semibold text-[var(--pip-ink)] no-underline">
+                <div className="mt-6 inline-flex items-center gap-2 text-[16px] font-semibold text-[var(--pip-ink)]">
                   <span
                     aria-hidden="true"
-                    className="text-[var(--pip-orange)] text-base font-bold transition-transform duration-200 group-hover/link:translate-x-0.5"
+                    className="text-[17px] text-[var(--pip-orange)] transition-transform duration-200 group-hover/card:translate-x-0.5"
                   >
                     →
                   </span>
-                  <span className="underline-offset-4 group-hover/link:underline">
+                  <span className="underline-offset-4 group-hover/card:underline">
                     Learn more
                   </span>
-                </span>
-              </Link>
-            </Surface>
+                </div>
+              </Surface>
+            </Link>
           ))}
         </div>
       </Section>

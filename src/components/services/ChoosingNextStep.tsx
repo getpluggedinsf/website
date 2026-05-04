@@ -37,36 +37,31 @@ export function ChoosingNextStep() {
             solution based on what we find.
           </p>
 
-          <div className="mx-auto mt-7 max-w-[680px] rounded-lg border border-[var(--pip-border)] bg-[var(--pip-surface)]/70 px-5 py-5 text-left sm:px-6 sm:py-6">
-            <ul className="space-y-5">
-              {guidanceItems.map((item) => (
-                <li key={item.prompt} className="flex gap-3">
-                  <span className="mt-[0.6rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--pip-orange)]" />
+<div className="mx-auto mt-7 grid max-w-xl gap-3 text-left">
+  {guidanceItems.map((item) => (
+    <Link
+      key={item.prompt}
+      href={item.href}
+      className="group/card block rounded-lg border border-[var(--pip-border)] bg-white px-5 py-5 no-underline transition duration-200 hover:-translate-y-0.5 hover:border-[var(--pip-orange)]/60 hover:shadow-sm"
+    >
+      <p className="text-center text-[16px] leading-6 text-slate-700">
+        {item.prompt}
+      </p>
 
-                  <div>
-                    <p className="text-[16px] leading-6 text-slate-700">
-                      {item.prompt}
-                    </p>
-
-                    <Link href={item.href}>
-                      <span className="group/link inline-flex items-center gap-2 text-[16px] font-semibold text-[var(--pip-ink)] no-underline">
-                        <span
-                          aria-hidden="true"
-                          className="text-[var(--pip-orange)] text-base font-bold transition-transform duration-200 group-hover/link:translate-x-0.5"
-                        >
-                          →
-                        </span>
-                        <span className="underline-offset-4 group-hover/link:underline">
-                          {item.action}
-                        </span>
-                      </span>
-                    </Link>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+      <span className="mt-2 flex w-full items-center justify-center gap-2 text-[16px] font-semibold text-[var(--pip-ink)]">
+        <span
+          aria-hidden="true"
+          className="mt-0.5 text-[17px] text-[var(--pip-orange)] transition-transform duration-200 group-hover/card:translate-x-0.5"
+        >
+          →
+        </span>
+        <span className="underline-offset-4 group-hover/card:underline">
+          {item.action}
+        </span>
+      </span>
+    </Link>
+  ))}
+</div>
           <div className="mx-auto mt-6 max-w-2xl space-y-2 text-[16px] leading-[1.6]">
             <p className="text-slate-700">
               Or just{" "}

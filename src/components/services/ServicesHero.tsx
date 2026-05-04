@@ -72,14 +72,28 @@ export function ServicesHero({ breadcrumb }: ServicesHeroProps) {
             </p>
           </div>
 
-          <div className="mt-8">
-            <Link
-              href="/contact?intent=assessment"
-              className="btn-tap btn-mobile-full inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-md bg-[var(--pip-orange)] px-6 py-3 text-sm font-medium text-white no-underline transition hover:opacity-90"
-            >
-              Request a Network Reliability Review
-            </Link>
-          </div>
+<div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
+  <Link
+    href="/contact?intent=assessment"
+    className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[var(--pip-orange)] px-6 py-3.5 text-[16px] font-semibold text-white no-underline transition hover:brightness-110 sm:w-fit"
+  >
+    Request a Network Reliability Review
+  </Link>
+
+  <Link href="/contact?intent=general">
+    <span className="group/link inline-flex items-center gap-2 text-[16px] font-semibold text-[var(--pip-ink)] no-underline">
+      <span
+        aria-hidden="true"
+        className="text-[17px] text-[var(--pip-orange)] transition-transform duration-200 group-hover/link:translate-x-0.5"
+      >
+        →
+      </span>
+      <span className="underline-offset-4 group-hover/link:underline">
+        Or just reach out
+      </span>
+    </span>
+  </Link>
+</div>
         </div>
 
         {/* RIGHT: IMAGE */}

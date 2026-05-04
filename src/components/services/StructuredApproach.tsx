@@ -43,9 +43,16 @@ export function StructuredApproach() {
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {approachCards.map((card, index) => (
-            <Surface key={card.title} padding="md" radius="md" border shadow={false}>
+            <Surface 
+              key={card.title} 
+              padding="md" 
+              radius="md" 
+              border 
+              shadow={false}
+              className="group/card bg-white transition duration-200 hover:-translate-y-0.5 hover:border-[var(--pip-ink)] hover:shadow-sm"
+            >
               <div className="space-y-3">
-                <div className="text-sm font-semibold tracking-[0.12em] text-[var(--pip-orange)]/85">
+                <div className="mx-auto flex h-10 w-10 items-center justify-center text-sm font-bold tracking-[0.12em] text-[var(--pip-orange)] transition duration-200 group-hover/card:rounded-full group-hover/card:bg-[var(--pip-orange)]/10 group-hover/card:scale-105">
                   {String(index + 1).padStart(2, "0")}
                 </div>
 

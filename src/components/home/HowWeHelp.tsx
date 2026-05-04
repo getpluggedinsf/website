@@ -48,7 +48,7 @@ export default function HowWeHelp() {
             className="group/card block h-full no-underline"
           >
             <Surface
-              className="h-full overflow-hidden bg-white transition duration-200 group-hover/card:-translate-y-0.5 group-hover/card:border-[var(--pip-orange)] group-hover/card:ring-1 group-hover/card:ring-[var(--pip-orange)] group-hover/card:shadow-sm"
+              className="h-full overflow-hidden bg-white transition duration-200 group-hover/card:-translate-y-0.5 group-hover/card:border-[var(--pip-orange)]/60 group-hover/card:shadow-sm"
               padding="md"
               radius="md"
               border

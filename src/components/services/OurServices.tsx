@@ -70,7 +70,7 @@ function BestForList({ items }: { items: readonly string[] }) {
       <p className="text-sm font-semibold text-[var(--pip-ink)]">Best for:</p>
       <ul className="mt-3 grid gap-2 text-sm leading-6 text-slate-700 sm:grid-cols-3 lg:grid-cols-1">
         {items.map((item) => (
-          <li key={item} className="flex gap-2">
+          <li key={item} className="group/item flex gap-2 rounded-md px-2 py-1 transition duration-200 hover:bg-[var(--pip-bg-light)]">
             <span className="mt-[0.55rem] h-1 w-1 shrink-0 rounded-full bg-[var(--pip-orange)]" />
             <span>{item}</span>
           </li>
@@ -105,7 +105,7 @@ export function OurServices() {
               radius="lg"
               border
               shadow={false}
-              className="overflow-hidden"
+              className="overflow-hidden bg-white transition duration-200 hover:-translate-y-0.5 hover:border-[var(--pip-ink)] hover:shadow-sm"
             >
               <div
                 className={[

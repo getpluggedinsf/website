@@ -81,7 +81,7 @@ export function ServicesFinalCta({
           src={image.src}
           alt={image.alt}
           sizes="(min-width: 1024px) 40vw, 100vw"
-          className="border border-white/15 bg-white/5"
+          className="rounded-lg"
         />
       </div>
     </Section>
