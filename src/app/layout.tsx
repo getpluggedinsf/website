@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { spectral, inter, play } from "@/lib/fonts";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
+/* import { SpeedInsights } from "@vercel/speed-insights/next";  */
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://getpluggedinsf.com"),
@@ -43,8 +45,8 @@ export const metadata: Metadata = {
   },
 
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
 };
 
@@ -59,6 +61,9 @@ export default function RootLayout({
         <Nav />
         {children}
         <Footer />
+        <Analytics />
+        {/* Remove this unless you decide to pay for it */}
+        {/* <SpeedInsights /> */}
       </body>
     </html>
   );
