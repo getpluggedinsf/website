@@ -37,11 +37,18 @@ export default function RestaurantEnvironments() {
           </div>
 
           <div className="mt-8">
-            <Link
-              href="/restaurants"
-              className="inline-flex min-h-11 items-center justify-center rounded-md border border-[var(--pip-border)] bg-white px-5 py-3 text-sm font-medium text-[var(--pip-ink)] no-underline transition hover:bg-[var(--pip-bg-light)]"
-            >
-              Explore Restaurant Services
+            <Link href="/restaurants">
+              <span className="group/link inline-flex items-center gap-2 text-[16px] font-semibold text-[var(--pip-ink)] no-underline">
+                <span
+                  aria-hidden="true"
+                  className="text-[var(--pip-orange)] text-[17px] transition-transform duration-200 group-hover/link:translate-x-0.5"
+                >
+                  →
+                </span>
+                <span className="underline-offset-4 group-hover/link:underline">
+                  Explore restaurant environments
+                </span>
+              </span>
             </Link>
           </div>
         </div>

@@ -28,16 +28,16 @@ export default function FinalCta() {
           <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
             <Link
               href="/contact?intent=schedule"
-              className="btn-tap btn-mobile-full inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-md bg-[var(--pip-orange)] px-6 py-3 text-sm font-medium text-white no-underline transition hover:opacity-90"
+              className="btn-tap btn-mobile-full inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-md bg-[var(--pip-orange)] px-6 py-3.5 text-[16px] font-medium text-white no-underline transition hover:opacity-90 tracking-[0.02em]"
             >
               Schedule a Network Assessment
             </Link>
 
             <Link href="/services/network-assessment">
-              <span className="group/link inline-flex items-center gap-2 text-[16px] font-semibold text- no-underline">
+              <span className="group/link inline-flex items-start gap-2 text-[16px] font-semibold text-white no-underline">
                 <span
                   aria-hidden="true"
-                  className="text-[var(--pip-orange)] text-base font-bold transition-transform duration-200 group-hover/link:translate-x-0.5"
+                  className="mt-0.5 text-[17px] font-semibold text-[var(--pip-orange)] transition-transform duration-200 group-hover/link:translate-x-0.5"
                 >
                   →
                 </span>

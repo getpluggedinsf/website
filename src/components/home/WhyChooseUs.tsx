@@ -3,6 +3,7 @@ import SectionHeading from "@/components/layout/SectionHeading";
 import Surface from "@/components/layout/Surface";
 import PlugIcon from "@/components/icons/PlugIcon";
 import Image from "next/image";
+import Link from "next/link";
 
 const reasons = [
   {
@@ -36,7 +37,7 @@ export default function WhyChooseUs() {
         <div className="max-w-[34rem] mx-auto lg:mx-0">
           <ul className="space-y-6">
             {reasons.map((reason) => (
-              <li key={reason.title} className="flex gap-2">
+              <li key={reason.title} className="group/item flex gap-3 rounded-md px-2 py-1.5 transition duration-200 hover:bg-[var(--pip-bg-light)]">
                 <PlugIcon className="mt-1 h-3.5 w-3.5 shrink-0 text-[var(--pip-orange)]" />
 
                 <div>
@@ -71,6 +72,16 @@ export default function WhyChooseUs() {
           </div>
         </Surface>
       </div>
+      <p className="mt-6 text-center text-[16px] leading-relaxed text-slate-700">
+        This work is grounded in{" "}
+        <Link
+          href="/about"
+          className="font-medium text-[var(--pip-ink)] underline underline-offset-4 decoration-[var(--pip-orange)]/45 hover:decoration-[var(--pip-orange)]"
+        >
+          real-world infrastructure experience
+        </Link>{" "}
+        supporting live business environments.
+      </p>
     </Section>
   );
 }

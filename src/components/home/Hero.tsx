@@ -28,12 +28,25 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="mt-8">
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
           <Link
             href="/contact?intent=schedule"
-            className="btn-tap btn-mobile-full inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-md bg-[var(--pip-orange)] px-6 py-3 text-sm font-medium text-white no-underline transition hover:opacity-90"
+            className="btn-tap btn-mobile-full inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-md bg-[var(--pip-orange)] px-6 py-3.5 text-[16px] font-medium text-white no-underline transition hover:opacity-90"
           >
             Schedule a Network Assessment
+          </Link>
+          <Link href="/contact?intent=general">
+            <span className="group/link inline-flex items-start gap-2 text-[16px] font-semibold text-[var(--pip-ink)] no-underline">
+              <span
+                aria-hidden="true"
+                className="text-[var(--pip-orange)] text-base font-bold transition-transform duration-200 group-hover/link:translate-x-0.5"
+              >
+                →
+              </span>
+              <span className="underline-offset-4 group-hover/link:underline">
+                Or just reach out
+              </span>
+            </span>
           </Link>
         </div>
 

@@ -42,54 +42,57 @@ export default function HowWeHelp() {
 
       <div className="mt-8 grid gap-5 lg:grid-cols-3">
         {services.map((service) => (
-          <Surface
+          <Link
             key={service.title}
-            className="group h-full overflow-hidden"
-            padding="md"
-            radius="md"
-            border
-            shadow={false}
+            href={service.href}
+            className="group/card block h-full no-underline"
           >
-            <div className="flex h-full flex-col">
-              <div className="mb-4 aspect-[16/9] overflow-hidden rounded-md">
-                <Image
-                  src={service.image}
-                  alt={service.alt}
-                  width={1600}
-                  height={900}
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                />
-              </div>
+            <Surface
+              className="h-full overflow-hidden bg-white transition duration-200 group-hover/card:-translate-y-0.5 group-hover/card:border-[var(--pip-orange)] group-hover/card:ring-1 group-hover/card:ring-[var(--pip-orange)] group-hover/card:shadow-sm"
+              padding="md"
+              radius="md"
+              border
+              shadow={false}
+            >
+              <div className="flex h-full flex-col">
+                <div className="mb-4 aspect-[16/9] overflow-hidden rounded-md">
+                  <Image
+                    src={service.image}
+                    alt={service.alt}
+                    width={1600}
+                    height={900}
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover/card:scale-[1.02]"
+                  />
+                </div>
 
-              <div className="text-sm font-semibold tracking-[0.08em] text-[var(--pip-orange)]">
-                {service.step}
-              </div>
+                <div className="mx-auto flex h-10 w-10 items-center justify-center text-sm font-bold tracking-[0.08em] text-[var(--pip-orange)] transition duration-200 group-hover/card:rounded-full group-hover/card:bg-[var(--pip-orange)]/10 group-hover/card:scale-105">
+                  {service.step}
+                </div>
 
-              <h3 className="mt-2 text-[22px] font-semibold leading-snug text-[var(--pip-ink)]">
-                {service.title}
-              </h3>
+                <h3 className="mt-4 text-[22px] font-semibold leading-snug text-[var(--pip-ink)]">
+                  {service.title}
+                </h3>
 
-              <p className="mt-3 text-[16px] leading-[1.75] text-slate-700">
-                {service.body}
-              </p>
+                <p className="mt-3 text-[16px] leading-[1.75] text-slate-700">
+                  {service.body}
+                </p>
 
-              <div className="mt-auto pt-6">
-                <Link href={service.href}>
-                  <span className="group/link inline-flex items-center gap-2 text-[16px] font-semibold text-[var(--pip-ink)] no-underline">
+                <div className="mt-auto pt-6">
+                  <span className="inline-flex items-center gap-2 text-[16px] font-semibold text-[var(--pip-ink)] no-underline">
                     <span
                       aria-hidden="true"
-                      className="text-[var(--pip-orange)] text-base font-bold transition-transform duration-200 group-hover/link:translate-x-0.5"
+                      className="text-[17px] text-[var(--pip-orange)] transition-transform duration-200 group-hover/card:translate-x-0.5"
                     >
                       →
                     </span>
-                    <span className="underline-offset-4 group-hover/link:underline">
+                    <span className="underline-offset-4 group-hover/card:underline">
                       Learn more
                     </span>
                   </span>
-                </Link>
+                </div>
               </div>
-            </div>
-          </Surface>
+            </Surface>
+          </Link>
         ))}
       </div>
 

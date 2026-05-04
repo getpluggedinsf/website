@@ -60,7 +60,7 @@ export default function Problems() {
           return (
             <Surface
               key={problem.title}
-              className="h-full"
+              className="h-full bg-white transition duration-200 hover:-translate-y-0.5 hover:border-[var(--pip-ink)] hover:shadow-sm"
               padding="md"
               radius="md"
               border

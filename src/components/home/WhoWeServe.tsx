@@ -43,7 +43,7 @@ export default function WhoWeServe() {
         {audiences.map((audience) => (
           <Surface
             key={audience.title}
-            className="group h-full"
+            className="group/card h-full bg-white transition duration-200 hover:-translate-y-0.5 hover:border-[var(--pip-ink)] hover:shadow-sm"
             padding="lg"
             radius="md"
             border
@@ -56,7 +56,7 @@ export default function WhoWeServe() {
                   alt={audience.alt}
                   width={600}
                   height={400}
-                  className="h-auto w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                  className="h-auto w-full object-cover transition-transform duration-500 ease-out group-hover/card:scale-[1.03]"
                 />
               </div>
 
