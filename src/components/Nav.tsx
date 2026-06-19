@@ -20,7 +20,7 @@ const servicesLinks = [
 const navLinks = [
   { href: "/restaurants", label: "Restaurants" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/contact?intent=general", label: "Contact" },
 ];
 
 export default function Nav() {

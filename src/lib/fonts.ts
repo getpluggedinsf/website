@@ -1,5 +1,5 @@
 // src/lib/fonts.ts
-import { Play, Spectral, Inter } from "next/font/google";
+import { Play, Spectral, Inter, Outfit } from "next/font/google";
 
 export const play = Play({
   subsets: ["latin"],
@@ -10,7 +10,7 @@ export const play = Play({
 
 export const spectral = Spectral({
   subsets: ["latin"],
-  weight: ["400","600","700"],
+  weight: ["400", "600", "700"],
   variable: "--font-spectral",
   display: "swap",
 });
@@ -18,5 +18,12 @@ export const spectral = Spectral({
 export const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+export const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-outfit",
   display: "swap",
 });

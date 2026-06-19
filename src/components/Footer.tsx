@@ -37,8 +37,16 @@ export default function Footer() {
               About
             </Link>
 
-            <Link href="/contact" className="underline-offset-4 hover:underline">
+            <Link href="/contact?intent=general" className="underline-offset-4 hover:underline">
               Contact
+            </Link>
+
+            <Link href="/legal/privacy-policy" className="underline-offset-4 hover:underline">
+              Privacy Policy
+            </Link>
+
+            <Link href="/legal/client-service-terms" className="underline-offset-4 hover:underline">
+              Client Service Terms
             </Link>
 
             <Link

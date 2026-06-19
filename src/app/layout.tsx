@@ -1,7 +1,7 @@
 // src/app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
-import { spectral, inter, play } from "@/lib/fonts";
+import { spectral, inter, play, outfit } from "@/lib/fonts";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
@@ -56,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} ${spectral.variable} ${play.variable} min-h-screen bg-[var(--pip-bg-warm)] text-slate-900`}
+        className={`${inter.className} ${spectral.variable} ${play.variable} ${outfit.variable} min-h-screen bg-[var(--pip-bg-warm)] text-slate-900`}
       >
         <Nav />
         {children}

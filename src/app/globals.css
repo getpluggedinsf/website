@@ -90,3 +90,75 @@
   }
 
 }
+
+.public-document {
+  color: var(--pip-ink);
+  line-height: 1.75;
+}
+
+.public-document h2 {
+  font-family: var(--font-outfit);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--pip-ink);
+}
+
+.public-document h3 {
+  font-family: var(--font-outfit);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--pip-ink);
+}
+
+.public-document p {
+  margin-bottom: 1rem;
+}
+
+.public-document ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.public-document li {
+  margin-bottom: 0.25rem;
+}
+
+.public-document a {
+  color: var(--pip-orange);
+  text-decoration: underline;
+}
+
+@media print {
+  body > header,
+  body > footer {
+    display: none !important;
+  }
+
+  body,
+  main {
+    background: white !important;
+  }
+
+  main > div {
+    padding-top: 1.25rem !important;
+  }
+
+  .public-document-print-header {
+    display: flex !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .public-document header {
+    margin-bottom: 0.75rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  .public-document-download {
+    display: none !important;
+  }
+}
