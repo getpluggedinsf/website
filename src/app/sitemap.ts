@@ -19,6 +19,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
     },
 
+    {
+      url: `${baseUrl}/legal/privacy-policy`,
+      lastModified: now,
+    },
+
+    {
+      url: `${baseUrl}/legal/client-service-terms`,
+      lastModified: now,
+    },
+
     // Top-level landing
     {
       url: `${baseUrl}/restaurants`,
