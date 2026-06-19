@@ -268,7 +268,7 @@ export default function PrivacyPolicyPage() {
         <p>Questions regarding this Privacy Policy may be submitted through:</p>
         <p>
           <a
-            href="/contact?intent=general"
+            href="https://getpluggedinsf.com/contact?intent=general"
             className="text-[var(--pip-orange)] underline"
           >
             Contact PluggedIn Pros

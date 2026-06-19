@@ -52,6 +52,8 @@ export default function PublicDocumentLayout({
               <div className="public-document-download pt-2">
                 <Link
                   href={pdfHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-medium text-[var(--pip-orange)] underline"
                 >
                   Download PDF

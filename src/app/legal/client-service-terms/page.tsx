@@ -288,7 +288,7 @@ export default function ClientServiceTermsPage() {
       <PublicDocumentSection title="15. Contact Information">
         <p>Questions regarding these Terms may be submitted through:</p>
         <p>
-          <a href="/contact?intent=general">Contact PluggedIn Pros</a>
+          <a href="https://getpluggedinsf.com/contact?intent=general">Contact PluggedIn Pros</a>
         </p>
       </PublicDocumentSection>
     </PublicDocumentLayout>
